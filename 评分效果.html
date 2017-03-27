@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>评分效果</title>
     <style>
         div{
             width: 50px;
@@ -18,43 +18,50 @@
 <div></div>
 <div></div>
 <div></div>
+<span id="appraise" style="line-height:50px;"></span>
 <script>
 window.onload = function () {
     var aDiv = document.getElementsByTagName('div');
+    var oSpan = document.getElementById('appraise');
     var iNow = -1;
+    var arr = ['较差','差评','中评','好评','较好']
     for(var i=0;i<aDiv.length;i++){
         aDiv[i].index = i;
         aDiv[i].onmouseover = function () {
             fnClear();
             for(var i=0;i<=this.index;i++){
-                if(this.index<2){
+                if (this.index < 2 ){
                     aDiv[i].style.background = 'gray';
-                }else {
+                    oSpan.innerHTML = arr[i];
+                }else{
                     aDiv[i].style.background = 'red';
+                    oSpan.innerHTML = arr[i]
                 }
             }
         };
         aDiv[i].onmouseout = function () {
             fnClear();
             for(var i=0;i<=iNow;i++){
-                if(this.index<2){
+                if (this.index < 2 ){
                     aDiv[i].style.background = 'gray';
-                }else {
+                    oSpan.innerHTML = arr[i]
+                }else{
                     aDiv[i].style.background = 'red';
+                    oSpan.innerHTML = arr[i]
                 }
             }
-        }
+        };
         aDiv[i].onclick = function () {
             iNow = this.index;
-        }
-
-        function fnClear() {
-            for(var i=0;i<aDiv.length;i++){
-                aDiv[i].style.background = '';
-            }
+        };
+    };
+    function fnClear() {
+        for(var i=0;i<aDiv.length;i++){
+            aDiv[i].style.background = '';
         }
     }
 }
+
 </script>
 </body>
 </html>
