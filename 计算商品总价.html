@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>计算商品总价</title>
+
+</head>
+
+<body>
+
+<ul id="list">
+    <li>
+        <input type="button" value="-" />
+        <strong>0</strong>
+        <input type="button" value="+" />
+        单价：<em>12.5元</em>
+        小计：<span>0元</span>
+    </li>
+    <li>
+        <input type="button" value="-" />
+        <strong>0</strong>
+        <input type="button" value="+" />
+        单价：<em>10.5元</em>
+        小计：<span>0元</span>
+    </li>
+    <li>
+        <input type="button" value="-" />
+        <strong>0</strong>
+        <input type="button" value="+" />
+        单价：<em>8.5元</em>
+        小计：<span>0元</span>
+    </li>
+    <li>
+        <input type="button" value="-" />
+        <strong>0</strong>
+        <input type="button" value="+" />
+        单价：<em>8元</em>
+        小计：<span>0元</span>
+    </li>
+    <li>
+        <input type="button" value="-" />
+        <strong>0</strong>
+        <input type="button" value="+" />
+        单价：<em>14.5元</em>
+        小计：<span>0元</span>
+    </li>
+</ul>
+
+<p>
+    商品一共0件；<br />一共花费0元；
+    <br />其中最贵的商品单价是0元；
+</p>
+<script>
+/*
+ * 重用代码：
+ * 1.尽量保持HTML代码结构完整，可以通过父级查找到子集
+ * 2.把主程序核心代码实现，用函数封装
+ * 3.把每组不同的值找出来，通过函数传参
+ *
+ * */
+
+window.onload = function () {
+    var oUl = document.getElementById('list');
+    var aLi = oUl.getElementsByTagName('li');
+    var oP = document.getElementsByTagName('p')[0];
+    var aStrong = document.getElementsByTagName('strong');
+    var aSpan = document.getElementsByTagName('span');
+    var aEm = document.getElementsByTagName('em');
+    var arr = [];//存放价格的数组
+
+    for (var i=0;i<aLi.length;i++){
+        arr.push(0); //初始化arr每个值都为零
+        fnCount(aLi[i]);
+    };
+    function fnCount(li) {
+        var aInp = li.getElementsByTagName('input');
+        var oStrong = li.getElementsByTagName('strong')[0];
+        var oEm = li.getElementsByTagName('em')[0];
+        var oSpan = li.getElementsByTagName('span')[0];
+        var num = Number(oStrong.innerHTML);
+        var pirce = parseFloat(oEm.innerHTML);
+
+        aInp[1].onclick = function () {
+            num++
+            oStrong.innerHTML = num;
+            oSpan.innerHTML = pirce*num + '元';
+
+            fnMax();
+        };
+
+        aInp[0].onclick = function () {
+            if(num>0){
+                num--
+            };
+            oStrong.innerHTML = num;
+            oSpan.innerHTML = pirce*num + '元';
+
+            fnMax();
+        }
+    };
+    function fnMax() {
+        var num = 0;
+        var fare = 0;
+        for(var i=0;i<aStrong.length;i++){
+            if(aStrong[i].innerHTML>0){
+                arr[i] = parseFloat(aEm[i].innerHTML);
+            }else {
+                arr[i] = 0;
+            }
+            num += Number(aStrong[i].innerHTML);
+            fare += parseFloat(aSpan[i].innerHTML);
+        };
+        var iMax = arr[0];//先获取数组第一个数，然后和后面进行比较大小
+        for(var i =1;i<arr.length;i++){
+            if(iMax<arr[i]){
+                iMax = arr[i];
+            }
+        }
+
+        oP.innerHTML = '商品一共'+num+'件；<br />一共花费'+fare+'元； <br />其中最贵的商品单价是'+iMax+'元；'
+
+    }
+}
+</script>
+</body>
+</html>
