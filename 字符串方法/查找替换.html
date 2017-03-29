@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查找/替换</title>
+    <style>
+        p,ul{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+
+        .wrap {
+            width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #eee;
+            position: relative;
+        }
+        #content p{
+            width: 520px;
+            text-align: justify;
+        }
+        #content ul{
+            width: 60px;
+            position: absolute;
+            right: 20px;
+            top: 59px;
+        }
+        #content li{
+            display: none;
+            text-align: center;
+            background: #666;
+        }
+        .button {
+            width: 60px;
+            background: orange;
+            display: block;
+            padding:5px 15px;
+            border: 0;
+            position: absolute;
+            right: 20px;
+            top:30px;
+        }
+        #content li a:hover{
+            color: #ffffff;
+            display: block;
+        }
+        .button:hover{
+            background: #666;
+        }
+        #content li:hover{
+            background: orange;
+        }
+
+        #function{
+            width:520px;
+            margin-top: 20px;
+            padding: 20px;
+            border: 10px solid #ffff00;
+            display: none;
+            position: relative;
+        }
+        #close{
+            position: absolute;
+            right: 20px;
+            top:5px;
+        }
+        #function ul {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 3px solid #ff9900;
+        }
+        #function li {
+            float: left;
+            width: 15%;
+        }
+
+        #function form{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+
+        #content span {
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div id="content">
+        <p>
+    有媒体报道北京玥盛行房地产经纪公司仍在违规推销“商住房”。当天上午，北京市住建委执法部门采取执法行动，
+    会同工商部门对北京玥盛行房地产经纪公司进行了突击检查。执法人员发现该公司门口上方的LED屏幕正在滚动播出“商住房”相关信息，
+    属于虚假宣传商办类房屋居住用途的违规行为，执法人员迅速查处了该公司，责令其停业，依法注销该公司房地产经纪机构备案。
+        </p>
+        <button class="button">展示</button>
+        <ul>
+            <li><a href="#">查找</a></li>
+            <li><a href="#">替换</a></li>
+        </ul>
+    </div>
+
+    <div id="function">
+        <ul>
+            <li><a href="javascript:">查找</a></li>
+            <li><a href="javascript:">替换</a></li>
+        </ul>
+        <a href="javascript:" id="close">X</a>
+        <form>
+            <input type="text">
+            <input class="btn" type="button" value="查找">
+        </form>
+        <form>
+            <input type="text">
+            <input type="text">
+            <input class="btn" type="button" value="替换">
+        </form>
+    </div>
+</div>
+
+<script>
+window.onload = function () {
+    var cont = document.getElementById('content');
+    var oBtn = cont.getElementsByTagName('button')[0];
+    var aLi = cont.getElementsByTagName('li');
+    var func = document.getElementById('function');
+    var aForm = func.getElementsByTagName('form');
+    var oClose = document.getElementById('close');
+    var func_li = func.getElementsByTagName('li');
+    var aInp = func.getElementsByTagName('input');
+    var oP = cont.getElementsByTagName('p')[0];
+
+    var onOff = true;
+
+    //展开点击事件
+    oBtn.onclick = function () {
+        if(onOff){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].style.display = 'block';
+            };
+            onOff = false;
+        }else {
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].style.display = 'none';
+            };
+            onOff = true;
+        }
+
+    };
+    //关闭 查找/替换
+    oClose.onclick = function () {
+        func.style.display = 'none';
+    };
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function () {
+            var that = this;
+            fnShow(that);
+
+        };
+    };
+
+    function fnShow(li) {
+        for(var i=0;i<func_li.length;i++){
+            func_li[i].style.background = '';
+            aForm[i].style.display = 'none';
+        }
+        func.style.display = 'block';
+        aForm[li.index].style.display = 'block';
+        func_li[li.index].style.background = 'orange';
+    };
+
+    for(var i=0;i<func_li.length;i++){
+        func_li[i].index = i;
+        func_li[i].onclick = function () {
+            for(var i=0;i<func_li.length;i++){
+                func_li[i].style.background = '';
+                aForm[i].style.display = 'none';
+            };
+            func_li[this.index].style.background = 'orange';
+            aForm[this.index].style.display = 'block';
+        }
+    };
+    
+    aInp[1].onclick = function () {
+
+        var str = aInp[0].value;
+        if(!str){
+            alert('请输入想要查找的内容~~');
+            return;
+        }
+        oP.innerHTML = oP.innerHTML.split(str).join('<span>'+str+'</span>')
+    };
+    aInp[4].onclick = function () {
+
+        var str = aInp[2].value;
+        var newStr = aInp[3].value;
+        if(!str||!newStr){
+            alert('请输入想要替换的内容~~');
+            return;
+        };
+
+        oP.innerHTML = oP.innerHTML.split(str).join('<span>'+newStr+'</span>')
+    }
+
+}
+</script>
+</body>
+</html>
