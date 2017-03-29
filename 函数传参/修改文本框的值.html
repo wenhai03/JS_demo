@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改文本框的值</title>
+
+    <style>
+        ul{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        .wrap {
+            width: 600px;
+            margin: 30px auto;
+            background: pink;
+        }
+        .header {
+            height: 30px;
+            line-height: 30px;
+            background: #6ba542;
+        }
+        .header h2 {
+            font-size: 16px;
+            color: #fff;
+            text-indent: 2em;
+        }
+        #list{
+            padding: 10px;
+        }
+        #list img{
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        #list input{
+            display: none;
+            vertical-align: middle;
+        }
+        #list span{
+            display: none;
+            cursor: pointer;
+            color: #6ba542;
+            padding: 2px 5px;
+        }
+        #list span:hover{
+            background: #6ba542;
+            color: #ffffff;
+
+        }
+        
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+        <h2>分类名称</h2>
+    </div>
+    <div class="content">
+        <ul id="list">
+            <li>
+                <strong>gsdfgsfgsdff</strong>
+                <img src="img/pen.jpg">
+                <input type="text">
+                <span>保存</span>
+                <span>取消</span>
+            </li>
+            <li>
+                <strong>ssfdgafadvsddgfer</strong>
+                <img src="img/pen.jpg">
+                <input type="text">
+                <span>保存</span>
+                <span>取消</span>
+            </li>
+            <li>
+                <strong>好好学习</strong>
+                <img src="img/pen.jpg">
+                <input type="text">
+                <span>保存</span>
+                <span>取消</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+/*
+* 代码重用：
+* 1.尽量保持HTML代码的完整性，通过父级查找到子集
+* 2.把程序核心代码实现，用函数封装
+* 3.每组不同的值找出来，通过函数传参
+* */
+window.onload = function () {
+    var oUl = document.getElementById('list');
+    var aLi = oUl.getElementsByTagName('li');
+    for(var i=0;i<aLi.length;i++){
+        fnModify(aLi[i]);
+    };
+    
+    function fnModify(li) {
+        var oImg = li.getElementsByTagName('img')[0];
+        var oStrong = li.getElementsByTagName('strong')[0];
+        var aSpan = li.getElementsByTagName('span');
+        var oInp = li.getElementsByTagName('input')[0];
+        
+        oImg.onclick = function () {
+            this.style.display = 'none';
+            oStrong.style.display = 'none';
+            oInp.style.display = 'inline-block';
+            oInp.value = oStrong.innerHTML;
+            for(var i=0;i<aSpan.length;i++){
+                aSpan[i].style.display = 'inline-block';
+            };
+        };
+
+        aSpan[0].onclick = function () {
+            var str = oInp.value;
+
+            oStrong.innerHTML = str;
+            fnCont();
+
+        };
+
+        aSpan[1].onclick = function () {
+            fnCont();
+        };
+
+        function fnCont() {
+            for(var i=0;i<aSpan.length;i++){
+                aSpan[i].style.display = 'none';
+            };
+            oInp.style.display = 'none';
+            oStrong.style.display = 'inline-block';
+            oImg.style.display = 'inline-block';
+        }
+
+    };
+    
+
+    
+}
+</script>
+</body>
+</html>
