@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数码时钟</title>
+</head>
+<body style="background: black;color:#fff;font-size: 100px;">
+<img src="img/0.jpg" alt="">
+<img src="img/0.jpg" alt="">
+:
+<img src="img/0.jpg" alt="">
+<img src="img/0.jpg" alt="">
+:
+<img src="img/0.jpg" alt="">
+<img src="img/0.jpg" alt="">
+<script>
+window.onload = function () {
+    //日期对象时分秒补零，并以字符串返回
+    function toDou(num) {
+        return num<10 ? '0'+num : ''+num;
+    }
+    function tick() {
+        var aImg = document.getElementsByTagName('img');
+        var oDate = new Date();
+        /*var iH = oDate.getHours();
+        var iM = oDate.getMinutes();
+        var iS = oDate.getSeconds();*/
+        var str = toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds());
+        for(var i=0;i<aImg.length;i++){
+            aImg[i].src = 'img/'+str[i]+'.jpg';
+        }
+    };
+    tick();
+    setInterval(tick,1000)
+
+
+}    
+</script>
+
+</body>
+</html>

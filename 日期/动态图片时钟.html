@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态图片时钟</title>
+    <style>
+        .wrap {
+            width: 1060px;
+            margin: 50px auto;
+        }
+        li{
+            list-style: none;
+            display: inline-block;
+            width: 122px;
+            height: 172px;
+            position: relative;
+            overflow: hidden;
+        }
+        div{
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>
+            <div>
+                <img src="img/0.jpg">
+                <img src="">
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.jpg">
+                <img src="">
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/colon.jpg">
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.jpg">
+                <img src="">
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.jpg">
+                <img src="">
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/colon.jpg">
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.jpg">
+                <img src="">
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.jpg">
+                <img src="">
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="moveHowMuch.js"></script>
+
+<script>
+window.onload = function () {
+
+    var aLi = document.getElementsByTagName('li');
+    var strNow = ''; //存储当前
+    var strlast = '';//存储上一秒
+    tick();
+    setInterval(tick,1000);
+
+    function tick() {
+        var oDate = new Date();
+        strlast = strNow;//改变赋值
+        strNow = toDou(oDate.getHours()) +':'+ toDou(oDate.getMinutes()) +':'+ toDou(oDate.getSeconds());
+        function fnMove(li,bit) {
+            var oDiv = li.getElementsByTagName('div')[0];
+            var oImg = oDiv.getElementsByTagName('img');
+            //判断时间当中的:  和对应时间的图片
+            if(strNow.charAt(bit)==':'){
+                oImg[0].src = 'img/colon.jpg';
+                setTimeout(function () {
+                    oImg[0].src = 'img/colon2.jpg';
+                },500);
+            }else {
+                for(var i=0;i<oImg.length;i++){
+                    oImg[i].src = 'img/'+strNow.charAt(bit)+'.jpg'
+                };
+                //存储的值不同就运动
+                if(strNow.charAt(bit)!=strlast.charAt(bit)){
+                    moveHowMuch(oDiv,'top',30,-172,20,function(){
+                        oDiv.style.top = 0;
+                    });
+                }
+            }
+
+        };
+        for(var i=0;i<aLi.length;i++){
+            fnMove(aLi[i],i)
+        };
+    };
+
+    function toDou(num) {
+        return num<10 ? '0'+num : ''+num;
+    }
+}
+</script>
+</body>
+</html>
