@@ -33,15 +33,16 @@
         }
         #progress div {
             width: 100px;
-            height: 40px;
             margin: 5px auto;
             line-height: 40px;
-            background: #3d85c6;
         }
         #progress div a {
             display: block;
             color: #fff;
             text-decoration: none;
+            margin-bottom: 5px;
+            background: #3d85c6;
+
         }
         #progress_bar {
             height: 10px;
@@ -67,11 +68,14 @@
 </head>
 <body>
 <div class="wrap">
-    <textarea name="" id="" cols="40" rows="20">有媒体报道北京玥盛行房地产经纪公司仍在违规推销“商住房”。当天上午，北京市住建委执法部门采取执法行动，会同工商部门对北京玥盛行房地产经纪公司进行了突击检查。执法人员发现该公司门口上方的LED屏幕正在滚动播出“商住房”相关信息，属于虚假宣传商办类房屋居住用途的违规行为，执法人员迅速查处了该公司，责令其停业，依法注销该公司房地产经纪机构备案。
+    <textarea name="" id="" cols="40" rows="20">有媒体报道北京玥盛行房地产经纪公司仍在违规推销“商住房”。当天上午，北京市住建委执法部门采取执法行动，会同工商部门对北京玥盛行房地产经纪公司进行了突击检查。依法注销该公司房地产经纪机构备案。
     </textarea>
     <div id="progress">
-        <div><a href="#"> 把文字右移</a></div>
-        <span>0</span>/<span>0</span>
+        <div>
+            <a href="#" id="toRight"> →</a>
+            <a href="#" id="toLeft"> ←</a>
+        </div>
+        <span></span>
         <ul id="progress_bar">
             <li></li>
             <li></li>
@@ -89,47 +93,72 @@
 window.onload = function () {
     var oTextarea = document.getElementsByTagName('textarea')[0];
     var progress = document.getElementById('progress');
-    var aSpan = progress.getElementsByTagName('span');
+    var toLeft = document.getElementById('toLeft');
+    var toRight = document.getElementById('toRight');
+    var oSpan = progress.getElementsByTagName('span')[0];
     var oP = document.getElementById('target');
     var oUl = document.getElementById('progress_bar');
     var aLi = oUl.getElementsByTagName('li');
-    var oDiv = progress.getElementsByTagName('div')[0];
 
     var num = 0;
 
-    oDiv.onclick = function () {
+    toRight.onclick = function () {
         var str = oTextarea.value;
-        if(!str){
-            alert('请输入内容后再移动~~');
+        var arr = oTextarea.value.split('');
+        var len = oTextarea.value.length;
+        if (!str){
+            alert('请输入文字~~');
             return;
         };
-        aSpan[1].innerHTML = str.length; //第二个span的长度等于textrear内容的length
-        var arr = str.split('');
         oP.innerHTML = '';
-        opacity(oDiv,1);
-        clearInterval(oDiv.timer);
-        opacity(oDiv,.3);
-
-        oDiv.timer = setInterval(function () {
+        clearInterval(toRight.timer);
+        toRight.timer = setInterval(function () {
             oP.innerHTML += arr[num];
-            oTextarea.value = str.substring(num+1);
+            oTextarea.value = str.substring(num+1)
+            num++;
+            //先所有li设为默认
+            for (var i=0;i<aLi.length;i++){
+                aLi[i].style.background = '#ffd966';
+            };
+            //给当前li设置变化颜色
+            aLi[num%aLi.length].style.background = 'green';
 
-            for(var i=0;i<aLi.length;i++){
+            oSpan.innerHTML = num + '/' +len;
+            if(num==str.length){
+                clearInterval(toRight.timer);
+                num=0;//下次点击，num重置为0
+            };
+        },30)
+    };
+
+    toLeft.onclick = function () {
+        var str1 = oP.innerHTML;
+        var arr1 = str1.split('');
+        var len1 = str1.length;
+        var n = len1 ;
+        if (!str1){
+            alert('请输入文字~~');
+            return;
+        };
+
+        clearInterval(toLeft.timer);
+        toLeft.timer = setInterval(function () {
+            oTextarea.value += arr1[num];
+            oP.innerHTML = str1.substring(num+1);
+            num++;
+            for (var i=0;i<aLi.length;i++){
                 aLi[i].style.background = '#ffd966';
             };
             aLi[num%aLi.length].style.background = 'green';
-            num++;
-            aSpan[0].innerHTML = num;
-
-            if(num == str.length){
-                clearInterval(oDiv.timer);
-                num = 0;
-                opacity(oDiv,1)
-            }
-
+            n--;
+            oSpan.innerHTML =  n + '/' +len1;
+            if(num==len1){
+                clearInterval(toLeft.timer);
+                num=0;//下次点击，num重置为0
+            };
         },30)
 
-    };
+    }
 
 
     function opacity(obj,opa){
