@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多物体运动</title>
+    <style>
+        #div1 {width: 100px; height: 200px; background: red; position: absolute; left: -100px; top: 100px;}
+        #div2 {width: 30px; height: 70px; background: black; position: absolute; right: -30px; top: 70px; color: white; text-align: center;}
+        #img1 { opacity: 0.3; miaov: 妙味; filter: alpha(opacity=30); margin-left: 200px;}
+    </style>
+
+</head>
+<body>
+<div id="div1">
+    <div id="div2">分享到</div>
+</div>
+
+<img src="img/1.jpg" id="img1" />
+
+<script>
+window.onload = function () {
+    var div1 = document.getElementById('div1');
+    var img1 = document.getElementById('img1');
+
+    div1.onmouseover = function () {
+        startMove(this,'left',0,10);
+    };
+    div1.onmouseout = function () {
+        startMove(this,'left',-100,-10);
+    };
+    img1.onmouseover = function () {
+        startMove(this,'opacity',100,10);
+    };
+    img1.onmouseout = function () {
+        startMove(this,'opacity',30,-10);
+    };
+
+    function startMove(obj,attr,iTarget,iSpeed) {
+        clearInterval(obj.timer);
+        var icur = 0;
+        obj.timer = setInterval(function () {
+            if(attr == 'opacity'){
+                icur = Math.round(css(obj,'opacity')*100);
+            }else {
+                icur = parseInt(css(obj,attr));
+            };
+            if(icur == iTarget){
+                clearInterval(obj.timer);
+            }else {
+                if(attr == 'opacity'){
+                    obj.style.opacity = (icur+iSpeed)/100;
+                    obj.style.filter = 'alpha(opacity='+(icur+iSpeed)+')';
+                }else {
+                    obj.style[attr] = icur + iSpeed + 'px';
+                }
+            }
+        },30);
+    };
+    function css(obj,attr) {
+        return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+    }
+
+}
+</script>
+
+</body>
+</html>

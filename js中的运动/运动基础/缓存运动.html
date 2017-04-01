@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缓存运动</title>
+    <style>
+        #div1 {width:100px; height: 100px; background: red; position: absolute; left: 0px; top: 30px;}
+    </style>
+</head>
+<body>
+<input type="button" value="动起来" id="btn" />
+<div id="div1"></div>
+<script>
+    //摩擦,减速：在运动过程中，速度越来越慢
+    //接近目标点速度越来越小
+    window.onload = function () {
+        var oBtn = document.getElementById('btn');
+        var oDiv = document.getElementById('div1');
+
+        oBtn.onclick = function () {
+            clearInterval(oDiv.timer);
+            var iSpeed = 0;
+            oDiv.timer = setInterval(function () {
+                iSpeed = (500-oDiv.offsetLeft)/8;
+                iSpeed = iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+
+                console.log(oDiv.offsetLeft+':'+iSpeed)
+                if(oDiv.offsetLeft == 500){
+                    clearInterval(oDiv.timer);
+                }else {
+                    oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+                };
+            },30);
+        }
+    }
+</script>
+</body>
+</html>

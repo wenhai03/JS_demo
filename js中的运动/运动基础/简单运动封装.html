@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单运动封装</title>
+    <style>
+        #div1 {width:100px; height: 100px; background: red; position: absolute; left: 0px; top: 30px;}
+    </style>
+
+</head>
+<body>
+<input type="button" value="动起来" id="btn" />
+<div id="div1"></div>
+
+<script>
+window.onload = function () {
+    var oBtn = document.getElementById('btn');
+    var oDiv = document.getElementById('div1');
+    oBtn.onclick = function () {
+        startMove();
+    };
+    function startMove() {
+        clearInterval(oDiv.timer);
+        oDiv.timer = setInterval(function () {
+            if (oDiv.offsetLeft == 400){
+                clearInterval(oDiv.timer);
+            }else {
+                oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
+            }
+        },30)
+    }
+
+}
+</script>
+</body>
+</html>
