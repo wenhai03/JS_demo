@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点类型</title>
+    <style>
+        li{
+            list-style: none;
+            text-align: center;
+            width:20px;
+            line-height: 30px;
+            background: red;
+            margin: 5px;
+            transition: 1s;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<ul id="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<script>
+window.onload = function () {
+    var oUl = document.getElementById('ul1');
+    var aLi = oUl.children;
+
+    document.onclick = function () {
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].style.width = '150px';
+        }
+    }
+
+}
+</script>
+</body>
+</html>

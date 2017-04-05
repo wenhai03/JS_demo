@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>parentNode</title>
+</head>
+<body>
+<ul id="ul1">
+    <li><a href="javascript:;">隐藏1111</a></li>
+    <li><a href="javascript:;">隐藏2222</a></li>
+    <li><a href="javascript:;">隐藏3333</a></li>
+    <li><a href="javascript:;">隐藏44444</a></li>
+</ul>
+<script type="text/javascript">
+window.onload = function () {
+    var aA = document.getElementsByTagName('a');
+    var oUl = document.getElementById('ul1');
+
+    for(var i=0;i<aA.length;i++){
+        aA[i].onclick = function () {
+            this.parentNode.style.display = 'none';
+        }
+    };
+    console.log(oUl.lastChild);
+
+}
+</script>
+
+</body>
+</html>

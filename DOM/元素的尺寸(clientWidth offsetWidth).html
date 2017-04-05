@@ -1,0 +1,46 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>元素的尺寸(clientWidth offsetHeight)</title>
+    <style>
+        #div1{
+            width:200px;
+            height: 200px;
+            background: red;
+            border:10px solid #00BFFF;
+            padding:5px;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+<script type="text/javascript">
+    /*
+
+     elem.offsetTop
+     外边距到有定位父级的内边距的距离   不带px单位
+
+     elem.clientWidth/ elem.clientHeight (获取某个元素的宽高)
+     注意：
+     不计算边框
+     但加上padding值   不带px单位
+
+     elem.offsetWidth / elem.offsetHeight  (获取某个元素的宽高)
+     注意：
+     计算边框
+     加上padding       不带px单位
+
+     */
+    var div = document.getElementById('div1');
+
+    console.log(div.offsetTop)
+    console.log(div.clientWidth)
+    console.log(div.offsetWidth)
+</script>
+</body>
+</html>

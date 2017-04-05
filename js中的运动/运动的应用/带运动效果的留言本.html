@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>带运动效果的留言本</title>
+    <style>
+        #ul1 { margin: 0;float: left;; width: 700px; height: 500px; border: 1px solid #000; padding: 10px; overflow: hidden;}
+
+        li { line-height: 28px; border-bottom: 1px dotted #000; list-style: none; word-break: break-all; overflow: hidden;}
+    </style>
+    <script src="move.js"></script>
+
+</head>
+<body>
+<textarea id="content" rows="10" cols="50"></textarea>
+<input type="button" value="留言" id="btn" />
+<ul id="ul1"></ul>
+
+<script>
+window.onload = function () {
+    var oBtn = document.getElementById('btn');
+    var oUl = document.getElementById('ul1');
+    var oCont = document.getElementById('content');
+
+    oBtn.onclick = function () {
+
+        var oLi = document.createElement('li');
+        var str = oCont.value;
+        oLi.innerHTML = str;
+
+        if(oUl.children[0]){
+            oUl.insertBefore(oLi,oUl.children[0])
+        }else {
+            oUl.appendChild(oLi);
+        };
+
+        var iHeight = parseInt(css(oLi,'height'));
+        oLi.style.height = '0px';
+        oLi.style.opacity = '0';
+        oLi.style.filter = 'alpha(opacity=0)';
+
+        startMove(oLi,{
+            height:iHeight,
+            opacity:100
+        });
+
+    }
+}
+</script>
+
+</body>
+</html>

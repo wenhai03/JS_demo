@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>可视区尺寸</title>
+    <style>
+        #div1{
+            width:200px;
+            height: 200px;
+            background: red;
+            border:10px solid #00BFFF;
+            padding:5px;
+            margin:10px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+<script type="text/javascript">
+/*
+* 可视区的宽高
+* document.documentElment.clientWidth/document.document.clientHeight
+*
+* */
+window.onload = function () {
+    var oDiv = document.getElementById('div1');
+    var clientW = document.documentElement.clientWidth;
+    var clientH = document.documentElement.clientHeight;
+    var iH = oDiv.offsetHeight;
+    var iW = oDiv.offsetWidth;
+    oDiv.style.left = (clientW-iW)/2 + 'px';
+    oDiv.style.top = (clientH-iH)/2 + 'px';
+
+
+    console.log(document.documentElement.clientWidth);
+    console.log(document.documentElement.clientHeight);
+}
+
+</script>
+</body>
+</html>

@@ -9,7 +9,7 @@ function startMove(obj,json,fn) {
         for(var attr in json){
             var iTarget = json[attr];
 
-            if(json[attr] == 'opacity'){
+            if(attr == 'opacity'){
                 icur = Math.round(css(obj,'opacity')*100);
             }else {
                 icur = parseInt(css(obj,attr));
@@ -21,7 +21,7 @@ function startMove(obj,json,fn) {
 
             if(icur !== iTarget){
                 btn = false;
-                if(json[attr] == 'opacity'){
+                if(attr == 'opacity'){
                     obj.style.opacity = (icur+iSpeed)/100;
                     obj.style.filter = 'alpha(opacity='+(icur+iSpeed)+')';
                 }else {
