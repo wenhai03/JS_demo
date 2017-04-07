@@ -34,8 +34,143 @@
 </table>
 
 </body>
-
 <script>
+window.onload = function () {
+    var aData = [
+        {
+            num  : 1,
+            name : '雪碧',
+            price : 2.2,
+            count : 50
+        },
+        {
+            num  : 2,
+            name : '可口可乐',
+            price : 2.3,
+            count : 55
+        },
+
+        {
+            num  : 3,
+            name : '百事可乐',
+            price : 2.3,
+            count : 56
+        },
+
+        {
+            num  : 4,
+            name : '美年达',
+            price : 2.1,
+            count : 45
+        },
+
+        {
+            num  : 5,
+            name : '醒目',
+            price : 2.0,
+            count : 35
+        },
+
+        {
+            num  : 6,
+            name : '健力宝',
+            price : 2.6,
+            count : 40
+        },
+
+        {
+            num  : 7,
+            name : '七喜',
+            price : 2.2,
+            count : 42
+        },
+
+        {
+            num  : 8,
+            name : '王老吉',
+            price : 3.2,
+            count : 30
+        },
+
+        {
+            num  : 9,
+            name : '加多宝',
+            price : 3.3,
+            count : 45
+        },
+
+        {
+            num  : 10,
+            name : '芬达',
+            price : 2.3,
+            count : 48
+        }
+    ];
+    var tab = document.getElementById('tab');
+    var tbody = tab.tBodies[0];
+
+    for(var i=0;i<aData.length;i++){
+
+
+        //生成全选
+        var tr = document.createElement('tr');
+        var td = document.createElement('td');
+        td.innerHTML = '<input type="checkbox">';
+        tr.appendChild(td);
+
+        //input点击变色
+        var checked = tr.childNodes[0];
+        checked.onclick = function () {
+            setColor();
+        }
+
+        //td生成背景色
+        if(i%2){
+            tr.style.background = 'yellowgreen';
+        }else {
+            tr.style.background = 'pink';
+        };
+
+        // for in循环json数据
+        for(var attr in aData[i]){
+            var td = document.createElement('td');
+            td.innerHTML = aData[i][attr];
+            tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+
+        //生成删除
+        var td = document.createElement('td');
+        td.innerHTML = '<a href="javasript:;">删除</a>';
+        tr.appendChild(td);
+        //点击删除
+        var a = td.childNodes[0];
+        a.onclick = function () {
+            tbody.removeChild(this.parentNode.parentNode)
+        }
+
+
+
+    };
+    function setColor() {
+        var achecked = tbody.getElementsByTagName('input');
+        for(var i=0;i<achecked.length;i++){
+            if(achecked[i].checked){
+                achecked[i].parentNode.parentNode.style.background = 'yellow';
+            }else {
+                if(i%2){
+                    achecked[i].parentNode.parentNode.style.background = 'yellowgreen';
+                }else {
+                    achecked[i].parentNode.parentNode.style.background = 'pink';
+                }
+            }
+        }
+    }
+
+
+}    
+</script>
+<!--<script>
 window.onload = function () {
     var aData = [
         {
@@ -140,7 +275,7 @@ window.onload = function () {
         tr.appendChild(td);
         var a = td.childNodes[0];
         a.onclick = function () {
-            tBody.removeChild(this.parentNode.parentNode);
+            tBody.removeChild(this.parentNodeNode.parentNodeNode);
 
         };
 
@@ -157,12 +292,12 @@ window.onload = function () {
         var aChecked = tBody.getElementsByTagName('input');
         for(var i=0;i<aChecked.length;i++){
             if(aChecked[i].checked){
-                aChecked[i].parentNode.parentNode.style.background = 'yellow';
+                aChecked[i].parentNodeNode.parentNodeNode.style.background = 'yellow';
             }else {
                 if(i%2){
-                    aChecked[i].parentNode.parentNode.style.background = 'yellowgreen';
+                    aChecked[i].parentNodeNode.parentNodeNode.style.background = 'yellowgreen';
                 }else {
-                    aChecked[i].parentNode.parentNode.style.background = 'pink';
+                    aChecked[i].parentNodeNode.parentNodeNode.style.background = 'pink';
                 }
             };
         }
@@ -171,5 +306,5 @@ window.onload = function () {
 
 
 }
-</script>
+</script>-->
 </html>

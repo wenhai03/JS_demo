@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <title>模拟留言板</title>
     <style>
+        ol{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            background: #f1f1f1;
+            margin:5px auto;
+        }
         .wrap{
             width: 400px;
             margin: 50px auto 0;
@@ -11,6 +20,7 @@
         #box{
             border:1px solid #333;
             margin: 8px auto;
+            padding: 8px;
         }
         textarea,button{
             width:100%;
@@ -27,12 +37,70 @@
     <h4>留言内容:</h4>
     <hr>
     <div id="box">
-        <em>这里会显示留言内容......</em><br>
+        <em>这里会显示留言内容......</em>
+        <ol id="ol">
 
+        </ol>
     </div>
-    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <textarea name="" id="textarea" cols="30" rows="10"></textarea>
     <button id="btn">发表留言</button>
 </div>
+<script>
+window.onload = function () {
+    var box = document.getElementById('box');
+    var em = box.getElementsByTagName('em')[0];
+    var oBtn = document.getElementById('btn');
+    var ol = document.getElementById('ol');
+    var textarea = document.getElementById('textarea');
+   // var li = ol.getElementsByTagName('li');
 
+    var num = 0;
+
+    oBtn.onclick = function () {
+
+        var str = textarea.value;
+        if(!str){
+            alert('请输入留言内容');
+            return;
+        };
+
+        em.style.display = 'none';
+        num++;
+
+        var li = document.createElement('li');
+        li.innerHTML = num +'.'+ str;
+
+        ol.appendChild(li);
+        textarea.value = '';
+
+       /* var li = ol.childNodes[0];
+        alert(li.length)*/
+
+        //var li = ol.childNodes[0]
+        li.onmouseover = function () {
+            setHover();
+        }
+
+    };
+
+    function setHover() {
+        var li= ol.getElementsByTagName('li');
+
+        for(var i=0;i<li.length;i++){
+            var span = document.createElement('span');
+            span.innerHTML = '<a href="javascript:;" >确定</a><a href="javascript:;" style="float: right">删除</a>';
+            if (li.children[0]) {
+                li.insertBefore(span, li.children[0]);
+            } else {
+                li.appendChild(span);
+            }
+
+        }
+
+    }
+
+
+}
+</script>
 </body>
 </html>

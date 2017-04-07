@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情提示</title>
+    <style>
+        #div{
+            width: 500px;
+            border:3px solid #3d85c6;
+            margin:50px auto 0;
+            padding: 10px;
+
+        }
+        #div a{
+            position: relative;
+            display: inline-block;
+        }
+        #div span{
+            color: black;
+            padding: 0 5px;
+            background: #FFFFCA;
+            border: 1px solid #000;
+            z-index: 1;
+            /*top: 18px;*/
+            left: 0;
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <a href="javascript:;" title="韩国SB">韩国</a>有两千五百多名民众6号宣布入禀韩国宪法法院，起诉韩国政府部署萨德反导系统违反当地宪法。
+    部分起诉人在首尔法院门前召开记者会，他们表示，政府部署萨德，<a href="javascript:;" title="xxdddddxxxdsdsdsdsdsdxxxxxxxxxxsddsdsdsdsxxxxxxxxxxxxxxx">侵犯</a>
+    了他们本来由宪法所赋予的权利，
+    <a href="javascript:;" title="和平、人身健康、健康环境与自由工作">包括</a>和平、人身健康、健康环境与自由工作，他们又表示，
+    免于恐惧与战争的基本权利也受到了侵犯，以及政府在决定部署萨德时，
+    没有先得到附近居民的同意。<a href="javascript:;" title="dsjkdkjsdkjs">参与</a>诉讼的两千五百五十名市民之中
+    <a href="javascript:;" title="庆尚北道星州郡居民，以及星州郡邻近的金泉市居民">有数百位</a>来自萨德用地的、庆尚北道星州郡居民，以及星州郡邻近的金泉市居民
+</div>
+
+<script>
+window.onload = function () {
+    var oDiv = document.getElementById('div');
+    var aA = oDiv.getElementsByTagName('a');
+    for(var i=0;i<aA.length;i++){
+        aA[i].index = i;
+        if(aA[i].getAttribute('title')){
+            var span = document.createElement('span');
+           // span.className = 'title';
+            span.innerHTML = aA[i].getAttribute('title');
+            aA[i].appendChild(span);
+        };
+       aA[i].onmouseover = function () {
+            this.removeAttribute('title');
+            this.children[0].style.display = 'block';
+        };
+        aA[i].onmouseout = function () {
+            if(getPos(this.children[0]).top + 26 > document.body.scrollTop + document.documentElement.clientHeight){
+                this.children[0].style.top = '-30px';
+            };
+            this.children[0].style.display = 'none';
+
+        };
+        
+    };
+    function getPos(obj){
+
+        var pos = {left: 0, top: 0};
+        while(obj){
+
+            pos.left += obj.offsetLeft;
+            pos.top += obj.offsetTop;
+            obj = obj.offsetParent;
+        }
+
+        return pos;
+
+    }
+    
+
+}
+</script>
+</body>
+</html>

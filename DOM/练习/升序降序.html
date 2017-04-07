@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>升序降序</title>
+    <style>
+        .wrap{
+            width: 200px;
+            margin: 50px auto 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 30px;
+        }
+        li{
+            width: 50px;
+            height: 50px;
+            border:1px solid #333;
+            text-align: center;
+            line-height:50px;
+        }
+        li:nth-child(1){
+            background: yellow;
+        }
+        li:nth-child(2){
+            background: blue;
+        }
+        li:nth-child(3){
+            background: pink;
+        }
+        li:nth-child(4){
+            background: green;
+        }
+        li:nth-child(5){
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul id="ul">
+        <li>35</li>
+        <li>11</li>
+        <li>2</li>
+        <li>50</li>
+        <li>99</li>
+    </ul>
+    <input type="button" value="升序" id="btn">
+</div>
+
+<script>
+/*
+* 排序原理：appendChild()
+* 1.先把元素从原有父级上删除掉
+* 2.添加到新的父级
+*
+* 如果父级是同一个也是同样道理
+*
+* */
+window.onload = function () {
+    var wrap = document.getElementsByTagName('wrap');
+    var ul = document.getElementById('ul');
+    var aLi = ul.getElementsByTagName('li');
+    var oBtn = document.getElementById('btn');
+
+    var arr = [];
+    for(var i=0;i<aLi.length;i++){
+        arr[i] = aLi[i];
+    };
+
+    var onOff = true;
+    oBtn.onclick = function () {
+        if(onOff){
+            oBtn.value = '倒序';
+            arr.sort(function (li1,li2) {
+                var n1 = parseFloat(li1.innerHTML);
+                var n2 = parseFloat(li2.innerHTML);
+                return n1-n2;
+            });
+            for(var i=0;i<arr.length;i++){
+                ul.appendChild(arr[i])
+            };
+            onOff = false;
+
+        }else {
+            oBtn.value = '升序';
+            arr.sort(function (li1,li2) {
+                var n1 = parseFloat(li1.innerHTML);
+                var n2 = parseFloat(li2.innerHTML);
+                return n2-n1;
+            });
+            for(var i=0;i<arr.length;i++){
+                ul.appendChild(arr[i])
+            };
+            onOff = true;
+        }
+    };
+}
+</script>
+</body>
+</html>

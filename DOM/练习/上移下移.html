@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上移下移</title>
+    <style>
+        li{
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="move.js"></script>
+</head>
+<body>
+<ul id="ul">
+    <li>哈哈哈哈 1 <input type="button" value="上移"> <input type="button" value="下移"></li>
+    <li>么么么么 2 <input type="button" value="上移"> <input type="button" value="下移"></li>
+    <li>嘻嘻嘻嘻 3 <input type="button" value="上移"> <input type="button" value="下移"></li>
+    <li>顶顶顶顶 4 <input type="button" value="上移"> <input type="button" value="下移"></li>
+    <li>啊啊啊啊 5 <input type="button" value="上移"> <input type="button" value="下移"></li>
+</ul>
+
+
+
+<script>
+window.onload = function () {
+    var ul = document.getElementById('ul');
+    var aInp = ul.getElementsByTagName('input');
+    var aLi = ul.getElementsByTagName('li');
+
+    //设置li背景色
+    function setColor() {
+        for(var i=0;i<aLi.length;i++){
+            if(i%2){
+                aLi[i].style.background = 'pink';
+            }else {
+                aLi[i].style.background = 'yellowgreen';
+            }
+        }
+    };
+    setColor();
+
+    for(var i=0;i<aInp.length;i++){
+        aInp[i].index = i;
+        aInp[i].onclick = function () {
+
+            if(this.index%2){
+                if(this.parentNode === ul.lastElementChild){
+                    ul.insertBefore(this.parentNode,ul.childNodes[0]);
+                }else {
+                    ul.insertBefore(this.parentNode.nextElementSibling,this.parentNode);
+                }
+                setColor();
+            }else {
+                if(this.parentNode === ul.childNodes[0]){
+                    ul.appendChild(this.parentNode);
+                }else {
+                    ul.insertBefore(this.parentNode,this.parentNode.previousElementSibling);
+                }
+                setColor();
+            };
+
+            var iHeight = parseInt(css(this.parentNode,'height'));
+            this.parentNode.style.height = '0px';
+            this.parentNode.style.opacity = '0';
+            this.parentNode.style.filter = 'alpha(opacity=0)';
+
+            startMove(this.parentNode,{
+                height:iHeight,
+                opacity:100
+            });
+
+        }
+    };
+}
+</script>
+</body>
+</html>
