@@ -47,22 +47,25 @@ window.onload = function () {
     var oDiv = document.getElementById('wrap');
     var bg = document.getElementById('bg');
     var aSpan = oDiv.getElementsByTagName('span');
-    var num = 0;
-
 
     for(var i=0;i<aSpan.length;i++){
         aSpan[i].style.left = i*50 + 10 + 'px';
     };
 
     oDiv.onclick = function () {
+        //用户点击一次
+        if(oDiv.onOff) return;
+        this.onOff = true;
+        var num = 0;
+        var n=0;
 
         clearInterval(oDiv.timer);
         oDiv.timer = setInterval(function () {
+
             startMove(aSpan[num],{
                 top:-300,
                 opacity:0
             });
-
 
             startMove(bg,{
                 opacity:100,
@@ -70,15 +73,25 @@ window.onload = function () {
             },function () {
                 startMove(bg,{
                     opacity:0,
-                })
+                    width:0
+                });
+
+                n++;
+                if(n=aSpan.length){
+                    for(var i=0;i<aSpan.length;i++){
+                        aSpan[i].style.top = 0;
+                        startMove(aSpan[i],{
+                            opacity:100
+                        });
+                    }
+                };
+                oDiv.onOff = false;
+
             });
 
             num++;
             if(num === aSpan.length){
                 clearInterval(oDiv.timer);
-                num = 0;
-
-                //clearInterval(oDiv.timer);
 
             };
 
