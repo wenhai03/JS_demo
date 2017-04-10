@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动生成10个li</title>
+    <style>
+        ul{
+            margin:0;
+            padding: 0;
+            list-style: none;
+            position: relative;
+        }
+        li{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="自动生成10个li" id="btn">
+<ul id="ul"></ul>
+<script>
+window.onload = function () {
+    var oBtn = document.getElementById('btn');
+    var oUl = document.getElementById('ul');
+    oBtn.onclick = function () {
+        if(oBtn.onOff) return;
+        oBtn.onOff = true;
+
+        var str ='';
+        var arr = ['green','blue','yellow','red'];
+        for(var i=0;i<10;i++){
+            str += '<li style="background:'+arr[i%arr.length]+';left: '+i*54+'px;">' +i+ '</li>';
+        };
+        oUl.innerHTML = str;
+    }
+}
+</script>
+</body>
+</html>

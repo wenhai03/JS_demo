@@ -16,6 +16,7 @@
             position: absolute;
             line-height:50px;
             text-align: center;
+            opacity: 0.3;
         }
     </style>
 </head>
@@ -31,14 +32,18 @@ window.onload = function () {
     oBtn.onclick = function () {
         var str = '';
         for(var i=0;i<100;i++){
-            str += '<li style="opacity: .2;tansition:0.3s;left: '+i%10*52+'px; top: '+Math.floor(i/10)*52+'px;background: url(img/big_img.jpg) no-repeat '+-i%10*52+'px '+Math.floor(-i/10)*52+'px;">' +i+'</li>';
+            str += '<li style="transition:0.5s;left: '+i%10*52+'px; top: '+Math.floor(i/10)*52+'px;background: url(big_img.jpg) no-repeat '+-i%10*52+'px '+Math.floor(-i/10)*52+'px;">' +i+'</li>';
         };
         oUl.innerHTML = str;
 
         for(var i=0;i<aLi.length;i++){
             aLi[i].index = i;
             aLi[i].onmouseover = function () {
-                aLi[this.index].style.opacity = '1'
+                aLi[this.index].style.opacity = 100;
+                aLi[this.index].style.transform = 'scale(1.5)';
+            };
+            aLi[i].onmouseout = function () {
+                aLi[this.index].style.transform = 'scale(1)';
             }
         }
     }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动生成100个li</title>
+    <style>
+        ul{
+            margin:0;
+            padding: 0;
+            list-style: none;
+            position: relative;
+        }
+        li{
+            position: absolute;
+            background: red;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="点击生成">
+<ul id="ul1"></ul>
+<script>
+window.onload = function () {
+    var oInp = document.getElementsByTagName('input')[0];
+    var oUl = document.getElementById('ul1');
+    oInp.onclick = function () {
+        var str = '';
+        for(var i=0;i<100;i++){
+
+            str += '<li style="left:'+Math.floor(i%10)*52+'px; top: '+Math.floor(i/10)*52+'px;" >'+i+'</li>'
+        };
+        oUl.innerHTML = str;
+    }
+}
+</script>
+</body>
+</html>

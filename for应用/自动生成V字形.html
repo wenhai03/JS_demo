@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动生成一个V字形</title>
+    <style>
+        #ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: relative;
+        }
+        li {
+            width: 50px;
+            height: 50px;
+            color: white;
+            background: red;
+            line-height: 50px;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="自动生成一个V字形" id="btn">
+<ul id="ul"></ul>
+<script>
+window.onload = function () {
+    var oUl = document.getElementById('ul');
+    var oBtn = document.getElementById('btn');
+    var str = '';
+    var len = 5;
+    var top;
+    oBtn.onclick = function () {
+        if(oBtn.onOff) return;
+        oBtn.onOff = true;
+
+        for(var i=0;i<len;i++){
+            if(i<len/2){
+                top = i*50 + 'px';
+            }else {
+                top = (len-i-1)*50 + 'px';
+            }
+            str += '<li style="left: '+i*50+'px; top: '+top+';">'+i+'</li>'
+        };
+        oUl.innerHTML = str;
+    }
+}
+</script>
+</body>
+</html>

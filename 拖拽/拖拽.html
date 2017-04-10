@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: absolute;
+        }
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<img src="1.jpg" alt="">
+<script>
+    /*
+     1.拖拽的时候，如果有文字被选中，会产生问题
+     原因：当鼠标按下的时候，如果页面中有文字被选中，那么会触发浏览器默认拖拽文字的效果
+     解决：
+     标准：阻止默认行为
+     非标准ie：全局捕获
+     */
+
+    window.onload = function () {
+    var oDiv = document.getElementsByTagName("div")[0];
+    var oImg = document.getElementsByTagName("img")[0];
+
+    drag(oDiv);
+    drag(oImg);
+    function drag(obj) {
+        obj.onmousedown = function (ev) {
+            var ev = ev||event;
+            var disX = ev.clientX - obj.offsetLeft;
+            var disY = ev.clientY - obj.offsetTop;
+
+            if ( oDiv.setCapture ) {
+                oDiv.setCapture();
+            }
+
+            document.onmousemove = function (ev) {
+                var ev = ev||event;
+                var  L = ev.clientX - disX;
+                var  T = ev.clientY - disY;
+                if(L<0){
+                    L = 0;
+                }else if(L>document.documentElement.clientWidth-oDiv.offsetWidth){
+                    L = document.documentElement.clientWidth-oDiv.offsetWidth
+                };
+
+                if(T<0){
+                    T = 0;
+                }else if(T>document.documentElement.clientHeight-oDiv.offsetHeight){
+                    T = document.documentElement.clientHeight-oDiv.offsetHeight
+                }
+
+                obj.style.left = L + 'px';
+                obj.style.top =  T + 'px';
+            };
+            document.onmouseup = function () {
+                document.onmousemove = document.onmouseup = null;
+                //释放全局捕获 releaseCapture();
+                if ( oDiv.releaseCapture ) {
+                    oDiv.releaseCapture();
+                }
+
+            };
+            return false;
+
+        }
+
+    }
+}
+</script>
+</body>
+</html>
