@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器基础</title>
+    <style>
+        body{background:#f1f1f1;}
+        ul{margin:0;padding:0;list-style:none;}
+        #tab{margin: 50px auto;width: 300px;padding: 10px;border:1px solid #333;overflow: hidden;}
+        .nav{height: 30px;margin-bottom: 10px;}
+        .nav li{width:150px;height:30px;text-align:center;line-height:30px;margin-right:1px;float:left;background:#9FC;}
+        .box{display: none;}
+        .box li{height:29px;line-height:29px;background:#f1f1f1;text-align: center;margin-bottom:1px;}
+        .box ul{width:100px;float:right;}
+        .box img{width:200px;height:89px;float:left;}
+        .nav .active{background:#066;color:#fff;}
+        .box .active{background:#69C;color:#fff;}
+    </style>
+
+        </head>
+<body>
+<div id="tab">
+    <ul class="nav">
+        <li><a href="#">123</a></li>
+        <li><a href="#">123</a></li>
+        <li><a href="#">123</a></li>
+        <li><a href="#">123</a></li>
+        <li><a href="#">123</a></li>
+        <li><a href="#">123</a></li>
+    </ul>
+    <ul class="nav">
+        <li class="active">菜单一</li>
+        <li>菜单二</li>
+    </ul>
+    <div class="box" style="display: block;">
+        <img src="img/jm1.jpg" alt="">
+        <ul>
+            <li class="active">图片一</li>
+            <li>图片二</li>
+            <li>图片三</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <img src="img/jm4.jpg" alt="">
+        <ul>
+            <li class="active">图片四</li>
+            <li>图片五</li>
+            <li>图片六</li>
+        </ul>
+    </div>
+
+</div>
+<script>
+window.onload = function () {
+    var oTab = document.getElementById('tab');
+    var aDiv = oTab.getElementsByTagName('div');
+    var oNav = oTab.getElementsByClassName('nav')[0];
+    var oNav_li = oNav.getElementsByTagName('li');
+
+    var arrImg = [
+            ['img/jm1.jpg','img/jm2.jpg','img/jm3.jpg'],
+            ['img/jm4.jpg','img/jm5.jpg','img/jm6.jpg']
+    ];
+    var num = 0;
+    var iNow = 0;
+    setInterval(function () {
+        num++;
+        if(num==3){
+            num=0;
+            iNow = iNow == 0?1:0;
+        };
+        var aLi = aDiv[iNow].getElementsByTagName('li');
+        var oImg = aDiv[iNow].getElementsByTagName('img')[0];
+        //父级nav li的变化
+        for(var i=0;i<oNav_li.length;i++){
+            oNav_li[i].className = '';
+            aDiv[i].style.display = 'none';
+        };
+        oNav_li[iNow].className = 'active';
+        aDiv[iNow].style.display = 'block';
+        //子级li的变化
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].className = '';
+            aLi[num].className = 'active';
+        };
+        aLi[num].className = 'active';
+        oImg.src = arrImg[iNow][num];
+    },1500)
+}    
+</script>
+</body>
+</html>

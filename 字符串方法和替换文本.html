@@ -1,68 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>字符串方法和替换文本</title>
     <style>
-        #div1 { width:300px; height:200px; border:1px solid #333; background:#fff; padding:20px; line-height:40px; }
-        #div1 span { padding:5px 15px; font-family:微软雅黑; }
-
+        #div1 {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #333;
+            background: #fff;
+            padding: 20px;
+            line-height: 40px;
+        }
+        
+        #div1 span {
+            padding: 5px 15px;
+            font-family: 微软雅黑;
+        }
         /*替换文本样式*/
-        p { border:10px solid #ccc; background:#FFC; width:400px; padding:20px; font-size:16px; font-family:微软雅黑; }
-        #div2 .span { background:yellow; }
-
+        
+        p {
+            border: 10px solid #ccc;
+            background: #FFC;
+            width: 400px;
+            padding: 20px;
+            font-size: 16px;
+            font-family: 微软雅黑;
+        }
+        
+        #div2 .span {
+            background: yellow;
+        }
     </style>
 
 </head>
+
 <body>
-<div id="div1"></div>
-<input type="text" />
-<input type="button" value="按钮" />
-
-<br>
-<br>
-<br>
-
-<div id="div2">
-
+    <div id="div1"></div>
     <input type="text" />
-    <input type="text" />
-    <input type="button" value="替换" />
+    <input type="button" value="按钮" />
 
-    <p>妙味课堂是一支独具特色的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一种全新的快乐学习方法！<br />
-        2013年底，妙味课堂最新推出"远程培训"服务，受到很多朋友们的喜爱与追捧，我们必将更加努力的帮助远程学习的朋友实现技术提升……
-    </p>
+    <br>
+    <br>
+    <br>
 
-</div>
-<script>
-window.onload = function () {
-    var oDiv = document.getElementById('div1');
-    var oDiv2 = document.getElementById('div2');
-    var aInp = document.getElementsByTagName('input');
-    var arrColor = ['#FFC','#CC3','#6FC','#9C9'];
+    <div id="div2">
 
-    var aInp2 = oDiv2.getElementsByTagName('input');
-    var oP = oDiv2.getElementsByTagName('p')[0];
+        <input type="text" />
+        <input type="text" />
+        <input type="button" value="替换" />
 
-    aInp[1].onclick = function () {
-        var str = aInp[0].value;
-        var arr = str.split('');
+        <p>妙味课堂是一支独具特色的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一种全新的快乐学习方法！<br /> 2013年底，妙味课堂最新推出"远程培训"服务，受到很多朋友们的喜爱与追捧，我们必将更加努力的帮助远程学习的朋友实现技术提升……
+        </p>
 
-        for(var i=0;i<arr.length;i++){
-            arr[i] = '<span style="background: '+arrColor[i%arrColor.length]+';">' +arr[i]+ '</span>';
-        };
-        oDiv.innerHTML += arr.join('');
-        aInp[0].value = '';
-    };
+    </div>
+    <script>
+        window.onload = function() {
+            var oDiv = document.getElementById('div1');
+            var oDiv2 = document.getElementById('div2');
+            var aInp = document.getElementsByTagName('input');
+            var arrColor = ['#FFC', '#CC3', '#6FC', '#9C9'];
 
-    aInp2[2].onclick = function () {
-        var str = aInp2[0].value;
-        var newStr = aInp2[1].value;
-        if(!str)return;
-        if(!newStr)return;
-        oP.innerHTML = oP.innerHTML.split(str).join('<span class="span">'+newStr+'</span>');
-    }
-}
-</script>
+            var aInp2 = oDiv2.getElementsByTagName('input');
+            var oP = oDiv2.getElementsByTagName('p')[0];
+
+            aInp[1].onclick = function() {
+                var str = aInp[0].value;
+                var arr = str.split('');
+
+                for (var i = 0; i < arr.length; i++) {
+                    arr[i] = '<span style="background: ' + arrColor[i % arrColor.length] + ';">' + arr[i] + '</span>';
+                };
+                oDiv.innerHTML += arr.join('');
+                aInp[0].value = '';
+            };
+
+            aInp2[2].onclick = function() {
+                var str = aInp2[0].value;
+                var newStr = aInp2[1].value;
+                if (!str) return;
+                if (!newStr) return;
+                oP.innerHTML = oP.innerHTML.split(str).join('<span class="span">' + newStr + '</span>');
+            }
+        }
+    </script>
 </body>
+
 </html>

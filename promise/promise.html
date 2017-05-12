@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+<body>
+<script>
+/*
+* promise 是commonJS下的一个规范 规范就是JS中的异步操作方式
+* 1.状态 pending(等待) -> resolve(成功) reject(拒绝)
+* 2.then方法：调用resolve reject状态所对应的回调函数
+*
+* */
+
+   /* function show(time,fn) {
+        setTimeout(function () {
+            console.log(time + '秒后')
+            fn();
+        },time*1000)
+    };
+    show(1,function () {
+        console.log("操作1111111111")
+    });*/
+
+    function show(time) {
+        var promise = new Promise(function (resolve,reject) {
+            setTimeout(function () {
+                console.log(time+'秒后');
+                resolv();
+            },time*1000);
+        });
+        return promise;
+    };
+
+    show(1).then(function () {
+        console.log('成功~~')
+    },function () {
+        console.log('失败~~')
+    })
+
+</script>
+</body>
+</html>

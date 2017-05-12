@@ -61,7 +61,7 @@ window.onload = function () {
     var tip = document.getElementById('tip');
     var aImg = oDiv.getElementsByTagName('img');
     var oEm = oDiv.getElementsByTagName('em')[0];
-    var arrText = ['较差','差','一般','好','较好'];
+    var arrText = ['较差','差','一般','好','力推'];
     var arrUrl = ['img/hover1.gif','img/hover2.gif','img/click.gif'];
 
     var num = 0;
@@ -70,14 +70,16 @@ window.onload = function () {
         aImg[i].index = i;
         aImg[i].onmouseover = function () {
             clear();
-            tip.style.display = 'none'
+            tip.style.display = 'none';
             for(var i=0;i<=this.index;i++){
-                if(aImg[this.index]<2){
+                if(this.index<2){
                     aImg[i].src = arrUrl[0];
                     oEm.innerHTML = arrText[i];
+                }else {
+                    aImg[i].src = arrUrl[1];
+                    oEm.innerHTML = arrText[i];
                 };
-                aImg[i].src = arrUrl[1];
-                oEm.innerHTML = arrText[i];
+
             };
         };
 
@@ -89,35 +91,26 @@ window.onload = function () {
             };
             for(var i=0;i<=n;i++){
                 if(this.index<2){
-                    aImg[i].src = arrUrl[0];
+                    aImg[i].src = arrUrl[2];
                     oEm.innerHTML = arrText[i];
                 }else {
                     aImg[i].src = arrUrl[1];
                     oEm.innerHTML = arrText[i];
                 };
-                tip.style.display = 'none'
+                tip.style.display = 'none';
             };
+            if(this.index<aImg.length){
 
-
+            }
         };
         aImg[i].onclick = function () {
             n = this.index;
-            for(var i=0;i<=n;i++){
-                if(n<2){
-                    aImg[i].src = arrUrl[0];
-
-                }else {
-                    aImg[i].src = arrUrl[2];
-                }
-            };
         };
-
     };
     function clear() {
         for(var i=0;i<aImg.length;i++){
             aImg[i].src = 'img/initial.gif';
         };
-
     }
 }
 </script>

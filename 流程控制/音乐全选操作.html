@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐全选操作</title>
+    <style>
+        .wrap{
+            width: 400px;
+            margin: 20px auto;
+            font-size: 14px;
+            border: 1px solid #eee;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        ul li{
+            height: 35px;
+            line-height: 35px;
+            cursor: pointer;
+        }
+        .wrap .singer {
+            float: right;
+            margin-right: 15px;
+        }
+        .active{
+            background: blue;
+        }
+        .wrap input{
+            cursor: pointer;
+        }
+        #song{
+            border-bottom:1px solid #eee;
+        }
+        #toolbar{
+            height:50px;
+        }
+        #toolbar li {
+            float: left;
+            width: 80px;
+            text-align: left;
+            line-height: 50px;
+            height: 50px;
+        }
+        #toolbar .button{
+            opacity: 0.3;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul id="song">
+        <li><input type="checkbox"><span>认错</span> <span class="singer">许嵩</span></li>
+        <li><input type="checkbox"><span>大城小爱</span> <span class="singer">王力宏</span></li>
+        <li><input type="checkbox"><span>一千个伤心的理由 </span><span class="singer">张学友</span></li>
+        <li><input type="checkbox"><span>beat it</span> <span class="singer">迈克尔杰克逊</span></li>
+        <li><input type="checkbox"><span>演员</span> <span class="singer">薛之谦</span></li>
+    </ul>
+    <ul id="toolbar">
+        <li>
+            <input type="checkbox" id="checkAll">全选
+        </li>
+        <li>
+            <div class="button" >收藏</div>
+        </li>
+        <li>
+            <div class="button" >添加</div>
+        </li>
+        <li>
+            <div class="button" >删除</div>
+        </li>
+    </ul>
+</div>
+
+<script>
+window.onload = function () {
+    var oSong = document.getElementById('song');
+    var ocheckAll = document.getElementById('checkAll');
+    var oToolbar = document.getElementById('toolbar');
+    var aLi = oSong.getElementsByTagName('li');
+    var aInp = oSong.getElementsByTagName('input');
+    var aBtn = oToolbar.getElementsByTagName('div');
+    var arrColor = [];
+
+
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        //隔行换色
+        if(i%2){
+            aLi[i].style.background = '#fff';
+        }else {
+            aLi[i].style.background = '#F7FFFF';
+        };
+        //存储当前li的颜色值
+        arrColor[i] = aLi[i].style.background;
+
+        aLi[i].onmouseover = function () {
+            this.style.background = '#eee';
+        };
+
+        aLi[i].onmouseout = function () {
+
+            if(!aInp[this.index].checked){
+                this.style.background = arrColor[this.index];
+            }
+        };
+        
+    }
+
+    for(var i=0;i<aInp.length;i++){
+        aInp[i].index = i;
+        aInp[i].onclick = function () {
+            var num = 0;
+            for(var i=0;i<aInp.length;i++){
+                num += Number(aInp[i].checked);
+            };
+
+            num === aInp.length?ocheckAll.checked = true:ocheckAll.checked = false;
+
+            if (this.checked){
+                aLi[this.index].style.background = '#eee';
+            }else {
+                aLi[this.index].style.background = '#fff';
+            };
+
+            if(!num){
+                for(var i=0;i<aBtn.length;i++){
+                    aBtn[i].style.opacity = '0.3';
+                }
+            }else {
+                for(var i=0;i<aBtn.length;i++){
+                    aBtn[i].style.opacity = '1';
+                }
+            }
+        }
+    };
+
+    ocheckAll.onclick = function () {
+        if(this.checked){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].style.background = '#eee';
+                aInp[i].checked = true;
+            };
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].style.opacity = 1;
+            }
+        }else {
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].style.background = arrColor[i];
+                aInp[i].checked = false;
+            };
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].style.opacity = 0.3;
+            }
+        };
+    }
+
+
+}
+</script>
+</body>
+</html>

@@ -126,7 +126,9 @@
 * 2.把程序核心代码实现，用函数封装
 * 3.每组不同的值找出来，通过函数传参
 * */
+
 window.onload = function () {
+    var wrap = document.getElementsByClassName('wrap')[0];
     var oUl = document.getElementById('list');
     var aH2 = oUl.getElementsByTagName('h2');
     var aUl = oUl.getElementsByTagName('ul');
@@ -136,57 +138,59 @@ window.onload = function () {
         ['img/jm9.jpg','img/jm10.jpg','img/jm9.jpg','img/jm8.jpg','img/jm10.jpg'],
         ['img/jm8.jpg','img/jm11.jpg','img/jm8.jpg','img/jm11.jpg']
     ];
-    var num = 0;
-    //生成展示图片
+    var num= 0;
     var oImg = document.createElement('img');
+    oImg.src = arrUrl[num][num];
     oUl.appendChild(oImg);
 
-    //初始化设置
+    //初始化
     function fn() {
+        var aLi = aUl[num].getElementsByTagName('li');
+        //分配li的宽度
+        var w = 810;
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].style.width = w/aLi.length-1 + 'px';
+        };
         for(var i=0;i<aH2.length;i++){
             aH2[i].className = '';
             aUl[i].className = 'hide';
         };
 
-        aH2[num].className = 'active1';
         aUl[num].className = 'show';
-        oImg.src = arrUrl[num][num];
+        aH2[num].className = 'active1';
+        aLi[0].className = 'active2'
         fnTab(aUl[num]);
-    }
-    fn()
+
+    };
+    fn();
 
     for(var i=0;i<aH2.length;i++){
         aH2[i].index = i;
         aH2[i].onclick = function () {
             num = this.index;
-            fn()
-            /*oImg.src = arrUrl[num][num];
-            aH2[num].className = 'active1';
-            aUl[num].className = 'show';
-            fnTab(aUl[num]);*/
-        }
-    }
-    //子ul下的li点击切换图片
-    function fnTab(ul) {
-        var n=0;
-        var tabLi = ul.getElementsByTagName('li');
-        tabLi[n].className = 'active2';
-        //根据li的个数设置它的宽度
-        var W = 810/tabLi.length-1;
-        for(var i=0;i<tabLi.length;i++){
-             tabLi[i].style.width = W +'px';
-            //li点击事件
-            tabLi[i].index = i;
-            tabLi[i].onclick = function () {
-                for(var i=0;i<tabLi.length;i++){
-                    tabLi[i].className = '';
-                };
-                tabLi[this.index].className = 'active2';
-                oImg.src = arrUrl[num][this.index];
-                //alert(num)
-            }
+            //回来再点击出现的li处理
+            var li= aUl[num].getElementsByTagName('li');
+            for(var i=0;i<li.length;i++){
+                li[i].className = '';
+            };
+
+            fn();
         };
-    }
+    };
+
+    function fnTab(ul) {
+        var aLi = ul.getElementsByTagName('li');
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].className = '';
+                };
+                aLi[this.index].className = 'active2';
+                oImg.src = arrUrl[num][this.index];
+            };
+        };
+    };
 }
 </script>
 </body>
