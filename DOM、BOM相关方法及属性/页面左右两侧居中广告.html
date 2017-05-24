@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面左右两侧居中广告</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        #wrapper {
+            height: 2000px;
+        }
+        .ad {
+            height: 200px;
+            width: 60px;
+            background: #6dc1ff;
+            position: absolute;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div class="ad left"></div>
+    <div class="ad right"></div>
+</div>
+
+<script>
+function getClass(parent,tagName,className) {
+    var aElement = parent.getElementsByTagName(tagName);
+    var arr = [];
+    for(var i=0;i<aElement.length;i++){
+        var aClassName = aElement[i].className.split(' ');
+        for(var j=0;j<aClassName.length;j++){
+            arr.push(aElement[i]);
+            break;
+        };
+    };
+    return arr;
+};
+
+window.onload = function () {
+    var aDiv = getClass(document,'div','ad');
+    function atMiddle() {
+        for(var i=0;i<aDiv.length;i++){
+            aDiv[i].style.top = document.body.scrollTop + (document.documentElement.clientHeight-aDiv[i].offsetHeight)/2+'px';
+        };
+    };
+    atMiddle();
+    window.onresize = atMiddle;
+    window.onscroll = atMiddle;
+}
+</script>
+</body>
+</html>

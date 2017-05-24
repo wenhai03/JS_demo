@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>优酷弹窗</title>
+    <style>
+        body {margin: 0;}
+        #mask {background: black; opacity: 0.3; filter: alpha(opacity=30); position: absolute; left: 0; top: 0; display: none;}
+        #box { width: 300px; height: 200px; padding: 10px; background: white; border: 5px solid #333; position: absolute; display: none;}
+        #close { position: absolute; right: 5px; top: 5px; text-decoration: none; color: black;}
+        #close:hover {background: #333; color: white;}
+    </style>
+
+</head>
+<body style="height:2000px;width: 2000px;">
+<input type="button" value="登陆" id="btn" />
+
+<div id="mask"></div>
+<div id="box">
+    <a href="javascript:;" id="close">×</a>
+    这里是登陆的表单等内容
+</div>
+
+<script>
+window.onload = function () {
+    var oBtn = document.getElementById('btn');
+    var oMask = document.getElementById('mask');
+    var oBox = document.getElementById('box');
+    var oClose = document.getElementById('close');
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+    var onOff = true;
+    //弹窗
+    oBtn.onclick = function () {
+
+        open();
+
+    };
+
+    function open() {
+
+        //遮罩层显示
+        oMask.style.display = 'block';
+        oMask.style.width = Math.max(document.body.offsetWidth,document.documentElement.clientWidth) + 'px';
+        oMask.style.height = Math.max(document.body.offsetHeight,document.documentElement.clientHeight) + 'px';
+
+        //弹出层
+        oBox.style.display = 'block';
+        oBox.style.left = (document.documentElement.clientWidth-oBox.offsetWidth)/2 + scrollTop + 'px';
+        oBox.style.top = (document.documentElement.clientHeight-oBox.offsetHeight)/2 + scrollLeft + 'px';
+    }
+    //关闭弹窗
+    oClose.onclick = function() {
+        oMask.style.display = 'none';
+        oBox.style.display = 'none';
+    };
+
+    window.onresize = window.onscroll = function () {
+
+        oMask.style.width = Math.max(document.body.offsetWidth,document.documentElement.clientWidth) + 'px';
+        oMask.style.height = Math.max(document.body.offsetHeight,document.documentElement.clientHeight) + 'px';
+
+        oBox.style.left = (document.documentElement.clientWidth-oBox.offsetWidth)/2 + scrollTop + 'px';
+        oBox.style.top = (document.documentElement.clientHeight-oBox.offsetHeight)/2 + scrollLeft + 'px';
+    }
+
+}    
+</script>
+</body>
+</html>
