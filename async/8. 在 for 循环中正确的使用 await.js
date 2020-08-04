@@ -32,7 +32,7 @@ showColumnInfo()
 /*
 // 串行，在for of循环中请求接口数据
 async function getZhihuColumn (id) {
-  await bluebird.delay(1000)
+  await bluebird.delay(1000)
   const url = `https://zhuanlan.zhihu.com/api/columns/${id}`
   const response = await fetch(url)
   if (response.status !== 200) {
