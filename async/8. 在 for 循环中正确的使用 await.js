@@ -21,8 +21,10 @@ const showColumnInfo = async () => {
   
   for (const promise of promises) {
     const column = await promise
+    console.log('column -> ', column)
     console.log(`TITLE: ${column.title}`)
     console.log(`INTRO: ${column.intro}`)
+    
   }
   
   console.timeEnd('showColumnInfo')

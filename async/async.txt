@@ -1,0 +1,41 @@
+1.await 只能出现在 async 函数中,如果用在普通函数，就会报错
+2.如果确实希望多个请求并发执行，可以使用 Promise.all 方法
+
+
+
+
+
+
+
+
+async function dbFuc(db) {
+  let docs = [{}, {}, {}];
+  // 报错
+  docs.forEach(function (doc) {
+    await db.post(doc);
+  });
+}
+
+---------------
+
+async function dbFuc(db) {
+  let docs = [{}, {}, {}];
+  let promises = docs.map((doc) => db.post(doc));
+
+  let results = await Promise.all(promises);
+  console.log(results);
+}
+
+// 或者使用下面的写法
+
+async function dbFuc(db) {
+  let docs = [{}, {}, {}];
+  let promises = docs.map((doc) => db.post(doc));
+
+  let results = [];
+  for (let promise of promises) {
+    results.push(await promise);
+  }
+  console.log(results);
+}
+
