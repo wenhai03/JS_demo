@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul></ul>
+
+<script>
+  console.time()
+  // 插入10万条数据
+  const total = 100000
+
+  let ul =document.querySelector('ul')
+
+
+  function add() {
+    // 1.创建虚拟节点，使用createDocumentFragment 不会触发渲染
+    const fragment = document.createDocumentFragment()
+    // 2.循环10万次
+    for (let i = 0; i < total; i++) {
+      const li = document.createElement('li')
+      li.innerText = Math.floor(Math.random()*total)
+
+      fragment.appendChild(li)
+    }
+
+    ul.appendChild(fragment)
+  }
+
+  add()
+
+</script>
+</body>
+</html>

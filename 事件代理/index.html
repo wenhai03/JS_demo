@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button>添加</button>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li>10</li>
+</ul>
+
+<script>
+  var oList = document.getElementsByTagName('ul')[0],
+    oLi = oList.getElementsByTagName('li'),
+    oBtn = document.getElementsByTagName('button')[0]
+
+  /*  // 事件代理，委托
+    oList.onclick = function (e) {
+      console.log(e.target.innerText)
+    }*/
+
+  oBtn.onclick = function () {
+    var li = document.createElement('li')
+
+    li.innerText = oLi.length + 1
+
+    oList.appendChild(li)
+  }
+
+  // 拿到li的下标
+  oList.onclick = function (e) {
+    // Array.prototype.indexOf.call(DOM对象集合, 当前事件源)
+    var index = Array.prototype.indexOf.call(oLi, e.target)
+
+    console.log('index -> ', index)
+  }
+
+</script>
+</body>
+</html>

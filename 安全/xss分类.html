@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>address based DOM XSS</title>
+</head>
+<body>
+<img src="" alt="">
+<script>
+  // http://localhost:63342/JS_demo/安全/xss分类.html?_ijt=n3sfo6o3mnef0nu899dnhf87lv#<img src=0 onerror=alert(0)>
+  let payload = window.location.hash.substr(1)
+  console.log('payload -> ', payload)
+  document.write(payload)
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+<script src="./KPromise.js"></script>
+
+
+<script>
+  KPromise.resolve(100).then(res => {
+     console.log('res -> ', res)
+  })
+
+  let p1 = new KPromise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(1);
+    }, 100);
+  });
+  let p2 = new KPromise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(2);
+    }, 1000);
+  });
+  let p3 = new KPromise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(3);
+    }, 300);
+  });
+
+  KPromise.all(
+    [p2, p3, p1]
+  ).then(vals => {
+    console.log(vals);
+  })
+
+
+</script>
+</body>
+</html>

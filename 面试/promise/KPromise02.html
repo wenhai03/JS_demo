@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+<script src="./KPromise.js"></script>
+
+
+<script>
+
+
+  // setTimeout(() => {
+  //   console.log('setTimeout定时器-> ')
+  // })
+  
+  let a = '11111'
+
+  let p1 = new KPromise((resolve, reject) => {
+    resolve(100)
+  })
+
+
+  p1.then((val) => {
+    console.log('后续的then -> ', val)
+    return 'kaikeba'
+    /*return new KPromise((resolve, reject) => {
+      setTimeout(() => {
+          resolve('kkkkk')
+      }, 500)
+    })*/
+
+    /*return {
+      then(){
+        console.log('val ,,,,,-> ')
+      }
+    }*/
+
+
+  }, err => {
+    console.log('err -> ', err)
+  }).then(val => {
+    console.log('后续的第二个then -> ', val)
+
+    return new KPromise((resolve, reject) => {
+      console.log('.... -> ')
+      reject('出错了~~~~~')
+    })
+  }).then(val => {
+    console.log('后续的第三个then -> ', val)
+  }).catch(err => {
+    console.log('catch err-> ', err)
+  }).finally((a) => {
+     console.log('无论如何都会执行 -> ')
+    console.log('a -> ', a)
+  })
+
+
+  console.log('script end')
+
+</script>
+</body>
+</html>
