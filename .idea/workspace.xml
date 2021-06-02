@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a81e121f-e539-44fc-8e7e-7521518730a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/call/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AA手写题/settimeout 模拟实现 setinterval(带清除定时器的版本).js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AA手写题/发布订阅模式.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/call/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/call/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/发布订阅/sub2.js" beforeDir="false" afterPath="$PROJECT_DIR$/发布订阅/sub2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/发布订阅/subscribe.js" beforeDir="false" afterPath="$PROJECT_DIR$/发布订阅/subscribe.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +24,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/call/index.js" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1snFVcB5ln3aEOmM2NavxKfTno7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,14 +45,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript 调试.subscribe.html">
+    <configuration name="subscribe.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JS_demo/发布订阅/subscribe.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/call/index.js" working-dir="$PROJECT_DIR$/call">
+      <method v="2" />
+    </configuration>
+    <configuration name="settimeout 模拟实现 setinterval(带清除定时器的版本).js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/AA手写题/settimeout 模拟实现 setinterval(带清除定时器的版本).js" working-dir="$PROJECT_DIR$/AA手写题">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript 调试.subscribe.html" />
+        <item itemvalue="Node.js.settimeout 模拟实现 setinterval(带清除定时器的版本).js" />
         <item itemvalue="Node.js.index.js" />
       </list>
     </recent_temporary>
@@ -49,7 +74,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1621500472706</updated>
-      <workItem from="1621500475639" duration="1036000" />
+      <workItem from="1621500475639" duration="1901000" />
+      <workItem from="1621502417197" duration="97000" />
+      <workItem from="1621502572360" duration="1859000" />
+      <workItem from="1621560855580" duration="131000" />
+      <workItem from="1621561057775" duration="595000" />
+      <workItem from="1621564624393" duration="127000" />
+      <workItem from="1621564784816" duration="598000" />
+      <workItem from="1621565591776" duration="398000" />
+      <workItem from="1621566026308" duration="558000" />
+      <workItem from="1621569095100" duration="582000" />
+      <workItem from="1622600600256" duration="8392000" />
     </task>
     <servers />
   </component>
