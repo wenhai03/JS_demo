@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+// const fetch = require('node-fetch')
 
 
 /*// 正常的代码调用
@@ -23,6 +23,8 @@ async function getZhihuColumn(id) {
   
   console.log(`TITLE: ${column.title}`)
   console.log(`INTRO: ${column.intro}`)
+  
+  return url
 }
 
 getZhihuColumn('feweekly')
