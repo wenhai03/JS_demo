@@ -32,7 +32,7 @@
     $off(type, func) {
       let $pond = this.$pond, arr = $pond[type]
       
-      for(var i =0; i< arr.length; i++) {
+      for(let i =0; i< arr.length; i++) {
         if(arr[i] === func) {
           arr[i] = null
           break
