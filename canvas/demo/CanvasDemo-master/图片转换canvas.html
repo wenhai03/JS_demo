@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将canvas的内容保存为图片</title>
+    <style>
+        #toImg{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<img src="star.jpg" alt="stars" id="toImg"/>
+<p>将canvas的内容保存为图片,需要借助canvas自己的API-toDataURL()来实现。</p>
+<canvas id="canvas" width="500" height="300">您的浏览器不支持canvas标签！</canvas>
+<button id="saveImg">保存为图片</button>
+<button id="downImg">下载图片</button>
+<button id="imgToCan">图片转化为canvas</button>
+<button id="bianImg">专为图片</button>
+<div id="bianImg1">tupian</div>
+<script type="text/javascript">
+    function drawImg(){
+        var canvas=document.getElementById('canvas');
+        var context=canvas.getContext('2d');
+        context.clearRect(0,0,500,400);
+        context.rect(100,20,100,100);
+        context.fillStyle='darkGreen';
+        context.strokeStyle='green';
+        context.fill();
+        context.stroke();
+        context.beginPath();
+        context.arc(130,40,5,0,360);
+        context.arc(170,40,5,0,360);
+        context.fillStyle='#fff';
+        context.fill();
+        context.closePath();
+        context.beginPath();
+        context.arc(150,80,20,0,Math.PI,false);
+        context.lineWidth=3;
+        context.strokeStyle='#fff';
+        context.stroke();
+        context.closePath();
+    }
+    function bindBtnEvent(element,type,handler){
+        if(element.addEventListener){
+            element.addEventListener(type,handler,false);
+        }else{
+            element.attachEvent('on'+type,handler);
+        }
+    }
+    function saveToImg(){
+        var myCanvas=document.getElementById('canvas');
+        var image=myCanvas.toDataURL('image/png');
+//        var image=myCanvas.toDataURL('image/jpeg');
+        var w=window.open('about:blank','image from canvas');
+        w.document.write("<img src='"+image+"' alt='from canvas'/>");
+
+    }
+    function loadToImg(){
+        var myCanvas = document.getElementById("canvas");
+// here is the most important part because if you dont replace you will get a DOM 18 exception.
+// var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream;Content-Disposition: attachment;filename=foobar.png");
+        var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        window.location.href=image; // it will save locally   这样能没有提示进行本地存储
+    }
+    function imgToCan(){
+        var myCanvas = document.getElementById("canvas");
+        var img=document.getElementById("toImg");
+        myCanvas.getContext('2d').drawImage(img,200,10,100,100);
+    }
+    function bianToImg(){
+        var myCanvas = document.getElementById("canvas");
+        var image=myCanvas.toDataURL('image/png');
+        var img=document.createElement('img');
+        img.src=image;
+        document.getElementById('bianImg1').appendChild(img);
+    }
+    window.onload=function(){
+        drawImg();
+        var saveImg=document.getElementById('saveImg');
+        var loadImg=document.getElementById('downImg');
+        var imgCan=document.getElementById('imgToCan');
+        var bianImg=document.getElementById('bianImg');
+        bindBtnEvent(saveImg,'click',saveToImg);
+        bindBtnEvent(loadImg,'click',loadToImg);
+        bindBtnEvent(imgCan,'click',imgToCan);
+        bindBtnEvent(bianImg,'click',bianToImg);
+    }
+</script>
+</body>
+</html>

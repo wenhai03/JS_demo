@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+canvas {
+	width: 500px;
+	height: 500px;
+	border: 1px solid black;</style>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+			<input type="number" id="number1" />
+			<input type="button" id="light1" value="变透明" />
+<!--			<input type="button" id="light2" value="变暗50" />-->
+		</div>
+	</body>
+	<script>window.onload = function() {
+	let oCanvas = document.getElementById('canvas');
+
+	console.dir(oCanvas)
+
+	let oPen = oCanvas.getContext("2d");
+	
+	var image = new Image();
+	image.src = 'img.png'
+	
+	image.onload = function(){
+		oPen.drawImage(image,0,0,500,500);
+		
+		//获取图像大小(开始坐标，获取像素的宽和高)
+		//getImageData(x,y,width,height)，获取的是该区域的RGBA值
+		var imageData = oPen.getImageData(0,0,500,500);
+		var data = imageData.data;
+		console.dir(data);
+			
+		document.getElementById('light1').onclick = function(){
+//			let light = 50;
+			let light = parseInt(document.getElementById('number1').value);
+			for(var i=0;i<data.length;i+=4)
+			{
+				data[i+3]-=light;
+			}
+			//渲染像素
+			//putImageData(imageData,x,y)
+			oPen.putImageData(imageData,0,0);
+		}
+//		document.getElementById('light2').onclick = function(){
+//			let light = -50;
+//			for(var i=0;i<data.length;i+=4)
+//			{
+//				data[i+0]+=light;
+//				data[i+1]+=light;
+//				data[i+2]+=light;
+//			}
+//			//渲染像素
+//			//putImageData(imageData,x,y)
+//			oPen.putImageData(imageData,0,0);
+//		}
+	}
+	
+	
+	}</script>
+</html>

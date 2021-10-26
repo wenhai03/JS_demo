@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">	* {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+canvas {
+	width: 500px;
+	height: 500px;
+	border: 1px solid black;</style>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+			<div><input type="button" value="向左移动" id="left1" />
+			<input type="button" value="向右移动" id="right1" />
+			<br />
+			<input type="button" value="向上移动" id="up1" />
+			<input type="button" value="向下移动" id="down1" /></div>
+			
+		</div>
+	</body>
+	<script>window.onload = function() {
+	let oCanvas = document.getElementById('canvas');
+
+	console.dir(oCanvas)
+
+	let oPen = oCanvas.getContext("2d");
+
+	oPen.fillRect(0, 0, 100, 100);
+	//		//translate是在x轴上移动x（px），在y轴上移动y（px）
+	//		//translate（x,y）
+	//		oPen.translate(10,0);
+	//		oPen.fillStyle = "red";
+	//		oPen.fillRect(0,0,100,100);
+	//		oPen.translate(10,0);
+	//		oPen.fillStyle = "green";
+	//		oPen.fillRect(0,0,100,100);
+
+	//		let oRightbtn = document.getElementById('right1');
+	//		oRightbtn.onclick = function(){
+	//			//点击触发事件
+	//			oPen.translate(10,10);
+	//			oPen.fillRect(0,0,100,100);
+	//		}
+
+	let oRight = document.getElementById('right1');
+	oRight.onclick = function() {
+		move(10, 0);
+	}
+
+	let oLeft = document.getElementById('left1');
+	oLeft.onclick = function() {
+		move(-10, 0);
+	}
+
+	let oUp = document.getElementById('up1');
+	oUp.onclick = function() {
+		move(0, -10);
+	}
+
+	let oDown = document.getElementById('down1');
+	oDown.onclick = function() {
+		move(0, 10);
+	}
+
+	function move(x, y) {
+		oPen.clearRect(0, 0, 500, 500);
+		oPen.translate(x, y);
+		oPen.fillRect(0, 0, 100, 100);
+	}
+}</script>
+</html>

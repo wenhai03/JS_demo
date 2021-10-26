@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        canvas { border: 1px solid #ccc}
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas">
+        当前浏览器版本不支持，请升级浏览器
+    </canvas>
+
+<script>
+    var canvas = document.getElementById('myCanvas')
+    var ctx = canvas.getContext('2d')
+    
+    // 左右偏移量
+    ctx.shadowOffsetX = 10;
+    //上下偏移量
+    ctx.shadowOffsetY = 10;
+    //模糊状态
+    ctx.shadowBlur = 3;
+    ctx.shadowColor = "pink";
+    ctx.font = "30px 宋体";
+    ctx.fillText("hello Canvas", 100, 100)
+</script>
+</body>
+</html>

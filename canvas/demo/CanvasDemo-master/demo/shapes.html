@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>根据canvas提供的形状接口进行绘制</title>
+</head>
+<body>
+<canvas id="canvas">您的浏览器不支持canvas标签</canvas>
+<script>
+    var canvas=document.getElementById('canvas');
+    canvas.width=Math.max(window.innerWidth,800);
+    canvas.height=Math.max(window.innerHeight,600);
+
+    var context=canvas.getContext('2d');
+//    绘制长方形   fillStyle默认是black  strokeStyle默认是black
+    context.fillRect(0,0,100,50);   //s,y,width.height
+    context.strokeRect(0,52,100,50); //上面这两种绘制长方形的方式，一个是填充式，一个是描边式
+    context.clearRect(10,10,20,20);
+    context.rect(102,0,190,50);
+    context.stroke();
+
+    context.save(); //保存上一次的画笔设置  即黑色 lineWidth=1
+    context.beginPath();
+    context.arc(200 + 150, 200 + 150, 56, 0, Math.PI, false);  //创建半圆   false是顺时针
+    context.closePath();                                       //关闭路径   该语句表示，让画笔回到该beginPath的起点
+    context.fillStyle = "cornsilk";
+    context.fill();
+    context.lineWidth = 10;
+    context.strokeStyle = "tomato";
+    context.stroke();
+    context.restore();  //回复之前保存的画笔
+
+//    绘制圆 圆环 arcs circle
+    context.beginPath();   //如果不重置路径起始点 即画笔起始点  将会出现一条上一个路径结尾点到下面路径起始点的线段
+    context.arc(200,100,48,0,Math.PI*2,true);   //使用弧度来表示
+    context.lineWidth=3;
+    context.strokeStyle='green';
+    context.stroke();
+
+//    绘制弧线段
+    context.beginPath();
+    context.moveTo(200,100);
+    context.lineTo(250,100);
+    context.arcTo(350,100,500,800,100);   //尽量让lineTo 的X值 与arcTo的x1的值相差一个远的半径
+    context.stroke();
+
+    //绘制路径 line
+    context.beginPath();
+    context.moveTo(300,50);
+    context.lineTo(400,100);
+    context.strokeStyle='orange';
+    context.stroke();
+
+    //绘制闭合的路径  并进行填充 构成三角形
+    context.save();
+    context.beginPath();
+    //moving the pen    当你的canvas进行了重置 或者是 调用了beginPath()这个方法 你就需要用到moveTo来设置画笔的位置
+    context.moveTo(400,50);
+    context.lineTo(500,100);
+    context.lineTo(500,50);
+    context.closePath();//关闭路径
+    context.stroke();
+    context.fillStyle='green';
+    context.fill();
+    context.restore();
+    //绘制贝塞尔曲线
+    context.beginPath();
+    context.moveTo(600,200);
+    context.quadraticCurveTo(700,100,800,150);  //800,150为终点   700，100为控制点
+    context.bezierCurveTo(850,300,900,200,1000,100);  //1000,100为终点   850,300  900,200为控制点
+    context.strokeStyle='blue';
+    context.stroke();
+
+    //path2D 对象  返回一个实例化的path2d对象
+//    new Path2D();     // empty path object
+//    new Path2D(path); // copy from another Path2D object
+//    new Path2D(d);    // path from SVG path data
+    //或者是使用svg路径构成对象
+//    详细情形见，开发文档
+
+
+
+
+</script>
+</body>
+</html>

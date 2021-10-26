@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>save and restore的使用</title>
+</head>
+<body>
+<script>
+     var canvas=document.createElement('canvas');
+    document.body.appendChild(canvas);
+
+    canvas.className='myCanvas';
+    canvas.id='myCanvas';
+    canvas.width=600;
+    canvas.height=300;
+    canvas.style.background='red';
+
+    var context=canvas.getContext('2d');
+     context.save();
+    context.moveTo(0,0);
+    context.lineTo(100,20);
+    context.strokeStyle='blue';
+    context.lineWidth=5;
+    context.stroke();
+     context.restore();
+     context.save();
+    context.arc(200,50,50,0,360);
+    context.strokeStyle='white';
+     context.lineWidth=3;
+    context.stroke();
+    context.restore();
+</script>
+</body>
+</html>

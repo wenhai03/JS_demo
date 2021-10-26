@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>作业</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid #333333;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container ">
+			<canvas id="canvas" width="500" height="500"></canvas>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			let oCanvas = document.getElementById('canvas');
+			console.dir(oCanvas);
+			let oPen = oCanvas.getContext("2d");
+			console.dir(oPen);
+			let data = [{
+					name: '第一季度',
+					value: 100,
+					color: '#999555'
+				},
+				{
+					name: '第二季度',
+					value: 90,
+					color: '#FD5656'
+				},
+				{
+					name: '第三季度',
+					value: 70,
+					color: '#f6641d'
+				},
+				{
+					name: '第四季度',
+					value: 150,
+					color: '#5f1df6'
+				}
+			];
+			//（X,Y） 圆心坐标 r data 数据源
+			createSector(oPen, 150, 250, 80, data);
+
+			function createSector(oPen, x, y, r, data) {
+				let sum = 0;
+				for(var i = 0; i < data.length; i++) {
+					sum += data[i].value;
+				}
+				for(var i = 0; i < data.length; i++) {
+					data[i].percentage = ((data[i].value * 1.0) / sum) * 360;
+				}
+				let startAngle = 0;
+				for(var i = 0; i < data.length; i++) {
+					oPen.beginPath();
+					oPen.moveTo(x, y);
+					oPen.arc(x, y, r, startAngle, startAngle + (Math.PI / 180) * data[i].percentage, false);
+					startAngle += (Math.PI / 180) * data[i].percentage;
+					oPen.fillStyle = data[i].color;
+					oPen.fill();
+				}
+			}
+			myText(oPen, "第一季度:100", "right")
+
+			function myText(oPen, str, type) {
+				oPen.strokeStyle = "#999555";
+				oPen.font = "italic 500 20px 小篆";
+				let textWidth = oPen.measureText(str).width;
+				let x = 0;
+				if(type === "center") {
+					//center
+					x = (500 - textWidth) / 2.0;
+				} else if(type === "left") {
+					//left
+					x = 0;
+				} else if(type === "right") {
+					//right
+					x = 300;
+				}
+				oPen.strokeText(str, x, 200);
+			}
+			xText(oPen, "第二季度:90", "right")
+
+			function xText(oPen, str, type) {
+				oPen.strokeStyle = "#FD5656";
+				oPen.font = "italic 500 20px 小篆";
+				let textWidth = oPen.measureText(str).width;
+				let x = 0;
+				if(type === "center") {
+					//center
+					x = (500 - textWidth) / 2.0;
+				} else if(type === "left") {
+					//left
+					x = 0;
+				} else if(type === "right") {
+					//right
+					x = 300;
+				}
+				oPen.strokeText(str, x, 240);
+			}
+
+			yText(oPen, "第三季度:70", "right")
+
+			function yText(oPen, str, type) {
+				oPen.strokeStyle = "#f6641d";
+				oPen.font = "italic 500 20px 小篆";
+				let textWidth = oPen.measureText(str).width;
+				let x = 0;
+				if(type === "center") {
+					//center
+					x = (500 - textWidth) / 2.0;
+				} else if(type === "left") {
+					//left
+					x = 0;
+				} else if(type === "right") {
+					//right
+					x = 300;
+				}
+				oPen.strokeText(str, x, 280);
+			}
+
+			zText(oPen, "第四季度:150", "right")
+
+			function zText(oPen, str, type) {
+				oPen.strokeStyle = "#5f1df6";
+				oPen.font = "italic 500 20px 小篆";
+				let textWidth = oPen.measureText(str).width;
+				let x = 0;
+				if(type === "center") {
+					//center
+					x = (500 - textWidth) / 2.0;
+				} else if(type === "left") {
+					//left
+					x = 0;
+				} else if(type === "right") {
+					//right
+					x = 300;
+				}
+				oPen.strokeText(str, x, 320);
+			}
+		}
+	</script>
+</html>

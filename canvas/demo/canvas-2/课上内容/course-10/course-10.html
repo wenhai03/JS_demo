@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				/*
+		     * 将边框设置在中间
+		     */
+				align-items: center;
+				justify-content: center;
+			}
+
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid #333333;
+		</style>
+	</head>
+	<body>
+		<!-- <img src="../img/img.png" id="img"> -->
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			let oCanvas = document.getElementById('canvas');
+			console.dir(oCanvas);
+			let oPen = oCanvas.getContext("2d");
+			
+//			oPen.lineWidth = 10;
+//			oPen.strokeStyle = "aqua";
+//			oPen.moveTo(100,100);
+//			oPen.lineTo(200,100);
+//			oPen.stroke();
+			
+			//beginPath()开始新路径,后面不一定要接closePath()
+			//closePath()连接路径
+//			oPen.beginPath();
+//			oPen.strokeStyle = "red";
+//			oPen.moveTo(100,200);
+//			oPen.lineTo(200,200);
+//			oPen.stroke();
+			
+			
+//			oPen.arc(100,100,50,0,Math.PI/180*90,false);
+//			oPen.closePath();
+//			oPen.stroke();
+//			
+//			oPen.beginPath();
+//			oPen.arc(100,100,50,Math.PI/180*90,Math.PI/180*180,false);
+//			oPen.closePath();
+//			oPen.stroke();
+			
+			
+			//坐标，如果这个点在路径中，就返回true，否则就返回false
+			//isPointInPath(x,y)
+			
+			oPen.rect(50,50,80,80);
+			oPen.stroke();
+			oPen.fill();
+			
+			if(oPen.isPointInPath(60,60))
+			{
+				alert('在路径中')
+			}
+			else
+			{
+				alert('不在路径中')
+			}
+			
+			
+			}
+	</script>
+</html>

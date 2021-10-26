@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="600" style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+
+<script>
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d')
+  class Rect {
+    constructor(x, y, width, height, speedX, speedY) {
+      this.x = x
+      this.y = y
+      this.width = width
+      this.height = height
+      this.speedX = speedX
+      this.speedY = speedY
+
+      this.draw()
+    }
+
+    draw() {
+      ctx.fillStyle = 'red'
+      ctx.fillRect(this.x, this.y, this.width, this.height)
+    }
+
+    move() {
+      console.log(this);
+      ctx.clearRect(this.x, this.y, canvas.width, canvas.height)
+
+      this.x += this.speedX
+      this.y += this.speedY
+
+      if (this.x > canvas.width - this.width || this.x <= 0) {
+        this.speedX *= -1
+      }
+      if (this.y > canvas.height - this.height || this.y <= 0) {
+        this.speedY *= -1
+      }
+
+      ctx.fillRect(this.x, this.y, this.width, this.height)
+
+      window.requestAnimationFrame(this.draw)
+    }
+
+
+  }
+
+  var ball = new Rect(0, 0, 100, 100, 2, 2)
+  // ball.move()
+</script>

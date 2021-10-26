@@ -2,27 +2,234 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a81e121f-e539-44fc-8e7e-7521518730a6" name="Default Changelist" comment="feat">
-      <change afterPath="$PROJECT_DIR$/AA手写题/观察者模式.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/assets/components/Arrow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/assets/script/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promise/index-then.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promise/promise-then.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zf/promise/1.promise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zf/promise/history/01基础/1.promise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zf/promise/history/01基础/promise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zf/promise/history/02同一个promise可以then多次/1.promise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zf/promise/history/02同一个promise可以then多次/promise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zf/promise/history/03then链的用法/1.promise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zf/promise/history/03then链的用法/age.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zf/promise/history/03then链的用法/name.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zf/promise/promise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/发布订阅/demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/拖拽/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/cssxfire.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/.idea/canvas.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/.idea/dictionaries/camilla_luo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/11.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/11.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/alienbomb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/bonus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/explosion.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/ground.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/ground2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/laser.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/playership.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/playpause.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/powerup.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/probe.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/raider.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/rebel.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/rocket.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/sky.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/titlescreen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/library/volumecontrols.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/boostermedia.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/classlib.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/desktop.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/ga.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/game.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/iphone.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/library.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/resources.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/ShootPlane/src/textdata.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/blob.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/countDown.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/demo/canvasCss.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/demo/draw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/demo/saveRestore.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/demo/shapes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/bottom.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/fish1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/fish1_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/fish2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/fish2_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/fish3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/fish3_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/gold.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/gun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/integer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/pig.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/fishing/zidan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/lake.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/lake/demo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/lake/jquery-1.11.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/lake/lake.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/lake/lake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/lake/lake2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/lake/lake3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/lake/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/lake0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/star.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/刮刮乐.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/可清空的绘画板.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/图片转换canvas.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/圆盘抽奖-原例.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/圆盘抽奖.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/按钮粒子特效.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/时钟.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/水滴弹性融合.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/网页倒计时效果.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/雨滴下落.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/高性能打方块游戏/css/default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/高性能打方块游戏/css/normalize.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/高性能打方块游戏/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/高性能打方块游戏/js/BlockBlaster.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/鼠标丝带效果.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/CanvasDemo-master/鼠标绘制文字.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/1.canvas.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/10.线形渐变矩形.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/11.阴影.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/12.绘制图片.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/2.canvas的动画.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/3.canvas面向对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/4.绘制矩形和路径.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/5.绘制路径.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/6.canvas圆弧.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/7.炫彩小球.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/8.小球碰壁返回.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-1/9.线性.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/README.en.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/作业/course-1/zuoye1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/作业/course-1/zuoye2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/作业/course-2/zuoye.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/作业/course-5/zuoye.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/作业/course-7/zuoye.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/期末考试/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/期末考试/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/期末考试/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/期末考试/题目描述.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-10/course-10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-11/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-12/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-13/new_file.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-4/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-5/2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-6/cut.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-6/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-6/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-6/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-7/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-8/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-8/new_file.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/course-9/course9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-2/课上内容/huaxian.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/01_fillRect_clearRect.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/02_绘制路径_beginPath.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/03_绘制圆_arc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/04_demo_绘制圆.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/05_demo_绘制笑脸.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/06_线性渐变_Linear.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/07_径向渐变_Radial.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/08_文字阴影绘制.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/09_图片绘制_drawImage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/10_视频绘制.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/11_坐标尺状态改变.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/01_基础属性/12_请求关键帧.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/刮刮卡.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/制作时钟.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/圆形碰撞检测.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/圆形运动+碰撞.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/垂直全景图无缝滚动.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/水平全景图无缝滚动.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/涂鸦.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/画板.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/矩形直线运动碰撞.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/矩形碰撞检测.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/02_demo/贪吃蛇.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/asset/img/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/asset/img/sky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/asset/picture-drag/img1.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/asset/video/video.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/js/base/constant.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/js/base/formula.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/js/base/painter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/js/base/sprite.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/js/game/director.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/js/game/launcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/js/game/stars.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/js/game/target.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/collision-star-master/src/res/spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/css/flex.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/css/fontColor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/css/fontFamily.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/css/fontSize.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/css/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/img/img1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/img/img10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/img/img11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/img/img2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/img/img3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/img/img4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/img/img5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/img/img6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/img/img9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/js/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/刮刮卡/mp3/red_envelope.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/audio/bullet.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/audio/enemy1_down.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/audio/enemy2_down.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/audio/enemy2_out.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/audio/enemy3_down.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/audio/game_music.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/audio/game_over.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/bomb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/bullet1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/bullet2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/enemy1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/enemy2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/enemy3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/herofly.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/img/prop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/js/bgImage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/js/enemy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas/demo/canvas-master/打飞机/js/hero.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/04then链的实现/1.promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/04then链的实现/promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/allSettled原理/1.promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/allSettled原理/promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/all原理/1.promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/all原理/promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/finally原理/1.promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/finally原理/promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/race原理/1.promise-01.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/race原理/1.promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/race原理/promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/resolve和reject/1.promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/promise/history/resolve和reject/promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zf/设计模式/note.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/定时器管理/01.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj类型转换.js" beforeDir="false" afterPath="$PROJECT_DIR$/obj类型转换.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/发布订阅/sub2.js" beforeDir="false" afterPath="$PROJECT_DIR$/发布订阅/sub2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/发布订阅/subscribe.html" beforeDir="false" afterPath="$PROJECT_DIR$/发布订阅/subscribe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/拖拽/拖拽.html" beforeDir="false" afterPath="$PROJECT_DIR$/拖拽/拖拽.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,44 +267,45 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/zf/promise/history/03then链的用法" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/zf/promise/history" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/zf/promise/history/03then链的用法" />
       <recent name="$PROJECT_DIR$/zf/promise/history" />
-      <recent name="$PROJECT_DIR$/canvas/assets/components" />
-      <recent name="$PROJECT_DIR$/canvas" />
-      <recent name="$PROJECT_DIR$/zf/promise/history/02同一个promise可以then多次" />
+      <recent name="$PROJECT_DIR$/zf/设计模式" />
+      <recent name="$PROJECT_DIR$/zf/promise/history/race原理" />
+      <recent name="$PROJECT_DIR$/zf/promise/history/resolve和reject" />
+      <recent name="$PROJECT_DIR$/canvas/demo" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.观察者模式.js">
-    <configuration name="1.promise.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/02同一个promise可以then多次/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/02同一个promise可以then多次">
+  <component name="RunManager" selected="Node.js.1.promise.js">
+    <configuration name="01.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/定时器管理/01.js" working-dir="$PROJECT_DIR$/定时器管理">
       <method v="2" />
     </configuration>
-    <configuration name="1.promise.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/01基础/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/01基础">
+    <configuration name="1.promise-01.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/race原理/1.promise-01.js" working-dir="$PROJECT_DIR$/zf/promise/history/race原理">
       <method v="2" />
     </configuration>
-    <configuration name="观察者模式.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/AA手写题/观察者模式.js" working-dir="$PROJECT_DIR$/AA手写题">
+    <configuration name="1.promise.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/all原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/all原理">
       <method v="2" />
     </configuration>
-    <configuration name="promise.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/promise.js" working-dir="$PROJECT_DIR$/zf/promise/history">
+    <configuration name="1.promise.js (3)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/race原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/race原理">
       <method v="2" />
     </configuration>
-    <configuration name="promise.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/promise.js" working-dir="$PROJECT_DIR$/zf/promise">
+    <configuration name="1.promise.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/allSettled原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/allSettled原理">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.观察者模式.js" />
-        <item itemvalue="Node.js.1.promise.js (1)" />
+        <item itemvalue="Node.js.1.promise.js" />
+        <item itemvalue="Node.js.1.promise.js (3)" />
+        <item itemvalue="Node.js.1.promise-01.js" />
+        <item itemvalue="Node.js.01.js" />
         <item itemvalue="Node.js.1.promise.js (2)" />
-        <item itemvalue="Node.js.promise.js" />
-        <item itemvalue="Node.js.promise.js (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +397,13 @@
       <workItem from="1634350656057" duration="512000" />
       <workItem from="1634369912577" duration="2238000" />
       <workItem from="1634470076977" duration="5992000" />
-      <workItem from="1634605379945" duration="1796000" />
+      <workItem from="1634605379945" duration="6548000" />
+      <workItem from="1634778503005" duration="5082000" />
+      <workItem from="1634787122671" duration="8258000" />
+      <workItem from="1634890057816" duration="597000" />
+      <workItem from="1634892852654" duration="1199000" />
+      <workItem from="1635123920601" duration="18403000" />
+      <workItem from="1635238049731" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="feat">
       <created>1626658909909</created>
@@ -198,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626658909910</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat">
+      <created>1634637787258</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634637787258</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,5 +428,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat" />
     <option name="LAST_COMMIT_MESSAGE" value="feat" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

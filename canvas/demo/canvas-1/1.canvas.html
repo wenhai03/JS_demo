@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas">
+        当前浏览器版本不支持，请升级浏览器
+    </canvas>
+
+<script>
+    var canvas = document.getElementById('myCanvas')
+    // console.log(canvas)
+    //
+    var ctx = canvas.getContext('2d')
+    // console.log(ctx)  获取2d上下文 绘制矩形 绘制颜色 绘制（x, y, width, height） 顺序很重要 先绘制颜色 再图形
+    ctx.fillStyle = 'yellow';
+    ctx.fillRect(50, 50, 300, 100)
+</script>
+</body>
+</html>

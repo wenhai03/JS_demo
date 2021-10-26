@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas自定义文字绘图</title>
+    <style>
+        .txt{
+            width: 30%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.6);
+            color: whitesmoke;
+            font: 14px arial;
+            line-height: 2em;
+        }
+        #canvas{
+            position: absolute;
+            left: 40%;
+            top: 20px;
+            border: saddlebrown solid 2px;
+            background: black;
+            cursor: crosshair;
+        }
+        #info{
+            width: 50%;
+            height: 400px;
+            position: absolute;
+            top: 20px;
+            left: 40%;
+            z-index: 100;
+        }
+        #info span{
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            text-align: center;
+            color: white;
+        }
+        body:hover #info{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas">不支持！</canvas>
+    <div id="info"><span>按住鼠标左键进行绘制（双击进行清空）</span></div>
+    <div class="txt">
+        重点函数：addEventListener() Math.atan2()  Math.cos()  Math.sqrt() <br/>
+        目的：监听mousemove,mousedown,mouseup,mouseout,dbclick等鼠标事件来实现canvas上自定义文字绘图，通过获取鼠标坐标位置来改变、旋转文字，还可以通过加快鼠标移动速度改变文字大小。
+        <br/>
+        核心code:通过获取鼠标当前在 Canvas 上的坐标到移动后结束时的坐标来改变绘制文本字体大小，会产生一种移动速度越快，字体越大的效果。
+        <pre>
+            //决定绘制文本字体大小
+            function distance(pt, pt2){
+                var xs = 0;
+                var ys = 0;
+                xs = pt2.x - pt.x;
+                xs = xs * xs;
+                ys = pt2.y - pt.y;
+                ys = ys * ys;
+                //返回正确舍入的一个double值的正平方根
+                return Math.sqrt( xs + ys );
+            }
+        </pre>
+    </div>
+    <script type="text/javascript">
+//        window.onload=function(){
+            var letters="人生若只如初见，何事秋风悲画扇。";
+            var mSize=3;
+            var oIndex=0;
+            var pos={x:0,y:window.innerHeight/2};
+
+            var ow=window.innerWidth, oh=window.innerHeight;
+            var canvas,ctx;
+            var mouse={x:0,y:0,down:false};//记录鼠标的位置
+
+            init();
+            function init(){
+                canvas=document.getElementById('canvas');
+                canvas.width=ow/2;
+                canvas.height=oh-50;
+                ctx=canvas.getContext('2d');
+                //canvas绑定事件
+                canvas.addEventListener('mousedown',mouseDown,false);
+                canvas.addEventListener('mousemove',mouseMove,false);
+                canvas.addEventListener('mouseup',mouseUp,false);
+                canvas.addEventListener('mouseout',mouseUp,false);
+                canvas.addEventListener('dbclick',dbClick,false);
+                window.onresize=function(){
+                    canvas.width=window.innerWidth/2;
+                    canvas.height=window.innerHeight-50;
+                };
+            }
+            function mouseDown(e){
+                var ev=e||window.event;
+                mouse.down=true;
+                pos.x=ev.offsetX;
+                pos.y=ev.offsetY;
+                document.getElementById('info').style.display="none";
+            }
+            function mouseMove(e){
+                var ev=e||window.event;
+                mouse.x=ev.offsetX;
+                mouse.y=ev.offsetY;
+                if(mouse.down){
+                    draw();
+                }
+            }
+            function mouseUp(e){
+                mouse.down=false;
+            }
+            function dbClick(e){
+                canvas.width=canvas.width;//重新赋值，进行内容刷新
+            }
+            function draw(){
+                var dist=distance(pos,mouse);  //移动的直线距离
+                var oSize=mSize+dist/2;  //根据移动距离变化的字体
+                var letter=letters[oIndex]; //第一个字母
+                var oFont=getWidth(letter,oSize);   //在此处已经设置了字体的大小样式
+                if(dist>oFont){
+                    var angel=Math.atan2(mouse.y-pos.y,mouse.x-pos.x);
+                    ctx.font=
+                    ctx.fillStyle="white";
+                    ctx.save();
+                    ctx.translate(pos.x,pos.y);
+                    ctx.rotate(angel);
+                    ctx.fillText(letter,0,0);
+                    ctx.restore();
+                    pos.x=pos.x+Math.cos(angel)*oFont;
+                    pos.y=pos.y+Math.sin(angel)*oFont;
+                    oIndex++;
+                    if(oIndex==letters.length){
+                        oIndex=0;
+                    }
+                }
+
+
+
+            }
+            function distance(p,m){
+                var dx,dy;
+                dx= m.x- p.x;
+                dy= m.y- p.y;
+                return Math.sqrt((dx*dx)+(dy*dy));
+            }
+            function getWidth(l,o){
+                ctx.font=o+"px Arial";
+                if(ctx.fillText){
+                    return ctx.measureText(l).width;  //返回文本的宽度
+                }else if(ctx.mozDrawText){
+                    return context.mozMeasureText( l );
+                }
+            }
+//        }
+    </script>
+</body>
+</html>

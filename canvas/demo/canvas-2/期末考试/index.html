@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas考试</title>
+</head>
+<style>
+    .wrapper{
+        width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+<body>
+
+    <div class="wrapper">
+        <div class="item">
+            <div>第一题</div>
+            <canvas id="canvas-1" width="300" height="300" style="border: 1px solid #ccc;margin-top: 10px;"></canvas>
+        </div>
+        <div class="item">
+            <div>第二题</div>
+            <canvas id="canvas-2" width="300" height="300" style="border: 1px solid #ccc;margin-top: 10px;"></canvas>
+        </div>
+        <div class="item">
+            <div>第三题</div>
+            <canvas id="canvas-3" width="300" height="300" style="border: 1px solid #ccc;margin-top: 10px;"></canvas>
+        </div>
+        <div class="item">
+            <div>第四题</div>
+            <canvas id="canvas-4" width="300" height="300" style="border: 1px solid #ccc;margin-top: 10px;"></canvas>
+            <input type="button" value="变大1.5倍" id="grow" />
+        </div>
+        <div class="item">
+            <div>第五题</div>
+            <canvas id="canvas-5" width="300" height="300" style="border: 1px solid #ccc;margin-top: 10px;"></canvas>
+            <div>
+                <input type="button" value="红" id="red">
+                <input type="button" value="黄" id="yellow">
+                <input type="button" value="蓝" id="blue">
+                <input type="button" value="下载" id="download">
+            </div>
+        </div>
+        <div class="item">
+            <div>第六题</div>
+            <canvas id="canvas-6" width="300" height="300" style="border: 1px solid #ccc;margin-top: 10px;">
+            	<img id="img" src="img1.jpg" />
+            </canvas>
+            <input type="button" value="变黑白色" id="bianse" />
+        </div>
+    </div>
+    
+</body>
+<script>
+    window.onload = function() {
+		let oCanvas1 = document.getElementById('canvas-1');
+		let oPen1 = oCanvas1.getContext("2d");
+		
+		oPen1.beginPath();
+		oPen1.arc(10,10,10,0,Math.PI*2,true);
+		oPen1.fill();
+		oPen1.stroke();
+		
+		oPen1.beginPath();
+		oPen1.fillRect(30,30,20,20);
+		oPen1.stroke();
+		
+		oPen1.beginPath();
+		let r = 10;
+		oPen1.moveTo(60,60);
+		oPen1.lineTo(100,60);
+		oPen1.arcTo(100+r,60,100+r,60+r,r);
+		oPen1.lineTo(100+r,100);
+		oPen1.arcTo(100+r,100+r,100-r,100+r,r);
+		oPen1.lineTo(60,100+r);
+		oPen1.arcTo(60-r,100+r,60-r,100,r);
+		oPen1.lineTo(60-r,60+r);
+		oPen1.arcTo(60-r,60,60,60,r);
+		oPen1.stroke();
+		
+		let oCanvas2 = document.getElementById('canvas-2');
+		let oPen2 = oCanvas2.getContext("2d");
+		
+		oPen2.beginPath();
+		oPen2.arc(10,10,10,0,Math.PI*2,true);
+		oPen2.stroke();
+		
+		oPen2.beginPath();
+		oPen2.rect(30,30,20,20);
+		oPen2.stroke();
+		
+		oPen2.beginPath();
+		oPen2.moveTo(60,60);
+		oPen2.lineTo(60,120);
+		oPen2.lineTo(120,120);
+		oPen2.lineTo(60,60);
+		oPen2.stroke();
+		
+		let oCanvas3 = document.getElementById('canvas-3');
+    	let oPen3 = oCanvas3.getContext("2d");
+    	oPen3.fillStyle="pink";
+			let x = 100,
+			    y = 100,
+			    width = 100,
+			    height = 100;
+			oPen3.fillRect(x,y,width,height);
+			setInterval(function(){
+				oPen3.translate(x+width/2,y+height/2);
+				oPen3.rotate(Math.PI/180*30);
+				oPen3.translate(-(x+width/2),-(y+height /2));
+				oPen3.clearRect(0,0,500,500);
+				oPen3.fillRect(x,y,width,height);
+			},2000)
+
+
+		
+		
+		
+		let oCanvas4 = document.getElementById('canvas-4');
+		let oPen4 = oCanvas4.getContext("2d");
+		
+		let scaleX = 1.5;
+		let scaleY = 1.5;
+		let rectCenterPoint = {x: 125, y:125}; // 矩形中心点
+		oPen4.beginPath();
+		oPen4.fillRect(100,100,50,50);
+		oPen4.stroke();
+		
+		let Grow = document.getElementById('grow');
+		Grow.onclick = function(){
+			oPen4.translate(rectCenterPoint.x*(1-scaleX), rectCenterPoint.y*(1-scaleY));
+			oPen4.scale(scaleX, scaleY);
+			oPen4.fillRect(100, 100, 50, 50);
+		}
+		
+		
+		let oCanvas5 = document.getElementById('canvas-5');
+		let oPen5 = oCanvas5.getContext("2d");
+		
+		let Red = document.getElementById('red');
+		Red.onclick = function(){
+			document.onmousedown = function(e) {
+			x0 = (e.pageX - oCanvas5.offsetLeft);
+			y0 = (e.pageY - oCanvas5.offsetTop);
+
+			document.onmousemove = function(e) {
+				x1 = (e.pageX - oCanvas5.offsetLeft);
+				y1 = (e.pageY - oCanvas5.offsetTop);
+
+				oPen5.beginPath();
+				oPen5.moveTo(x0, y0);
+				oPen5.lineTo(x1, y1);
+				oPen5.lineWidth = 5;
+				oPen5.strokeStyle = "red";
+				oPen5.stroke();
+				oPen5.closePath();
+
+				x0 = x1;
+				y0 = y1;
+			}
+		}
+			document.onmouseup = function() {
+			document.onmousemove = null;
+		}
+	}
+		
+		let Yellow = document.getElementById('yellow');
+		Yellow.onclick = function(){
+			document.onmousedown = function(e) {
+			x0 = (e.pageX - oCanvas5.offsetLeft);
+			y0 = (e.pageY - oCanvas5.offsetTop);
+
+			document.onmousemove = function(e) {
+				x1 = (e.pageX - oCanvas5.offsetLeft);
+				y1 = (e.pageY - oCanvas5.offsetTop);
+
+				oPen5.beginPath();
+				oPen5.moveTo(x0, y0);
+				oPen5.lineTo(x1, y1);
+				oPen5.lineWidth = 5;
+				oPen5.strokeStyle = "yellow";
+				oPen5.stroke();
+				oPen5.closePath();
+
+				x0 = x1;
+				y0 = y1;
+			}
+		}
+			document.onmouseup = function() {
+			document.onmousemove = null;
+		}
+	}
+		
+		let Blue = document.getElementById('blue');
+		Blue.onclick = function(){
+			document.onmousedown = function(e) {
+			x0 = (e.pageX - oCanvas5.offsetLeft);
+			y0 = (e.pageY - oCanvas5.offsetTop);
+
+			document.onmousemove = function(e) {
+				x1 = (e.pageX - oCanvas5.offsetLeft);
+				y1 = (e.pageY - oCanvas5.offsetTop);
+
+				oPen5.beginPath();
+				oPen5.moveTo(x0, y0);
+				oPen5.lineTo(x1, y1);
+				oPen5.lineWidth = 5;
+				oPen5.strokeStyle = "deepskyblue";
+				oPen5.stroke();
+				oPen5.closePath();
+
+				x0 = x1;
+				y0 = y1;
+			}
+		}
+			document.onmouseup = function() {
+			document.onmousemove = null;
+		}
+	}
+		
+		
+		
+		
+		let oCanvas6 = document.getElementById('canvas-6');
+		let oPen6 = oCanvas6.getContext("2d");
+		
+		let oImage = new Image();
+		oImage.src = "img1.jpg";
+		oImage.onload = function(){
+			oCanvas6.width = 300;
+			oCanvas6.height = 300;
+			oPen6.drawImage(oImage,0,0,300,300);
+			
+			
+		}
+		
+		let Bianse = document.getElementById('bianse');
+		Bianse.onclick = function(){
+				var imageData = oPen6.getImageData(0,0,300,300);
+				var data = imageData.data;
+				for(var i=0;i<data.length;i+=4){
+					var average = (data[i + 0] + data[i + 1] + data[i + 2] + data[i + 3]) / 3;
+					data[i + 0] = average;
+					data[i + 1] = average;
+					data[i + 2] = average;
+				}
+				oPen6.putImageData(imageData,0,0);
+			}
+		
+			
+		
+		
+		
+    }
+</script>
+</html>

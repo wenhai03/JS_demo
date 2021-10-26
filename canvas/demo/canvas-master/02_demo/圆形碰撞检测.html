@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="600" height="800" style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+
+<script>
+  var canvas = document.getElementById('canvas')
+  var ctx = canvas.getContext('2d')
+
+
+
+  var speedX = 2
+  var speedY = 2
+  var x = 20
+  var y = 20
+  var r = 20
+
+  ctx.fillStyle = 'skyblue'
+  ctx.arc(20, 20, r, 0, Math.PI * 2)
+  ctx.fill()
+
+  function move() {
+    ctx.save()
+
+    ctx.clearRect(0, 0, 600, 800)
+
+    ctx.beginPath()
+    ctx.arc(x, y, 20, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.closePath()
+
+    x += speedX
+    y += speedY
+
+    if (x > canvas.width - r || x < r) {
+      speedX *= -1
+    }
+
+    if (y > canvas.height - r || y < r) {
+      speedY *= -1
+    }
+    ctx.restore()
+
+    window.requestAnimationFrame(move)
+  }
+
+  move()
+</script>

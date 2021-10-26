@@ -1,0 +1,23 @@
+{
+  "name": "collision-star",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "live-server ./src --port=8081"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magicsoso/collision-star.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/magicsoso/collision-star/issues"
+  },
+  "homepage": "https://github.com/magicsoso/collision-star#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

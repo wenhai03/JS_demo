@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas湖面倒影</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: black;
+        }
+        #container{
+            width: 720px;
+            margin: 30px auto;
+        }
+        #container>canvas{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="lake-img1" src="lake/lake.png" alt="" style="display: none;"/>
+        <img id="lake-img2" src="lake/lake2.png" alt=""/>
+        <img id="lake-img3" src="lake/lake3.png" alt=""/>
+    </div>
+    <script src="lake/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        (function($){
+            $.fn.lake= function (options) {
+                var defaults= $.extend({
+                    "speed":1,
+                    "scale":1,
+                    "waves":10,
+                    "image":true
+                },options);
+                //获取对象属性的方法如下  有两种：var waves=defaults.waves;
+                var waves=defaults["waves"];
+                var speed=defaults['speed']/4;
+                var scale=defaults['scale']/2;
+
+                var canvas=document.createElement('canvas');
+                var ctx=canvas.getContext('2d');
+
+                var img=$(this).get(0);
+                var img_loaded=false;
+                var w, h,cw,ch;//canvas的正常尺寸 以及cw ch用来操作倒影的尺寸
+                var offset=0;
+
+                img.parentNode.insertBefore(canvas,img);
+
+                img.onload= function () {
+                    img_loaded=true;
+
+                    ctx.save();
+                    // ctx.canvas.width=this.width;
+                    canvas.width=this.width;
+                    canvas.height=this.height*2;
+
+                    ctx.drawImage(this,0,0);
+                    //倒影图片进行绘制
+                    ctx.scale(1,-1);
+                    ctx.drawImage(this,0,-this.height*2);
+                    ctx.restore();
+
+                    w=canvas.width;
+                    h=canvas.height;
+                    cw=w;
+                    ch=h/2;
+                    var cImg=ctx.getImageData(0,cw,w,h);  //getImageData()返回一个ImageData对象 包含属性：data height width
+                    var cdImg=cImg.data;
+                    var end=false;
+
+                    ctx.save();
+                    while(!end){
+                        var pixel=0;
+                        for(var y=0;y<ch;y++){
+                            for(var x=0;x<cw;x++){
+
+                            }
+                        }
+
+
+                    }
+                    ctx.restore();
+
+
+                };
+
+
+
+
+
+
+
+
+                return this;
+            }
+        })(jQuery);
+
+
+    </script>
+    <script type="text/javascript">
+        $('#lake-img1').lake();
+    </script>
+</body>
+</html>

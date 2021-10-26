@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按钮粒子效果</title>
+    <style>
+        #canvas{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left: 0;
+            background: black;
+        }
+        #myBtn{
+            width: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            padding: 10px 40px;
+            margin-left: -100px;
+            background: #e21410;
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            -webkit-transition: top 0.5s ease-out;
+        }
+        #myBtn:hover{
+            top: 50.5%;
+            background: #f6ee58;
+            color: red;
+        }
+        #myBtn:active{
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas">your browser don't support the canvas!</canvas>
+<button id="myBtn">effects</button>
+<script type="text/javascript">
+    window.requestAnimationFrames=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame|| function (callback) {callback,1000/60};
+    var aRad=Math.PI/180,particle=[],last=new Date();
+    var myBtn=document.getElementById('myBtn');
+    var canvas=document.getElementById('canvas');
+    var ctx=canvas.getContext('2d');
+    myBtn.addEventListener("mousedown",mouseDown,false);
+    window.addEventListener('resize',setFull,false);
+//    window.setTimeout(mouseDown,1000);
+    update();
+    setFull();
+    function mouseDown(){
+        var width=myBtn.offsetWidth,
+                height=myBtn.offsetHeight,
+                top=myBtn.offsetTop,
+                left=myBtn.offsetLeft;
+        var x, y,degree;
+        for(var i=0;i<40;i++){
+            //产生的粒子的方向
+            if(Math.random()<0.5){
+                y=getRand(top,top+height);
+                if(Math.random()>0.5){
+                    x=left;
+                    degree=getRand(-45,45);
+                }else{
+                    x=left+width;
+                    degree=getRand(135,255);
+                }
+            }else{
+                x=getRand(left,left+width);
+                if(Math.random()<0.5){
+                    y=top;
+                    degree=getRand(45,135);
+                }else{
+                    y=top+height;
+                    degree=getRand(-135,-45);
+                }
+            }
+            createParticle({
+                x:x,
+                y:y,
+                degree:degree,
+                speed:getRand(100,150)
+            });
+        }
+    }
+    function update(){   //竟然这个函数一直在运行  这会造成浏览器极大的负担
+        var now=new Date();
+        var delta=(last-now)/1000,len=particle.length,i= 0,size= 3,aPar;
+        ctx.fillRect(0,0,window.innerWidth,window.height);
+        ctx.fillStyle="rgba(0,0,0,0.25)";
+        ctx.globalCompositeStyle="lighter";
+        for(;i<len;i++){
+            aPar=particle[i];
+            aPar.degree += (aPar.vd * delta);
+            aPar.speed+=aPar.vs;
+            if(aPar.speed<0) continue;  //用速度控制
+            aPar.x+=Math.cos(aPar.degree*aRad)* (aPar.speed * delta);
+            aPar.y+=Math.sin(aPar.degree*aRad)* (aPar.speed * delta);
+
+            ctx.save();
+            ctx.translate(aPar.x,aPar.y);
+            ctx.rotate(aPar.degree);
+            ctx.fillStyle=aPar.color;
+            ctx.fillRect(-size,-size,size*2,size*2);
+            ctx.restore();
+
+        }
+        last=now;
+        requestAnimationFrames(update);
+    }
+    function createParticle(option){
+        //一次点击创造40个粒子
+        var defaults={  //一个粒子的参数如下
+            x:100,
+            y:100,
+            degree:getRand(0,360),
+            speed:120,
+            color:'hsla('+ getRand(160, 290) +', 100%, 50%, '+(Math.random().toFixed(2))+')',
+            vd:getRand(-90,90),
+            vs:getRand(-8,-1)
+        };
+       for(key in option){
+           defaults[key]=option[key];
+       }
+        particle.push(defaults);
+    }
+    //设置全屏
+    function setFull(){
+        width=canvas.width=window.innerWidth;
+        height=canvas.height=window.innerHeight;
+    }
+    //获得两点造成的夹角问题
+    function getAngle(x1,y1,x2,y2){
+        return Math.atan2((x2-x1),(y2-y1));
+    }
+    //得到两点之间的距离
+    function getDis(x1,y1,x2,y2){
+        return Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+    }
+    //得到两数值范围的随机数  可以要求为正数
+    function getRand(min,max,round){
+        var val=min+Math.random()*(max-min);
+        if(round){
+            val=Math.round(val);
+        }
+        return val;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid black;
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+		let oCanvas = document.getElementById('canvas');
+
+		console.dir(oCanvas)
+
+		let oPen = oCanvas.getContext("2d");
+		
+		// lineCap 直线两端的端点样式
+		// butt:默认
+		// round:向线条的每个末端添加圆形线帽
+		// square:向线条的每个末端添加正方形线帽
+		oPen.beginPath();
+		oPen.lineWidth = 20;
+		oPen.moveTo(10,10);
+		oPen.lineCap = "round";
+		oPen.lineTo(10,200);
+		oPen.stroke();
+		
+		oPen.beginPath();
+		oPen.lineWidth = 20;
+		oPen.moveTo(50,10);
+		oPen.lineTo(50,200);
+		oPen.lineCap = "square";
+		oPen.stroke();
+		
+		oPen.beginPath();
+		oPen.lineWidth = 20;
+		oPen.moveTo(90,10);
+		oPen.lineTo(90,200);
+		oPen.lineCap = "butt";
+		oPen.stroke();
+		
+		//lineJoin 当线交接的时候的样式
+		//miter,round,bevel 只有三种样式
+		
+		oPen.lineJoin = "bevel";
+		oPen.moveTo(100,10);
+		oPen.lineTo(250,10);
+		oPen.lineTo(250,100);
+		oPen.stroke();
+		
+		//定义一个数组
+		let shuzu1 = [10,10,20,20];
+		
+		//在这个直线中依次以数组中的数字来:颜色大小，空白大小，颜色大小，空白大小……
+		oPen.setLineDash(shuzu1);
+		oPen.moveTo(300,10);
+		oPen.lineTo(300,300);
+		oPen.stroke();
+		
+		}
+	</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        * { 
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            display: block;
+            border: 1px solid darkturquoise;
+            margin: 10px auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas">
+        当前浏览器版本不支持，请升级浏览器
+    </canvas>
+
+<script>
+    var canvas = document.getElementById('myCanvas')
+    var ctx = canvas.getContext('2d')
+    
+    canvas.width = document.documentElement.clientWidth - 50;
+    canvas.height = document.documentElement.clientHeight - 50;
+
+    function Ball() {
+        this.x = parseInt(Math.random() * canvas.width);
+        this.y = parseInt(Math.random() * canvas.height);
+        this.r = 10;
+        this.color = 'pink';
+        this.dx = parseInt(Math.random() * 10) - 5;
+        this.dy = parseInt(Math.random() * 10) - 5;
+        ballArr.push(this);
+        //自己在数组中的位置记录一下
+        this.index = ballArr.length - 1;
+    }
+    //更新
+    Ball.prototype.update = function() {
+        this.x += this.dx;
+        this.y += this.dy;
+        //当小球出屏幕了 反弹 判断小于this.r是为了判断当前是否出屏幕
+        //this.dx = -this.dx 当超出时 等于负值 就是倒着走
+        if(this.x < this.r || this.x > canvas.width - this.r) {
+            this.dx = -this.dx
+        }
+        if(this.y < this.r || this.y > canvas.height - this.r) {
+            this.dy = -this.dy
+        }
+    }
+    //渲染
+    Ball.prototype.render = function() {
+        ctx.beginPath();
+        //透明度
+        ctx.globalAlpha = 0.6;
+        //画小球
+        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+
+        //画线的条件 上下左右<150 就画线 
+        //画线 只画比自己大的一方就可以了，否则就是每一次两根线
+        for(var i = this.index; i < ballArr.length; i++) {
+            if(Math.abs(ballArr[i].x - this.x) < 150 && Math.abs(ballArr[i].y - this.y) < 150) {
+                ctx.strokeStyle = "#ccc";
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(ballArr[i].x, ballArr[i].y);
+                ctx.closePath();
+                ctx.stroke()
+            }
+        }
+    }
+    var ballArr = [];
+    //创建20个小球
+    for(var i = 0; i < 20; i++) {
+        new Ball()
+    };
+    // 定时器动画
+    setInterval(e => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        for(var i = 0; i < ballArr.length; i++) {
+            ballArr[i].update()
+            ballArr[i].render()
+        }
+    },50)
+</script>
+</body>
+</html>

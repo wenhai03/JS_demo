@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid black;
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+		let oCanvas = document.getElementById('canvas');
+
+		console.dir(oCanvas)
+
+		let oPen = oCanvas.getContext("2d");
+
+
+//		let str = "Hello World!";
+//
+//		//font-style,font-weight,font-size,font-family
+//		//font-style:normal,italic(斜体),oblique(倾斜)
+//		oPen.font = "normal 100 40px 宋体";
+//
+//		oPen.strokeStyle = "aqua";
+//
+//		//四个参数:显示的文字，x轴坐标，y轴坐标，最大宽度（单位是px）
+//		//第四个参数是定义最大宽度，文字不会超出最大宽度，超出会被压缩
+//		oPen.strokeText(str,10,40,300);
+//
+//		oPen.fillStyle = "pink";
+//
+//		oPen.fillText(str,10,40,300);
+//
+//		console.dir(oPen.measureText(str));
+//
+//		alert(oPen.measureText(str).width);
+//
+
+		myText(oPen,"居中居中居中居中","right")
+
+		function myText(oPen,str,type){
+			oPen.strokeStyle = "aqua";
+			oPen.font = "italic 900 40px 小篆";
+			let textWidth = oPen.measureText(str).width;
+			if(type === "right"){
+				//居中
+				let x = 500-textWidth;
+				oPen.strokeText(str,x,250);
+			}
+		}
+
+		}
+	</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>课上</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.container{
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+		</div>
+	</body>
+	<script>
+		window.onload = function(){
+			let oCanvas = document.getElementById('canvas');
+
+			console.dir(oCanvas)
+
+			let oPen = oCanvas.getContext("2d");
+
+//			oPen.lineWidth = 6;
+//			oPen.strokeStyle = "#333";
+//			oPen.moveTo(112, 269);
+//			oPen.quadraticCurveTo(250, 100, 400, 250);
+//			oPen.stroke();
+//
+//			oPen.moveTo(112, 264);
+//			oPen.quadraticCurveTo(242, 502, 412, 363);
+//			oPen.stroke();
+//
+//			oPen.moveTo(387, 313);
+//			oPen.quadraticCurveTo(497, 316, 423, 463);
+//			oPen.stroke();
+//
+//			oPen.moveTo(73, 490);
+//			oPen.bezierCurveTo(243, 508, 219, 396, 421, 482);
+//			oPen.stroke();
+//
+//			oPen.moveTo(302, 32);
+//			oPen.quadraticCurveTo(390, 10, 303, 174);
+//			oPen.stroke();
+//
+//			oPen.moveTo(302, 32);
+//			oPen.quadraticCurveTo(213, 10, 303, 174);
+//			oPen.stroke();
+
+
+//			let data = [{
+//				name: '张',
+//				sex: '男'
+//			}];
+//
+//			data.name;
+//
+//			let datal = [{
+//				name: '张',
+//				sex: '男'
+//			}];
+//
+//			for(var i = 0; i < datal.length; i++){
+//				console.dir(datal[i].name);
+//			}
+
+			var a=0;
+			for(i=1;i<=100;i++){
+				a = a+i;
+			}
+			console.dir(a);
+		}
+	</script>
+</html>

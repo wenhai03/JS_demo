@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="myCanvas" width="800" height="800" style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+
+<script>
+  const canvas = document.getElementById('myCanvas')
+  const c = canvas.getContext('2d')
+
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 3; j++) {
+      let x = 25 + j * 50;
+      let y = 25 + i * 50;
+      let r = 20;
+      let endAngle = Math.PI + j * Math.PI / 2
+      let anticlockwise = (i % 2) == 0 ? false : true
+
+      c.beginPath()
+      c.arc(x, y, r, 0, endAngle, anticlockwise)
+      c.closePath
+
+      if (i < 2) {
+        c.stroke()
+      } else {
+        c.fill()
+      }
+    }
+  }
+</script>

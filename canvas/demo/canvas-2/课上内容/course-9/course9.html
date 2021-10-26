@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				/*
+		     * 将边框设置在中间
+		     */
+				align-items: center;
+				justify-content: center;
+			}
+
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid #333333;
+			}
+		</style>
+	<body>
+		<!-- <img src="../img/img.png" id="img"> -->
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			let oCanvas = document.getElementById('canvas');
+			console.dir(oCanvas);
+			let oPen = oCanvas.getContext("2d")
+			//开始点坐标、结束点坐标;
+			//createLinearGradient(x1,y1,x2,y2)
+			//addColorStop(value1,"color1")
+			//addColorStop(value2,"color2")
+			
+//			var oJb = oPen.createLinearGradient(0 , 0, 0, 200);
+//			oJb.addColorStop(1,"green");
+//			oJb.addColorStop(0.2,"skyblue");
+//			oJb.addColorStop(0,"white");
+//			oPen.fillStyle= oJb;
+//			
+//			//oPen.fillRect(0,0,500,500);
+//			oPen.font = "100px bold";
+//			oPen.fillText("6666",100,100);
+
+			//(x1,y1)是开始渐变的点的坐标,r是半径,(x2,y2)是渐变结束时圆心的坐标,r2是结束时的半径
+			//createRadialGradient(x1,y1,r,x2,y2,r2);
+			
+			
+//			var oJb = oPen.createRadialGradient(100,60,10,80,80,50);
+//			oJb.addColorStop(0,"white");
+//			oJb.addColorStop(0.9,"orange");
+//			oJb.addColorStop(1,"rgba(0,0,0,0)");
+//			
+//			oPen.fillStyle = oJb;
+//			
+//			oPen.arc(80,80,50,0,Math.PI/180*360,true);
+//			oPen.fill();
+			
+			
+			//偏移方向,X轴方向,Y轴方向
+			//shadowOffsetX/shadowOffsetY
+			//阴影的颜色
+			//shadowColor
+			//模糊程度
+			//shadowBlur
+			
+			oPen.shadowBlur = 10;
+			oPen.shadowOffsetX = 20;
+			oPen.shadowOffsetY = 20;
+			oPen.shadowColor = "aqua";
+			
+			oPen.fillRect(100,100,100,100);
+			oPen.fillRect(220,220,100,100);
+			
+			oPen.shadowBlur = 100;
+			oPen.shadowOffsetX = 0;
+			oPen.shadowOffsetY = 0;
+			oPen.shadowColor = "aqua";
+			
+			oPen.arc(400,400,50,0,Math.PI/180*360,true);
+			oPen.fill();
+			
+			oPen.shadowBlur = 10;
+			oPen.shadowOffsetX = 20;
+			oPen.shadowOffsetY = -20;
+			oPen.shadowColor = "aqua";
+			
+			oPen.font = "100px bold";
+			oPen.fillText("6666",100,100);
+		}
+	</script>
+</html>

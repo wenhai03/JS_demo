@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">填充一个矩形</button>
+    <button id="btn2">绘制一个矩形边框</button>
+
+    <canvas width="500" height="500" id="myCanvas">
+        当前浏览器版本不支持，请升级浏览器
+    </canvas>
+<script>
+    var btn1 = document.getElementById('btn1')
+    var btn2 = document.getElementById('btn2')
+
+    var canvas = document.getElementById('myCanvas')
+    var ctx = canvas.getContext('2d')
+    //填充矩形
+    btn1.onclick = function() {
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(80, 80, 80, 80)
+    }
+    
+    //绘制边框
+    btn2.onclick = function() {
+        ctx.strokeStyle = 'blue';
+        ctx.strokeRect(200, 80, 80, 80)
+    }
+
+</script>
+</body>
+</html>

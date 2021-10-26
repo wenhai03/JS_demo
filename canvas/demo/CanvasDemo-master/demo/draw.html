@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用canvas绘图</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        html,body{height: 100%;}
+        body{background: #131313;}
+        canvas{position: absolute;top: 50%;left:50%;transform: translate(-50%,-50%);border: 10px solid #f7eef1;}
+    </style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+
+<script>
+    var canvas,context;
+    var WIDTH=Math.min(600,document.body.offsetWidth),
+        HEIGHT=Math.min(400,document.body.offsetHeight);
+
+    window.onload=function(){
+        canvas=document.getElementById('canvas');
+        canvas.width=WIDTH;
+        canvas.height=HEIGHT;
+
+        context=canvas.getContext("2d");
+        document.addEventListener('resize',resize,false);
+        context.moveTo(10,10);
+        context.lineTo(100,100);
+        context.lineTo(300,100);
+        context.strokeStyle='red';
+        context.lineWidth=5;
+        context.stroke();
+        context.closePath();
+
+    };
+   
+    function resize() {
+        WIDTH = Math.min(800,document.body.offsetWidth);
+        HEIGHT = Math.min(600,document.body.offsetHeight);
+
+        canvas.width = WIDTH;
+        canvas.height = HEIGHT;
+    }
+</script>
+
+</body>
+</html>

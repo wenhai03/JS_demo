@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        canvas { border: 1px solid #ccc}
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas">
+        当前浏览器版本不支持，请升级浏览器
+    </canvas>
+
+<script>
+    var canvas = document.getElementById('myCanvas')
+    var ctx = canvas.getContext('2d')
+    
+    var image = new Image();
+    image.src = './image/iu6.jpg';
+    image.onload = function() {
+        //四个参数时 x,y,w,h
+        // ctx.drawImage(image, 50, 50, 200, 200)
+
+        //前四个属性(绘制图片位置 大小) 在图片中设置切片的宽度和高度 以及切片位置， 后四个参数  是切片在画布上的位置和切片的宽度高度 切片
+        ctx.drawImage(image, 130, 100, 200, 200, 200, 150, 180, 180)
+    }
+</script>
+</body>
+</html>
