@@ -1,7 +1,5 @@
 // promise是一个类 需要new这个类型
 
-// executor执行器默认会立即执行
-
 // 1executor执行器 默认会执行
 // 2Promise默认是等待状态 (三个状态 等待 成功 失败)
 // 3成功调用resolve，失败调用reject
