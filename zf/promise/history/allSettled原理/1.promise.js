@@ -10,7 +10,7 @@ Promise.allSettled = function (values) {
       if (++orderIndex === values.length) resolve(resArr)
     }
     for (let i = 0; i < values.length; i++) {
-      let value = values[i]
+      const value = values[i]
       if (value && typeof value.then === 'function') {
         value.then(value => {
           processResByIndex({

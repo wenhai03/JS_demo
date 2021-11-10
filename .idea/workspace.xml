@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a81e121f-e539-44fc-8e7e-7521518730a6" name="Default Changelist" comment="feat">
+      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AA手写题/数组去重.js" beforeDir="false" afterPath="$PROJECT_DIR$/AA手写题/数组去重.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AA手写题/观察者模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/AA手写题/观察者模式.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zf/promise/history/01基础/1.promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/zf/promise/history/01基础/1.promise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zf/promise/history/01基础/promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/zf/promise/history/01基础/promise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zf/promise/history/02同一个promise可以then多次/1.promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/zf/promise/history/02同一个promise可以then多次/1.promise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zf/promise/history/allSettled原理/1.promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/zf/promise/history/allSettled原理/1.promise.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,28 +48,25 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/zf/promise/history" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/zf/promise/history/01基础" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/zf/promise/history/01基础" />
       <recent name="$PROJECT_DIR$/zf/promise/history" />
       <recent name="$PROJECT_DIR$/zf/设计模式" />
       <recent name="$PROJECT_DIR$/zf/promise/history/race原理" />
       <recent name="$PROJECT_DIR$/zf/promise/history/resolve和reject" />
-      <recent name="$PROJECT_DIR$/canvas/demo" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.1.promise.js">
-    <configuration name="01.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/定时器管理/01.js" working-dir="$PROJECT_DIR$/定时器管理">
+  <component name="RunManager" selected="Node.js.1.promise.js (2)">
+    <configuration name="1.promise.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/01基础/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/01基础">
       <method v="2" />
     </configuration>
-    <configuration name="1.promise-01.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/race原理/1.promise-01.js" working-dir="$PROJECT_DIR$/zf/promise/history/race原理">
-      <method v="2" />
-    </configuration>
-    <configuration name="1.promise.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/all原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/all原理">
+    <configuration name="1.promise.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/finally原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/finally原理">
       <method v="2" />
     </configuration>
     <configuration name="1.promise.js (3)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/race原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/race原理">
@@ -74,13 +75,16 @@
     <configuration name="1.promise.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/allSettled原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/allSettled原理">
       <method v="2" />
     </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/A-设计模式/观察者模式/index.js" working-dir="$PROJECT_DIR$/A-设计模式/观察者模式">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.1.promise.js" />
-        <item itemvalue="Node.js.1.promise.js (3)" />
-        <item itemvalue="Node.js.1.promise-01.js" />
-        <item itemvalue="Node.js.01.js" />
         <item itemvalue="Node.js.1.promise.js (2)" />
+        <item itemvalue="Node.js.1.promise.js" />
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="Node.js.1.promise.js (1)" />
+        <item itemvalue="Node.js.1.promise.js (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -178,7 +182,24 @@
       <workItem from="1634890057816" duration="597000" />
       <workItem from="1634892852654" duration="1199000" />
       <workItem from="1635123920601" duration="18403000" />
-      <workItem from="1635238049731" duration="1241000" />
+      <workItem from="1635238049731" duration="2004000" />
+      <workItem from="1635298579268" duration="605000" />
+      <workItem from="1635383114672" duration="3988000" />
+      <workItem from="1635474291332" duration="599000" />
+      <workItem from="1635499733783" duration="598000" />
+      <workItem from="1635679805591" duration="598000" />
+      <workItem from="1635729012427" duration="1109000" />
+      <workItem from="1635775921736" duration="599000" />
+      <workItem from="1635776639130" duration="1423000" />
+      <workItem from="1635841388226" duration="598000" />
+      <workItem from="1635911517008" duration="598000" />
+      <workItem from="1635919628170" duration="553000" />
+      <workItem from="1635930477663" duration="3581000" />
+      <workItem from="1636099244260" duration="598000" />
+      <workItem from="1636202271329" duration="2710000" />
+      <workItem from="1636333156847" duration="1825000" />
+      <workItem from="1636354709603" duration="3116000" />
+      <workItem from="1636506252347" duration="574000" />
     </task>
     <task id="LOCAL-00001" summary="feat">
       <created>1626658909909</created>

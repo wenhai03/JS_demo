@@ -9,7 +9,6 @@ class Subject { // 被观察者
     this.observers.push(o)
   }
   
-  
   setState(state) { // 更新被观察者的状态
     this.state = state
     this.observers.forEach(o => {
