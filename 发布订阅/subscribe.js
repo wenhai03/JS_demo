@@ -9,8 +9,7 @@
     $on (type, func) {
       // 每一次增加的时候，首先验证是否存在这个自定义事件，存在则把方法加入到指定事件类型的容器末尾
       // 但是需要做去重处理，不存在则创建一个自定义事件，属性值是空数组，再把方法加入到数组中
-      let $pond = this.$pond,
-        arr = null
+      let $pond = this.$pond, arr = null
       !hasOwn.call($pond, type) ? $pond[type] = [] : null
       arr = $pond[type]
       !arr.includes(func) ? arr.push(func) : null

@@ -1,4 +1,6 @@
-// 主题，保存状态，状态变化之后所有观察者对象
+// 观察者模式
+// 观察者和被观察者是耦合的
+// 观察者的update动作是由被观察者来调用的
 class Subject {
   constructor () {
     this.state = 0
@@ -13,7 +15,6 @@ class Subject {
     this.notifyAllObservers()
   }
   notifyAllObservers() {
-  
     this.observers.forEach(observer => {
       observer.update()
     })

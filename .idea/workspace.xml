@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a81e121f-e539-44fc-8e7e-7521518730a6" name="Default Changelist" comment="feat">
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A-类/extends.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A-设计模式/外观模式/calc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A-设计模式/外观模式/computer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A-设计模式/外观模式/facade.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A-设计模式/状态模式/status/1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A-设计模式/状态模式/status/2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A-设计模式/组合模式/2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/for应用/note.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AA手写题/数组去重.js" beforeDir="false" afterPath="$PROJECT_DIR$/AA手写题/数组去重.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AA手写题/观察者模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/AA手写题/观察者模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zf/promise/history/01基础/1.promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/zf/promise/history/01基础/1.promise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zf/promise/history/02同一个promise可以then多次/1.promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/zf/promise/history/02同一个promise可以then多次/1.promise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zf/promise/history/allSettled原理/1.promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/zf/promise/history/allSettled原理/1.promise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A-设计模式/观察者模式/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AA手写题/惰性函数.js" beforeDir="false" afterPath="$PROJECT_DIR$/AA手写题/惰性函数.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/发布订阅/subscribe.js" beforeDir="false" afterPath="$PROJECT_DIR$/发布订阅/subscribe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/定时器管理/01.js" beforeDir="false" afterPath="$PROJECT_DIR$/定时器管理/01.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,43 +55,49 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/zf/promise/history/01基础" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/A-设计模式/外观模式" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/A-设计模式/外观模式" />
       <recent name="$PROJECT_DIR$/zf/promise/history/01基础" />
       <recent name="$PROJECT_DIR$/zf/promise/history" />
       <recent name="$PROJECT_DIR$/zf/设计模式" />
       <recent name="$PROJECT_DIR$/zf/promise/history/race原理" />
-      <recent name="$PROJECT_DIR$/zf/promise/history/resolve和reject" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/A-设计模式/组合模式" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.1.promise.js (2)">
-    <configuration name="1.promise.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/01基础/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/01基础">
+  <component name="RunManager" selected="Node.js.1.js (1)">
+    <configuration name="1.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/proxy/1.js" working-dir="$PROJECT_DIR$/proxy">
       <method v="2" />
     </configuration>
-    <configuration name="1.promise.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/finally原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/finally原理">
+    <configuration name="1.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/A-设计模式/状态模式/status/1.js" working-dir="$PROJECT_DIR$/A-设计模式/状态模式/status">
       <method v="2" />
     </configuration>
-    <configuration name="1.promise.js (3)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/race原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/race原理">
+    <configuration name="2.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/A-设计模式/状态模式/status/2.js" working-dir="$PROJECT_DIR$/A-设计模式/状态模式/status">
       <method v="2" />
     </configuration>
-    <configuration name="1.promise.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/zf/promise/history/allSettled原理/1.promise.js" working-dir="$PROJECT_DIR$/zf/promise/history/allSettled原理">
+    <configuration name="2.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/A-设计模式/组合模式/2.js" working-dir="$PROJECT_DIR$/A-设计模式/组合模式/video">
       <method v="2" />
     </configuration>
-    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/A-设计模式/观察者模式/index.js" working-dir="$PROJECT_DIR$/A-设计模式/观察者模式">
+    <configuration name="calc.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/A-设计模式/外观模式/calc.js" working-dir="$PROJECT_DIR$/A-设计模式/外观模式">
+      <method v="2" />
+    </configuration>
+    <configuration name="computer.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/A-设计模式/外观模式/computer.js" working-dir="$PROJECT_DIR$/A-设计模式/外观模式">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.1.promise.js (2)" />
-        <item itemvalue="Node.js.1.promise.js" />
-        <item itemvalue="Node.js.index.js" />
-        <item itemvalue="Node.js.1.promise.js (1)" />
-        <item itemvalue="Node.js.1.promise.js (3)" />
+        <item itemvalue="Node.js.1.js (1)" />
+        <item itemvalue="Node.js.2.js" />
+        <item itemvalue="Node.js.1.js" />
+        <item itemvalue="Node.js.calc.js" />
+        <item itemvalue="Node.js.computer.js" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +212,41 @@
       <workItem from="1636202271329" duration="2710000" />
       <workItem from="1636333156847" duration="1825000" />
       <workItem from="1636354709603" duration="3116000" />
-      <workItem from="1636506252347" duration="574000" />
+      <workItem from="1636506252347" duration="1198000" />
+      <workItem from="1636516029186" duration="3949000" />
+      <workItem from="1636706647260" duration="394000" />
+      <workItem from="1636707086774" duration="437000" />
+      <workItem from="1636707558219" duration="599000" />
+      <workItem from="1636938612540" duration="598000" />
+      <workItem from="1637024749854" duration="598000" />
+      <workItem from="1637054692223" duration="599000" />
+      <workItem from="1637112144466" duration="2543000" />
+      <workItem from="1637204479050" duration="598000" />
+      <workItem from="1637286721520" duration="599000" />
+      <workItem from="1637288832618" duration="599000" />
+      <workItem from="1637333586300" duration="323000" />
+      <workItem from="1637543469881" duration="2775000" />
+      <workItem from="1637739228747" duration="597000" />
+      <workItem from="1637750001682" duration="246000" />
+      <workItem from="1637888859122" duration="4153000" />
+      <workItem from="1638234618195" duration="312000" />
+      <workItem from="1638234965046" duration="7221000" />
+      <workItem from="1638413396830" duration="612000" />
+      <workItem from="1577869002696" duration="599000" />
+      <workItem from="1638613995211" duration="599000" />
+      <workItem from="1638632160181" duration="4044000" />
+      <workItem from="1639012299290" duration="599000" />
+      <workItem from="1639016852559" duration="9270000" />
+      <workItem from="1639449610563" duration="599000" />
+      <workItem from="1639559596739" duration="599000" />
+      <workItem from="1639563377310" duration="3194000" />
+      <workItem from="1639962498660" duration="805000" />
+      <workItem from="1640063255617" duration="309000" />
+      <workItem from="1640070101687" duration="608000" />
+      <workItem from="1640135339257" duration="599000" />
+      <workItem from="1640136213194" duration="599000" />
+      <workItem from="1640234839156" duration="600000" />
+      <workItem from="1640317760853" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="feat">
       <created>1626658909909</created>
@@ -222,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635241599852</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat">
+      <created>1636506833974</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636506833975</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

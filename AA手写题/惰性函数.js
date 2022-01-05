@@ -1,3 +1,5 @@
+// 惰性函数的本质就是函数重写
+
 /*
 * DOM2事件绑定
 *  元素.addEventListener()
@@ -41,4 +43,14 @@ function emitDemo(element, type, func) {
     element['on' + type] = func
   }
 }
+
+
+function b(){
+  console.log('b');
+  b1 = function(){
+    console.log('other b');
+  }
+}
+b(); // 执行第一个b函数
+b1();// 执行第二个函数
 
