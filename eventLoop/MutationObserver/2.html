@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+  let box = document.querySelector('#box'),
+    config = { attributes: true };
+
+  let observer = new MutationObserver(mutations => {
+    console.log(mutations);
+    // => 返回一个监听到的MutationRecord对象
+    // MutationRecord对象是每修改一个就会在数组里面追加一个
+  });
+
+  observer.observe(box, config); // 监听的box元素和config配置项
+  box.setAttribute('name','张三'); // 修改属性
+  box.style.background = 'black'; // 修改样式
+
+</script>
+</body>
+</html>

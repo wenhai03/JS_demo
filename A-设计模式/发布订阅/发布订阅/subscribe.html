@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="demo.js"></script>
+</head>
+<body>
+<script>
+  function fn1() {
+    console.log('fn1 -> ')
+  }
+  function fn2(x, y) {
+    console.log('fn2 x y -> ', x, y)
+    // 第一次执行fn2，就把fn1、fn2从事件池中移除
+    sub.$off('MARRY', fn1)
+    sub.$off('MARRY', fn2)
+  }
+  function fn3() {
+    console.log('fn3 -> ')
+  }
+  function fn4() {
+    console.log('fn4 -> ')
+  }
+  function fn5() {
+    console.log('fn5 -> ')
+  }
+
+  const sub = subscribe()
+  sub.$on('MARRY', fn1)
+  sub.$on('MARRY', fn2)
+  sub.$on('MARRY', fn3)
+  sub.$on('MARRY', fn4)
+  sub.$on('MARRY', fn5)
+
+  document.onclick = function () {
+    sub.$emit('MARRY', 10, 20)
+  }
+
+</script>
+</body>
+</html>

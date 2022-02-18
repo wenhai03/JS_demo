@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button id="btn">btn按钮</button>
+<script>
+  btn.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('M1'));
+    console.log('L1');
+  });
+  btn.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('M2'));
+    console.log('L2');
+  });
+
+  // btn.click(); // 输出: L1 L2 M1 M2
+</script>
+</body>
+</html>

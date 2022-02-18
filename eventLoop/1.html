@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<a id="link" href="http://www.baidu.com">link222</a>
+<script>
+  let link = document.getElementById('link');
+  const nextTick = new Promise(resolve => {
+    link.addEventListener('click', resolve);
+    // link.addEventListener('click', resolve, { once: true });
+  });
+  nextTick.then(event => {
+    // console.log('event -> ', event)
+    event.preventDefault();
+    console.log('event.preventDefault()');
+  });
+
+  link.click();
+
+  console.log('111')
+  alert(1)
+
+</script>
+</body>
+</html>

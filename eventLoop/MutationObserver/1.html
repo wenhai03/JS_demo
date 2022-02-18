@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="id"></div>
+
+<script>
+  document.body.style.backgroundColor = 'red'
+  document.querySelector('#id').innerText = 456
+  // 延迟5s
+  const time = Date.now()
+  while (Date.now() - time < 5000) {
+    console.log('continue')
+    continue
+  }
+
+  document.body.style.backgroundColor = 'blue'
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>callbacks</title>
+</head>
+<body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+  function Callbacks () {
+    let observers = []
+
+    function add (observer) {
+      observers.push(observer)
+    }
+
+    function remove (observer) {
+      let index = observers.indexOf(observer)
+      if (index != -1)
+        observers.splice(index, 1)
+    }
+
+    function fire () {
+      observers.forEach(item => item())
+    }
+
+    return {
+      add,
+      remove,
+      fire
+    }
+  }
+
+  let callbacks = Callbacks()
+
+  let a1 = () => alert(1)
+  let a2 = () => alert(2)
+  let a3 = () => alert(13)
+  callbacks.add(a1)
+  callbacks.add(a2)
+  callbacks.add(a3)
+  callbacks.remove(a3)
+  callbacks.fire()
+</script>
+</body>
+</html>

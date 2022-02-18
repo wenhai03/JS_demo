@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>事件绑定</title>
+</head>
+<body>
+<button id="btn">click</button>
+<script>
+  /*
+  * 被观察者 btn
+  * 观察者 用户
+  *
+  * 被观察者点击了，通知事件执行
+  *
+  * */
+  let btn = document.getElementById('btn')
+  btn.addEventListener('click', () => {
+    alert(1)
+  })
+  btn.addEventListener('click', () => {
+    alert(2)
+  })
+  btn.addEventListener('click', () => {
+    alert(3)
+  })
+</script>
+</body>
+</html>

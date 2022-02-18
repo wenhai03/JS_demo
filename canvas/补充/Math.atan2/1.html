@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      html,
+      body {
+          margin: 0;
+          padding: 0;
+      }
+
+      .box {
+          width: 100px;
+          height: 100px;
+          line-height: 100px;
+          text-align: center;
+          font-size: 20px;
+          position: absolute;
+          left: 200px;
+          top: 100px;
+          background: #09c;
+      }
+  </style>
+</head>
+<body>
+<span></span>
+<script>
+
+  /*
+  *
+  * Math.atan2()函数返回点(x,y)和原点(0,0)之间直线的倾斜角
+  *
+  * */
+
+  // π = 3.1415 = 180度
+  function getDegree (e) {
+    const num = Math.atan2(e.clientY - 100, e.clientX - 200)
+    return num / (Math.PI / 180)
+  }
+
+  document.onmousemove = function (e) {
+    const box = document.querySelector('span')
+    const deg = getDegree(e)
+
+
+    box.innerHTML = Math.atan2(e.clientY, e.clientX) * 180 / Math.PI
+    // box.style.transform = `rotate(${deg}deg)`
+    // console.log(deg)
+  }
+</script>
+</body>
+</html>

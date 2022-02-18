@@ -102,15 +102,15 @@
     this.startY = ev.clientY
     this.startT = $MAIN.offsetTop
     this.startL = $MAIN.offsetLeft
-    this._MOVE = up.bind(this)
-    this._UP = move.bind(this)
+    this._MOVE = move.bind(this)
+    this._UP = up.bind(this)
 
     document.addEventListener('mousemove', this._MOVE)
     document.addEventListener('mouseup', this._UP)
 
   }
 
-  function up (ev) {
+  function move (ev) {
     let curL = ev.clientX - this.startX + this.startL,
       curT = ev.clientY - this.startY + this.startT
     let minL = 0,
@@ -124,7 +124,7 @@
     $MAIN.style.marginLeft = 0
   }
 
-  function move () {
+  function up () {
     document.removeEventListener('mousemove', this._MOVE)
     document.removeEventListener('mouseup', this._UP)
   }

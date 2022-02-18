@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+      body, html {
+          margin: 0;
+          height: 100%;
+      }
+
+      #canvas {
+          box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+      }
+  </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script src="../assets/script/utils.js"></script>
+<!--<script src="../assets/components/Arrow.js"></script>-->
+<script>
+  const canvas = document.getElementById('canvas')
+  const ctx = canvas.getContext('2d')
+
+  let W = canvas.width = 800
+  let H = canvas.height = 600
+
+  let mouse = C.getOffset(canvas)
+
+
+  function drawSystem () {
+    ctx.save()
+    ctx.lineWidth = 1.5
+    ctx.beginPath()
+    ctx.moveTo(0, H / 2)
+    ctx.lineTo(W, H / 2)
+    ctx.moveTo(W / 2, 0)
+    ctx.lineTo(W / 2, H)
+    ctx.stroke()
+    ctx.restore()
+  }
+
+  drawSystem()
+
+
+  canvas.onmousemove = function () {
+    ctx.clearRect(0, 0, W, H)
+    const dx = mouse.x - W / 2
+    const dy = mouse.y - H / 2
+    let angle = Number(Math.atan2(dy, dx) * 180 / Math.PI)
+    drawSystem()
+    ctx.beginPath()
+    ctx.lineTo(mouse.x, mouse.y)
+    ctx.lineTo(W / 2, H / 2)
+    ctx.stroke()
+    ctx.fillText(angle, mouse.x, mouse.y)
+  }
+
+</script>
+</body>
+</html>
