@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a81e121f-e539-44fc-8e7e-7521518730a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AA手写题/惰性函数.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AA手写题/数组去重.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AA手写题/防抖.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayToTree/1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayToTree/2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayToTree/3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayToTree/4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayToTree/reduce.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/call/call.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj类型转换.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promise/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promise/promiseA+.js" afterDir="false" />
+    <list default="true" id="a81e121f-e539-44fc-8e7e-7521518730a6" name="Default Changelist" comment="Default Changelist">
+      <change afterPath="$PROJECT_DIR$/.idea/cssxfire.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ZF/回调函数/age.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ZF/回调函数/name.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ZF/回调函数/发布订阅.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ZF/回调函数/基础异步并发.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async/1.编写第一个async函数.js" beforeDir="false" afterPath="$PROJECT_DIR$/async/1.编写第一个async函数.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async/8. 在 for 循环中正确的使用 await.js" beforeDir="false" afterPath="$PROJECT_DIR$/async/8. 在 for 循环中正确的使用 await.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async/请求超时提示.js" beforeDir="false" afterPath="$PROJECT_DIR$/async/请求超时提示.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promise/promise.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/发布订阅/sub2.js" beforeDir="false" afterPath="$PROJECT_DIR$/发布订阅/sub2.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -57,35 +49,44 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ZF/before" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Node.js.4.js">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ZF/before" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.3.js">
     <configuration name="3.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/arrayToTree/3.js" working-dir="$PROJECT_DIR$/arrayToTree">
       <method v="2" />
     </configuration>
     <configuration name="4.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/arrayToTree/4.js" working-dir="$PROJECT_DIR$/arrayToTree">
       <method v="2" />
     </configuration>
+    <configuration name="基础异步并发.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/ZF/回调函数/基础异步并发.js" working-dir="$PROJECT_DIR$/ZF/回调函数">
+      <method v="2" />
+    </configuration>
+    <configuration name="发布订阅.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/ZF/回调函数/发布订阅.js" working-dir="$PROJECT_DIR$/ZF/回调函数">
+      <method v="2" />
+    </configuration>
     <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/promise/index.js" working-dir="$PROJECT_DIR$/promise">
-      <method v="2" />
-    </configuration>
-    <configuration name="promiseA+.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/promise/promiseA+.js" working-dir="$PROJECT_DIR$/promise">
-      <method v="2" />
-    </configuration>
-    <configuration name="reduce.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/arrayToTree/reduce.js" working-dir="$PROJECT_DIR$/arrayToTree">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.基础异步并发.js" />
         <item itemvalue="Node.js.4.js" />
         <item itemvalue="Node.js.3.js" />
         <item itemvalue="Node.js.index.js" />
-        <item itemvalue="Node.js.promiseA+.js" />
-        <item itemvalue="Node.js.reduce.js" />
       </list>
     </recent_temporary>
   </component>
@@ -137,6 +138,16 @@
       <workItem from="1626311527572" duration="4052000" />
       <workItem from="1626341712439" duration="600000" />
       <workItem from="1626657672643" duration="1227000" />
+      <workItem from="1631935728442" duration="3889000" />
+      <workItem from="1633957773410" duration="650000" />
+      <workItem from="1634132200093" duration="29000" />
+      <workItem from="1634132266523" duration="274000" />
+      <workItem from="1634560103900" duration="556000" />
+      <workItem from="1635944353744" duration="7000" />
+      <workItem from="1642690241950" duration="713000" />
+      <workItem from="1644838865914" duration="362000" />
+      <workItem from="1644839259556" duration="471000" />
+      <workItem from="1645841274811" duration="123000" />
     </task>
     <servers />
   </component>
