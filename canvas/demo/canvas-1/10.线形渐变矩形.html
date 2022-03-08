@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        canvas { border: 1px solid #ccc}
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas">
+        当前浏览器版本不支持，请升级浏览器
+    </canvas>
+
+<script>
+    var canvas = document.getElementById('myCanvas')
+    var ctx = canvas.getContext('2d')
+    
+    //线型渐变 四个参数表示渐变线段的 开始和结束点
+    // var linear = ctx.createLinearGradient(0, 0, 200, 200);
+    // linear.addColorStop(0, "pink");
+    // linear.addColorStop(0.3, "orange");
+    // linear.addColorStop(0.5, "purple");
+    // linear.addColorStop(1, "yellow");
+    // ctx.fillStyle = linear;
+    // ctx.fillRect(10, 10, 200, 100)
+    
+    //径向渐变  开始 结束 圆半径   开始  结束 结束圆半径
+    var linear = ctx.createRadialGradient(95, 25, 25, 102, 20, 40);
+    linear.addColorStop(0, "red");
+    linear.addColorStop(0.5, "yellow");
+    linear.addColorStop(0.8, "blue");
+    linear.addColorStop(1, "purple");
+    ctx.fillStyle = linear;
+    ctx.fillRect(0, 0, 200, 100)
+</script>
+</body>
+</html>

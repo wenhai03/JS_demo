@@ -1,0 +1,44 @@
+<!-- 线性渐变 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="myCanvas" width="400" height="400" style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+
+<script>
+  const canvas = document.getElementById('myCanvas')
+  const c = canvas.getContext('2d')
+
+  let linear = c.createLinearGradient(0, 0, 0, 150)
+  linear.addColorStop(0, 'pink')
+  linear.addColorStop(0.5, '#fff')
+  linear.addColorStop(1, 'orange')
+
+  c.fillStyle = linear
+  c.fillRect(10, 10, 140, 140)
+
+  let linear2 = c.createLinearGradient(0, 0, 150, 150)
+  linear2.addColorStop(0, '#000')
+  linear2.addColorStop(1, '#fff')
+
+  c.strokeStyle = linear2
+  // c.beginPath()
+  c.moveTo(50, 100)
+  c.lineTo(50, 50)
+  c.lineTo(100, 50)
+  c.lineTo(100, 100)
+  // c.closePath()
+  c.stroke()
+
+
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript数字倒计时效果</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            outline: none;
+        }
+        .wrap{
+            width: 600px;
+            height: 400px;
+            margin: 50px auto;
+            padding: 50px;
+            background: lightgray;
+            text-align: center;
+        }
+        .time{
+            display: inline-block;
+            padding: 8px 25px;
+            color: white;
+            font: 25px  "Microsoft Yahei";
+            font-weight: bolder;
+            background: mediumvioletred;
+            border-radius: 10px;
+        }
+        .time>span{  }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="time o-day"><span id="o-day">00</span>天</div>
+    <div class="time o-hour"><span id="o-hour">00</span>时</div>
+    <div class="time o-min"><span id="o-min">00</span>分</div>
+    <div class="time o-sec"><span id="o-sec">00</span>秒</div>
+</div>
+<script type="text/javascript">
+    window.onload= function () {
+        runTime();
+    };
+    var time=3605; //传入参数为60s
+    var timer,local, re={};
+    var os={
+        oDay:document.getElementById('o-day'),
+        oHour:document.getElementById('o-hour'),
+        oMin:document.getElementById('o-min'),
+        oSec:document.getElementById('o-sec')
+    };
+    function init(local){
+        if(local.s<=9) local.s='0'+local.s;
+        if(local.m<=9) local.m='0'+local.m;
+        os.oDay.innerText=local.d;
+        os.oHour.innerText=local.h;
+        os.oMin.innerText=local.m;
+        os.oSec.innerText=local.s;
+    }
+    function getTime(ot){
+        //参数，d:day h:hour m:min s:sec
+        re.d=Math.floor(ot/(60*60*24));
+        re.h=Math.floor((ot%(60*60*24))/(60*60));
+        re.m=Math.floor(((ot%(60*60*24))%(60*60))/60);
+        re.s=Math.floor(((ot%(60*60*24))%(60*60))%60);
+        return re;
+    }
+    function runTime(){
+        if(time<0){
+            return false;
+        }
+        local=getTime(time);
+        init(local);
+        clearInterval(timer);
+        timer=setTimeout(runTime,1000);
+        time--;
+    }
+</script>
+</body>
+</html>

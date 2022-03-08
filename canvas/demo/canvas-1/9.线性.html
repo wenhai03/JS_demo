@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <style>
+        canvas { border: 1px solid #ccc}
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas">
+        当前浏览器版本不支持，请升级浏览器
+    </canvas>
+
+<script>
+    var canvas = document.getElementById('myCanvas')
+    var ctx = canvas.getContext('2d')
+    
+    
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    ctx.lineTo(100, 100);
+    ctx.lineTo(200, 50);
+    //线的粗细 属性值数字；默认 1.0
+    ctx.lineWidth = 10;
+    //线的末端属性 默认:"butt",圆角:"round",方角:"square",超出厚度的一半
+    ctx.lineCap = "butt";
+    //两条线 相连 中间的样式 默认miter 圆角round 方角bevel
+    ctx.lineJoin = "miter"
+    ctx.stroke()
+
+
+    //setLineDash([10, 20])  定义虚线样式  接受一个数组最少两个参数   第一个参数线的长短 二是距离
+</script>
+</body>
+</html>

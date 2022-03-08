@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid #333333;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container ">
+			<canvas id="canvas" width="500" height="500"></canvas>
+			<input type="button" name="bi" id="bi" value="笔" />
+			<input type="button" name="shixinjuxing" id="shixinjuxing" value="实心矩形" />
+			<input type="button" name="shixinyuan" id="shixinyuan" value="实心圆" />
+			<input type="button" name="kongxinjuxing" id="kongxinjuxing" value="空心矩形" />
+			<input type="button" name="kongxinyuan" id="kongxinyuan" value="空心圆" />
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			let oCanvas = document.getElementById('canvas');
+			let oPen = oCanvas.getContext("2d");
+			console.dir(oCanvas)
+			
+			let obi = document.getElementById('bi');
+			obi.onclick=function(){
+			let isMove =false,
+				startX = 0,
+				startY = 0;
+			
+			document.onmousemove=function(e){
+				let nowX=0,
+					nowY=0;
+					nowX=(e.pageX-oCanvas.offsetLeft),
+					nowY=(e.pageY-oCanvas.offsetTop);
+				if(isMove){
+					oPen.lineTo(nowX,nowY);
+					oPen.stroke();
+				}
+			}
+			
+			document.onmousedown=function(e){
+				isMove=true;
+				startX=(e.pageX-oCanvas.offsetLeft)
+				startY=(e.pageY-oCanvas.offsetTop)
+				oPen.moveTo(startX,startY);
+			}
+			
+			document.onmouseup  = function(e){
+            	console.dir('x='+(e.pageX-oCanvas.offsetLeft))
+            	console.dir('y='+(e.pageY-oCanvas.offsetTop))
+            	isMove=false;
+        	}
+			}
+			
+			
+			let oshixinjuxing = document.getElementById('shixinjuxing');
+			oshixinjuxing.onclick = function(){
+				let lastX=0,lastY=0;
+				document.onmousedown = function(e){
+				console.dir(x1=+(e.pageX-oCanvas.offsetLeft))
+				console.dir(y1=+(e.pageY-oCanvas.offsetTop))
+				
+				document.onmousemove = function(e){
+				console.dir(x2=+(e.pageX-oCanvas.offsetLeft))
+				console.dir(y2=+(e.pageY-oCanvas.offsetTop))
+					
+					oPen.beginPath();	
+					if(lastX!==0 && lastY!==0){
+						oPen.clearRect(x1,y1,lastX-x1,lastY-y1);
+					}
+					oPen.fillRect(x1,y1,x2-x1,y2-y1);  
+					lastX=x2;
+					lastY=y2;
+					}
+				document.onmouseup  = function(e){
+				document.onmousemove =null;
+            	}
+				}
+			}
+			
+			let oshixinyuan = document.getElementById('shixinyuan');
+			oshixinyuan.onclick=function(){
+				document.onmousedown=function(e){
+				console.dir(x1=+(e.pageX-oCanvas.offsetLeft))
+				console.dir(y1=+(e.pageY-oCanvas.offsetTop))
+				document.onmousemove=function(e){
+				console.dir(x2=+(e.pageX-oCanvas.offsetLeft))
+				console.dir(y2=+(e.pageY-oCanvas.offsetTop))
+				oPen.clearRect(0,0,500,500);
+				oPen.beginPath();
+				oPen.arc(x1, y1,Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)) , 0, Math.PI / 180 * 360, true);
+				oPen.closePath();
+				oPen.stroke();
+            	oPen.fill();
+				document.onmouseup  = function(e){
+				document.onmousemove =null;
+            	}
+        	}
+			}
+			}
+			
+			
+			let okongxinjuxing = document.getElementById('kongxinjuxing');
+			okongxinjuxing.onclick = function(){
+				document.onmousedown = function(e){
+				console.dir(x1=+(e.pageX-oCanvas.offsetLeft))
+				console.dir(y1=+(e.pageY-oCanvas.offsetTop))
+								
+				
+				document.onmousemove = function(e){
+				console.dir(x2=+(e.pageX-oCanvas.offsetLeft))
+				console.dir(y2=+(e.pageY-oCanvas.offsetTop))
+					
+            		oPen.clearRect(0,0,500,500);
+					oPen.beginPath();
+					oPen.strokeRect(x1,y1,x2-x1,y2-y1);
+            		oPen.closePath();
+            		
+					}
+				}
+				document.onmouseup = function(){
+					document.onmousemove = null;
+				}
+			}
+			
+			
+			let okongxinyuan = document.getElementById('kongxinyuan');
+			okongxinyuan.onclick = function(){
+				document.onmousedown = function(e){
+				console.dir(x1=+(e.pageX-oCanvas.offsetLeft))
+				console.dir(y1=+(e.pageY-oCanvas.offsetTop))
+				document.onmousemove = function(e){
+				console.dir(x2=+(e.pageX-oCanvas.offsetLeft))
+				console.dir(y2=+(e.pageY-oCanvas.offsetTop))
+					
+					oPen.clearRect(0,0,500,500);
+					oPen.beginPath();
+					
+					oPen.arc(x1,y1,Math.abs(x2-x1), 0,Math.PI*2, true);
+            		oPen.stroke();
+            		oPen.closePath();
+            		
+            		
+					}
+				}
+				document.onmouseup = function(){
+					document.onmousemove = null;
+				}
+			}
+			
+		}
+	</script>
+</html>

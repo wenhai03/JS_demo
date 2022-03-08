@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>雨滴坠落效果</title>
+</head>
+<body>
+<canvas id="canvas" style="position: absolute;top: 0;left: 0">您的浏览器不支持</canvas>
+<script>
+   window.onload=function(){
+       var canvas=document.getElementById("canvas");
+       canvas.width=window.innerWidth;
+       canvas.height=window.innerHeight;
+       var ctx=canvas.getContext('2d');
+       var bgColor="#000";
+
+       var dropList=[],gravity=0.5;
+       var lineList=[],oSpeed= 0,maxSpeed=0;
+       var mousePos={x:0,y:0};
+
+       window.onresize= function () {
+           canvas.width=window.innerWidth;
+           canvas.height=window.innerHeight;
+       };
+       canvas.onmousemove= function (e) {
+           mousePos.x= e.clientX;
+           mousePos.y= e.clientY;
+           maxSpeed= (e.clientX-canvas.width/2)/(canvas.width/2);  //往两边走速度越大
+       };
+       function createLine(ox){
+           var aLen=0.25*(Math.random()*100+50);//线条的长度
+           var aLine={
+               len:aLen,
+               speed:Math.random()*6+3,
+               x:ox,
+               y:-200,
+               die:false,
+               color:getColor(Math.ceil(aLen*255/75),Math.ceil(aLen*255/75),Math.ceil(aLen*255/75))
+           };
+            lineList.push(aLine);
+       }
+       function createDrop(ox,oy){
+           var aLen=Math.floor(Math.random()*5+5); //产生的水滴数
+           var aDrop={
+               r:Math.random()*2+3,
+               vx:(Math.random()-0.5)*8,
+               vy:Math.random()*(-6)-3,
+               x:ox,
+               y:oy,
+               die:false
+           };
+           for(var i=0;i<aLen;i++){
+               dropList.push(aDrop);
+           }
+       }
+       function getColor(r,g,b){
+           return "rgb("+r+","+g+","+b+")";
+       }
+       window.requestAnimationFrame(update);
+       function update(){
+           oSpeed=oSpeed+(maxSpeed-oSpeed)/50;
+           if(Math.random()>0){
+               createLine(Math.random()*2*canvas.width-(canvas.width/2));
+               createLine(Math.random()*2*canvas.width-(canvas.width/2));
+               createLine(Math.random()*2*canvas.width-(canvas.width/2));
+           }
+           var deadLine=canvas.clientHeight-Math.random()*canvas.clientHeight/5;
+           lineList.forEach(function (line) {
+               var mr=Math.sqrt(((line.x+oSpeed*line.len)-mousePos.x)*((line.x+oSpeed*line.len)-mousePos.x)+((line.y+line.len-mousePos.y)*(line.y+line.len-mousePos.y)));
+               if(mr<40){
+                   createDrop(line.x+oSpeed*line.len,line.y+line.len);
+                   line.die=true;
+               }
+               if(line.y+line.len>deadLine){
+                   //发生碰撞地面的效果  85%碰撞
+                   if(Math.random()>0.85){
+                       //产生碰撞水滴
+                       createDrop(line.x+oSpeed*line.len,line.y+line.len);
+                       line.die=true;
+                   }
+               }
+               if(line.y>canvas.clientHeight){
+                   line.die=true;
+               }
+               else{
+                   line.y=line.y+line.speed; console.log(line.y);
+                   line.x=line.x+line.speed*oSpeed;
+               }
+           });
+           for(var i=lineList.length-1;i>=0;i--) {
+               if(lineList[i].die){
+                   lineList.splice(i,1);   //删掉已经降落的雨滴
+               }
+           }
+           if(dropList.length>0){
+               dropList.forEach(function (drop) {
+                   drop.vx=drop.vx+(oSpeed)/5;
+                   drop.x=drop.x+drop.vx;
+                   drop.vy=drop.vy+gravity;
+                   drop.y=drop.y+drop.vy;
+                   if(drop.y>canvas.clientHeight)
+                   {
+                       drop.die=true;
+                   }
+               })
+           }
+           for(var i=dropList.length-1;i>=0;i--) {
+               //delete die
+               if(dropList[i].die){
+                   dropList.splice(i,1);
+               }
+           }
+           render();
+           window.requestAnimationFrame(update);
+       }
+       function render(){
+           ctx.fillRect(0,0,canvas.width,canvas.height);
+           ctx.fillStyle=bgColor;
+           lineList.forEach(function (line) {
+               ctx.strokeStyle=line.color;
+               ctx.lineWidth=5;
+               ctx.lineCap="round";
+               ctx.beginPath();
+               ctx.moveTo(line.x,line.y);
+               ctx.lineTo(line.x+(oSpeed*line.len),line.y+line.len);
+               ctx.stroke();
+           });
+           dropList.forEach(function(drop){
+               ctx.strokeStyle="#fff";
+               ctx.lineWidth=1;
+               ctx.beginPath();
+               ctx.arc(drop.x,drop.y,drop.r,Math.random()*Math.PI*2,Math.PI*1.8);
+               ctx.stroke();
+           });
+       }
+   }
+</script>
+</body>
+</html>

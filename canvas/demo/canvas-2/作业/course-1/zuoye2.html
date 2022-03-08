@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2021/3/15</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.container{
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid black;
+			}
+		</style>
+		<script>
+			function $$(id){
+				return document.getElementById(id);
+			}
+			window.onload = function () {
+				var oCanvas = $$("canvas");
+				var oPen = oCanvas.getContext("2d");
+				oPen.strokeStyle = "deeppink";
+				oPen.lineWidth = 15;
+				oPen.moveTo(75,250);
+				oPen.lineTo(150,350);
+				oPen.lineTo(225,250);
+				oPen.lineJoin = "round";
+				oPen.stroke();
+				oPen.moveTo(150,350);
+				oPen.lineTo(150,50);
+				oPen.stroke();
+				oPen.moveTo(275,150);
+				oPen.lineTo(350,50);
+				oPen.lineTo(425,150);
+				oPen.lineJoin = "round";
+				oPen.stroke();
+				oPen.moveTo(350,50);
+				oPen.lineTo(350,350);
+				oPen.stroke();
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+		</div>
+	</body>
+</html>

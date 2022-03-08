@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="600" style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+<script>
+  var canvas = document.getElementById('canvas')
+  var ctx = canvas.getContext('2d')
+
+  class Rect {
+    constructor(x, y, width, height, speedX, speedY, color = 'green') {
+      this.x = x;
+      this.y = y;
+      this.width = width
+      this.height = height
+      this.speedX = speedX
+      this.speedY = speedY
+      this.color = color
+
+      this.draw()
+    }
+
+    draw() {
+      ctx.beginPath()
+      ctx.fillStyle = this.color
+      ctx.fillRect(this.x, this.y, this.width, this.height)
+    }
+
+    move() {
+      this.x += this.speedX
+      if (this.x >= canvas.width - this.width || this.x <= 0) {
+        this.speedX *= -1
+      }
+
+      this.y += this.speedY
+      if (this.y >= canvas.height - this.height || this.y <= 0) {
+        this.speedY *= -1
+      }
+    }
+  }
+
+  var rect1 = new Rect(0, 10, 100, 100, 2, 2, 'pink')
+  var rect2 = new Rect(100, 200, 100, 100, 3, 3, 'blue')
+
+  animater = function () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    rect1.draw()
+    rect1.move()
+
+    rect2.draw()
+    rect2.move()
+
+    if (proving(rect1, rect2)) {
+      rect2.speedX *= -1
+      rect2.speedY *= -1
+
+      rect1.speedX *= -1
+      rect1.speedY *= -1
+    }
+
+    window.requestAnimationFrame(this.animater)
+  }
+
+  function proving(rect1, rect2) {
+    /*
+      思路  ：
+        两个矩形的最小的x轴坐标的值选出他们之间最大的那个坐标，maxX
+        两个矩形的最大的x轴坐标的值选出他们之间最小的那个坐标，minX
+        这样就选出了两个矩形相对的角的x轴坐标值
+        进行比较，如果minX < maxX 则两个矩形进行碰撞了
+        y轴同理
+    */
+    minX1 = rect1.x
+    minX2 = rect2.x
+
+    maxX1 = rect1.x + rect1.width
+    maxX2 = rect2.x + rect2.width
+
+    minX3 = Math.max(minX1, minX2)
+    maxX3 = Math.min(maxX1, maxX2)
+
+    minY1 = rect1.y
+    minY2 = rect2.y
+
+    maxY1 = rect1.y + rect1.height
+    maxY2 = rect2.y + rect2.height
+
+    minY3 = Math.max(minY1, minY2)
+    maxY3 = Math.min(maxY1, maxY2)
+
+    // minY1 = rect1.y
+    if (minX3 < maxX3 && minY3 < maxY3) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  animater()
+</script>

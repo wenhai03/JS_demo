@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="myCanvas" width="400" height="400" style="box-shadow: 0 0 10px #000;margin: 0 auto;"></canvas>
+</body>
+
+</html>
+
+
+<script>
+  const canvas = document.getElementById('myCanvas')
+  const c = canvas.getContext('2d')
+
+  c.beginPath()
+  c.arc(75, 75, 50, 0, Math.PI * 2)
+  c.moveTo(105, 75)
+  c.arc(75, 75, 30, 0, Math.PI)
+  c.moveTo(65, 60)
+  c.arc(60, 60, 5, 0, Math.PI * 2)
+  c.moveTo(95, 60)
+  c.arc(90, 60, 5, 0, Math.PI * 2)
+  c.closePath()
+  c.stroke()
+</script>

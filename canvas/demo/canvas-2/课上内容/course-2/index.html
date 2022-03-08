@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>课上练习</title>
+  <style type="text/css">
+      * {
+          padding: 0;
+          margin: 0;
+      }
+
+      .container {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+      canvas {
+          width: 500px;
+          height: 500px;
+          border: 1px solid black;
+      }</style>
+</head>
+<body>
+<div class="container">
+  <canvas id="canvas" width="500px" height="500px"></canvas>
+</div>
+</body>
+<script>
+  window.onload = function () {
+    let oCanvas = document.getElementById('canvas')
+
+    console.dir(oCanvas)
+
+    let oPen = oCanvas.getContext("2d")
+
+    // arc
+    // 角度无论如何都是顺时针，不管最后是true还是false
+    //beginPath跟closePath是把第一个点与最后一个点连线
+
+    //oPen.beginPath();
+    //oPen.closePath();
+    // x,y,半径,开始角度,结束角度,是否逆时针画
+
+    // oPen.beginPath()
+    // oPen.arc(200, 200, 50, 0, Math.PI * 2, true)
+    // oPen.lineWidth = 5
+    // oPen.strokeStyle = "green"
+    // oPen.stroke()
+    // oPen.closePath()
+
+
+    // oPen.beginPath()
+    // oPen.arc(100, 0, 100, 0, Math.PI/2, true)
+    // oPen.lineWidth = 5
+    // oPen.strokeStyle = "green"
+    // oPen.stroke()
+    // oPen.closePath()
+
+    // arc 默认false顺时针，true会在开始和结束逆时针绘制
+
+
+    // let r = 40
+    // oPen.lineWidth = 5
+    // oPen.strokeStyle = "green"
+    // oPen.beginPath()
+    // oPen.moveTo(60, 60)
+    // oPen.lineTo(240, 60)
+    // oPen.arcTo(240 + r, 60, 240 + r, 60 + r, r)
+    // oPen.lineTo(240 + r, 300)
+    // oPen.arcTo(240 + r, 300 + r, 240 - r, 300 + r, r)
+    // oPen.lineTo(60, 300 + r)
+    // oPen.arcTo(60 - r, 300 + r, 60 - r, 300, r)
+    // oPen.lineTo(60 - r, 60 + r)
+    // oPen.arcTo(60 - r, 60, 60, 60, r)
+    //
+    // oPen.stroke()
+
+
+    // //控制点x，控制点y，结束点x，结束点y，半径
+    // //控制点x,y是顶点
+    creatRound(oPen, 100, 100, 50, 50, 50)
+
+    function creatRound (pen, width, height, x, y, r) {
+      pen.moveTo(x + r, y)
+      pen.lineTo(x + width - r, y)
+      pen.arcTo(x + width, y, x + width, y + r, r)
+      pen.lineTo(x + width, y + height - r)
+      pen.arcTo(x + width, y + height, x + width - r, y + height, r)
+      pen.lineTo(x + r, y + height)
+      pen.arcTo(x, y + height, x, y + height - r, r)
+      pen.lineTo(x, y + r)
+      pen.arcTo(x, y, x + r, y, r)
+      pen.stroke()
+    }
+
+  }
+</script>
+< /html>

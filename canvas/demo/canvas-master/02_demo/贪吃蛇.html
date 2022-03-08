@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="600" height="600" style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+
+<script>
+  var canvas = document.getElementById('canvas')
+  var ctx = canvas.getContext('2d')
+  var isEat = false
+
+  class Rect {
+    constructor(x, y, width, height, color) {
+      this.x = x
+      this.y = y
+      this.width = width
+      this.height = height
+      this.color = color
+    }
+
+    rDraw() {
+      ctx.beginPath()
+      ctx.fillStyle = this.color
+      ctx.fillRect(this.x, this.y, this.width, this.height)
+      ctx.strokeRect(this.x, this.y, this.width, this.height)
+      ctx.closePath()
+    }
+  }
+
+  class Snake {
+    constructor() {
+      this.header = new Rect(canvas.width / 2 - 20, canvas.height / 2 - 20, 40, 40, 'skyblue')  // 创建蛇头对象
+
+      // 创建蛇身体的数组
+      this.body = []
+
+      // 初始化的蛇
+      this.X = this.header.x - 40
+      this.Y = this.header.y
+      for (var i = 0; i < 3; i++) {
+        this.body.push(new Rect(this.X, this.Y, 40, 40, '#ccc'))
+        this.X -= 40
+      }
+
+      // 默认蛇的方向
+      this.direction = 2
+    }
+
+    // 画蛇
+    sDraw() {
+      this.header.rDraw()  // 蛇头
+      // 蛇身
+      for (var i = 0; i < this.body.length; i++) {
+        this.body[i].rDraw()
+      }
+    }
+
+    // 蛇移动
+    move() {
+      var rect = new Rect(this.header.x, this.header.y, 40, 40, '#ccc')  // 创建蛇的身体
+      this.body.unshift(rect)  // 将蛇的身体方入要画的数组中即可
+      // 没有碰撞上的时候将尾部的一个对象去除
+      if (!isEat) {
+        this.body.pop()
+      }
+
+      switch (this.direction) {
+        case 0: {
+          this.header.x -= 40
+          break
+        }
+        case 1: {
+          this.header.y -= 40
+          break
+        }
+        case 2: {
+          this.header.x += 40
+          break
+        }
+        case 3: {
+          this.header.y += 40
+          break
+        }
+
+      }
+
+      // 蛇头触碰身体
+      this.body.map(item => {
+        if (beFriend(item, this.header)) {
+          clearInterval(timer)
+          alert('lose')
+          return
+        }
+      })
+    }
+  }
+
+  var snake = new Snake()
+  snake.sDraw()
+  var food = randomFood()
+
+  function animater() {
+    ctx.clearRect(0, 0, 600, 600)
+    food.rDraw()
+    snake.move()
+    snake.sDraw()
+
+    if (beFriend(snake.header, food)) {
+      food = randomFood()  // 当吃到了食物后重新生成food
+      isEat = true
+    } else {
+      isEat = false
+    }
+
+    // 限制蛇头边界
+    if (snake.header.x + 40 > canvas.width || snake.header.x < 0) {
+      clearInterval(timer)
+      ctx.clearRect(0, 0, 600, 600)
+      alert('lose')
+    }
+    if (snake.header.y + 40 > canvas.height || snake.header.y < 0) {
+      clearInterval(timer)
+      ctx.clearRect(0, 0, 600, 600)
+      alert('lose')
+    }
+  }
+
+  var timer = setInterval(() => {
+    animater()
+  }, 200)
+
+  // 改变蛇移动方向
+  document.onkeydown = function (e) {
+    switch (e.keyCode) {
+      case 37: {
+        // left
+        if (snake.direction == 2) {
+          return
+        }
+        snake.direction = 0
+        break
+      }
+      case 38: {
+        // top
+        if (snake.direction == 3) {
+          return
+        }
+        snake.direction = 1
+        break
+      }
+      case 39: {
+        // right
+        if (snake.direction == 0) {
+          return
+        }
+        snake.direction = 2
+        break
+      }
+      case 40: {
+        // down
+        if (snake.direction == 1) {
+          return
+        }
+        snake.direction = 3
+        break
+      }
+    }
+  }
+
+  function randomFood() {
+    // 判断是否生成在蛇的身体上
+    var is_snake = false
+
+    while (!is_snake) {
+      var x = getRandom(0, 14) * 40
+      var y = getRandom(0, 14) * 40
+
+      var foodRect = new Rect(x, y, 40, 40, 'skyblue')
+
+      // 判断是否在出现在蛇头上
+      if (beFriend(snake.header, foodRect)) {
+        is_snake = false
+        continue
+      }
+      is_snake = true
+
+      // 判断是否出现在蛇身体内
+      for (var i = 0; i < snake.body.length; i++) {
+        if (beFriend(snake.body[i], foodRect)) {
+          is_snake = false
+          break
+        }
+      }
+    }
+    return foodRect
+  }
+
+  // 生成随机数
+  function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // 食物与蛇是否相交
+  function beFriend(rect1, rect2) {
+    // 两个方块的最小x坐标（取最大值）和最大x坐标（取最小值），如果最大值大于了最小值，则相交了
+    var minX1 = rect1.x
+    var minX2 = rect2.x
+    var maxX1 = rect1.x + 40
+    var maxX2 = rect2.x + 40
+
+    var minY1 = rect1.y
+    var minY2 = rect2.y
+    var maxY1 = rect1.y + 40
+    var maxY2 = rect2.y + 40
+
+    if (Math.min(maxX1, maxX2) > Math.max(minX1, minX2) && Math.min(maxY1, maxY2) > Math.max(minY1, minY2)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+</script>

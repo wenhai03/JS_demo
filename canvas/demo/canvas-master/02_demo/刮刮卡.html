@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #outer-box {
+      width: 400px;
+      height: 200px;
+      position: relative;
+    }
+
+    #prize,
+    #canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="outer-box">
+    <div id="prize" style="line-height: 200px;text-align: center; user-select: none;">谢谢惠顾</div>
+    <canvas id="canvas" width="400" height="200"></canvas>
+  </div>
+</body>
+
+</html>
+
+<script>
+  var canvas = document.getElementById('canvas')
+  var prize = document.getElementById('prize')
+  var outerBox = document.getElementById('outer-box')
+
+  var ctx = canvas.getContext('2d')
+
+  ctx.save()
+
+  ctx.fillStyle = '#ccc'
+  ctx.fillRect(0, 0, outerBox.offsetWidth, outerBox.offsetHeight)
+  ctx.font = '20px 微软雅黑'
+  ctx.fillStyle = '#fff'
+  ctx.translate(200, 100)
+  ctx.fillText('刮刮卡', -20, -5)
+
+  ctx.restore()
+
+  ctx.globalCompositeOperation = 'destination-out'
+
+  var moveFlag = false
+  canvas.onmousedown = function (e) {
+    moveFlag = true  // 允许触发移动监听的处理
+    canvas.onmousemove = function (e) {
+      e.preventDefault()
+      if (moveFlag) {
+        var x = e.clientX - this.offsetLeft
+        var y = e.clientY - this.offsetTop
+        ctx.beginPath()
+        ctx.arc(x, y, 20, 0, Math.PI * 2)
+        ctx.fillStyle = '#fff'
+        ctx.fill()
+        ctx.closePath()
+      }
+    }
+
+    canvas.onmouseup = function () {
+      moveFlag = false
+    }
+  }
+
+  var getPrize = [{ label: '一等奖:女朋友', value: 0.1 }, { label: '二等奖: 华为手机', value: 0.2 }, { label: '三等奖: 耳机', value: 0.3 }]
+  var num = Math.random()
+  console.log(num);
+  if (num <= getPrize[0].value) {
+    prize.innerHTML = getPrize[0].label
+  } else if (num <= getPrize[1].value) {
+    prize.innerHTML = getPrize[1].label
+  } else if (num <= getPrize[2].value) {
+    prize.innerHTML = getPrize[2].label
+  }
+</script>

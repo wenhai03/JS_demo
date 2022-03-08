@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="myCanvas" width='800' height='800' style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+
+<script>
+  const canvas = document.getElementById('myCanvas')
+  const c = canvas.getContext('2d')
+
+  c.strokeStyle = 'orange'
+  c.strokeWidth = 10
+
+  c.arc(400, 400, 200, -Math.PI / 2, Math.PI * 2, true)
+  c.stroke()
+</script>

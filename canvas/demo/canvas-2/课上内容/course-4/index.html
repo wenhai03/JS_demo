@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+				* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid black;
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			//			let n = 10;  
+			//			let str = "";
+			//			for(var i = 0; i < n; i++) {
+			//				for(var j = 0; j < n - i; j++) {
+			//					str += " ";
+			//				}
+			//				for(var j = 0; j < i * 2 - 1; j++) {
+			//					str += "*";
+			//				}
+			//				str += "\n";
+			//			}
+			//			console.log(str);
+
+			let oCanvas = document.getElementById('canvas');
+
+			console.dir(oCanvas)
+
+			let oPen = oCanvas.getContext("2d");
+
+			console.dir(oPen);
+
+			let data = [{
+				name: '第一季度',
+				value: 100,
+				color: 'red'
+			}, {
+				name: '第二季度',
+				value: 60,
+				color: 'green'
+			}, {
+				name: '第三季度',
+				value: 90,
+				color: 'blue'
+			}, {
+				name: '第四季度',
+				value: 150,
+				color: 'yellow'
+			}]
+
+			/*
+			 * oPen是笔的对象
+			 * x 圆心坐标
+			 * y 圆心坐标
+			 * r 半径
+			 * data 数据源
+			 */
+
+			createSector(oPen, 250, 250, 150, data);
+
+			function createSector(oPen, x, y, r, data) {
+				let sum = 0;
+				for(var i = 0; i < data.length; i++) {
+					sum += data[i].value;
+				}
+				for(var i = 0; i < data.length; i++) {
+					data[i].percentage = ((data[i].value * 1.0) / sum) * 360;
+				}
+				//console.dir(data)
+
+				let StartAngle = 0;
+
+				for(var i = 0; i < data.length; i++) {
+					oPen.beginPath();
+					oPen.moveTo(x, y);
+					oPen.arc(x, y, r, StartAngle, StartAngle + (Math.PI / 180) * data[i].percentage, false);
+					StartAngle += (Math.PI / 180) * data[i].percentage;
+					oPen.fillStyle = data[i].color;
+					oPen.fill();
+				}
+			}
+		}
+	</script>
+
+</html>

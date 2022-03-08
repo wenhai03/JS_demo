@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="myCanvas" width='800' height="600" style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+
+<script>
+  var canvas = document.getElementById('myCanvas')
+  var ctx = canvas.getContext('2d')
+
+  // 渲染时钟
+  function renderClock() {
+    ctx.clearRect(0, 0, 800, 600)
+    ctx.save()  // 出厂设置保存状态
+
+    ctx.translate(400, 300)
+    ctx.rotate(-Math.PI / 2)
+    ctx.save()
+
+    // 绘制圆盘
+    ctx.beginPath()
+    ctx.lineWidth = 10
+    ctx.strokeStyle = 'grey'
+    ctx.arc(0, 0, 200, 0, Math.PI * 2)
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.restore()  // 恢复到上一状态
+    ctx.save()  // 保存恢复的那个状态
+
+    // 绘制分钟刻度盘
+    for (var i = 0; i < 60; i++) {
+      ctx.rotate(Math.PI * 2 / 60)
+      ctx.beginPath()
+      ctx.moveTo(190, 0)
+      ctx.lineTo(180, 0)
+      ctx.strokeStyle = 'red'
+      ctx.lineWidth = 2
+      ctx.stroke()
+      ctx.closePath()
+    }
+
+    ctx.restore()
+    ctx.save()
+
+    ctx.font = '12px Arial'
+    // 绘制小时刻度盘
+    for (var j = 0; j < 12; j++) {
+
+      if (j == 0) {
+        ctx.fillText('12', 170, 0)
+      } else {
+        ctx.fillText(j, 170, 0)
+      }
+
+      ctx.rotate(Math.PI * 2 / 12)
+      ctx.beginPath()
+      ctx.strokeStyle = 'grey'
+      ctx.lineWidth = 4
+      ctx.moveTo(200, 0)
+      ctx.lineTo(180, 0)
+      ctx.stroke()
+      ctx.closePath()
+    }
+
+    ctx.restore()
+    ctx.save()
+
+    // 获取时间
+    var times = new Date()
+    var hour = times.getHours()
+    hour = hour > 12 ? hour - 12 : hour
+    var minute = times.getMinutes()
+    var second = times.getSeconds()
+    console.log(`${hour}:${minute}:${second}`);
+
+    // 绘制秒钟
+    ctx.beginPath()
+    ctx.rotate(Math.PI * 2 / 60 * second)  // 旋转坐标尺 然后绘制秒针
+    ctx.strokeStyle = 'purple'
+    ctx.lineWidth = 2
+    ctx.moveTo(160, 0)
+    ctx.lineTo(0, 0)
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.restore()
+    ctx.save()
+
+    // 绘制分针
+    ctx.beginPath()
+    ctx.rotate(Math.PI * 2 / 60 * minute + Math.PI * 2 / 3600 * second)
+    ctx.strokeStyle = 'red'
+    ctx.lineWidth = 2
+    ctx.moveTo(130, 0)
+    ctx.lineTo(0, 0)
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.restore()
+    ctx.save()
+
+    // 绘制时针
+    ctx.beginPath()
+    ctx.rotate(Math.PI * 2 / 12 * hour + Math.PI * 2 / 12 / 60 * minute)
+    ctx.strokeStyle = '#ccc'
+    ctx.lineWidth = 4
+    ctx.moveTo(110, 0)
+    ctx.lineTo(0, 0)
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.restore()
+    ctx.save()
+
+    ctx.fillStyle = 'skyblue'
+    ctx.arc(0, 0, 10, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.restore()
+    ctx.restore()  // 恢复出厂设置
+  }
+
+  let timer = setInterval(() => {
+    renderClock()
+  }, 1000)
+</script>

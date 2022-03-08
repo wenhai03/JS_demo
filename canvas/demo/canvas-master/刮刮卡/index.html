@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script>"use strict"; !function e(t, n, r) { function i(d, a) { if (!n[d]) { if (!t[d]) { var f = "function" == typeof require && require; if (!a && f) return f(d, !0); if (o) return o(d, !0); throw new Error("Cannot find module '" + d + "'") } var s = n[d] = { exports: {} }; t[d][0].call(s.exports, function (e) { var n = t[d][1][e]; return i(n || e) }, s, s.exports, e, t, n, r) } return n[d].exports } for (var o = "function" == typeof require && require, d = 0; d < r.length; d++)i(r[d]); return i }({ 1: [function (e, t, n) { !function (e, t) { function n() { t.body ? t.body.style.fontSize = 12 * o + "px" : t.addEventListener("DOMContentLoaded", n) } function r() { var e = i.clientWidth / (window.FLEX_RATIO || 7.5); i.style.fontSize = e + "px" } var i = t.documentElement, o = e.devicePixelRatio || 1; if (n(), r(), e.addEventListener("resize", r), e.addEventListener("pageshow", function (e) { e.persisted && r() }), o >= 2) { var d = t.createElement("body"), a = t.createElement("div"); a.style.border = ".5px solid transparent", d.appendChild(a), i.appendChild(d), 1 === a.offsetHeight && i.classList.add("hairlines"), i.removeChild(d) } }(window, document) }, {}] }, {}, [1]);</script>
+	<script src="./js/vue.js"></script>
+
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/flex.css">
+	<link rel="stylesheet" href="./css/fontSize.css">
+	<link rel="stylesheet" href="./css/fontColor.css">
+	<link rel="stylesheet" href="./css/fontFamily.css">
+	<link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+	<div id="app" class="app">
+		<div class="main">
+			<div class="fc-f promot">实际金额以具体规则为准</div>
+			<div class="img-box ff-pp">
+				<img class="img2" src="./img/img2.png" alt="">
+				<div class="explain row-center-center fc-f fs-20 fw-500">刮中3个红包即可获奖</div>
+				<div class="countdown fc-f fs-16 fw-500">活动倒计时：<span class="fc-sys6">{{countdown}}</span></div>
+				<img class="img6" src="./img/img6.png" alt="">
+				<img v-if='is_vectoring' class="img5 animater" src="./img/img5.png" @click='is_vectoring = false' alt="">
+				<div class="canvas">
+					<canvas id="myCanvas"></canvas>
+				</div>
+			</div>
+		</div>
+
+		<template v-if="is_popup">
+			<div class="layer"></div>
+			<div class="pop ff-pp">
+				<img class="img9" src="./img/img9.png" alt="" @click='download'>
+				<img class="img10" src="./img/img10.png" alt="">
+				<img class="img11" src="./img/img11.png" alt="">
+			</div>
+		</template>
+
+
+		<audio id="red_envelope">
+			<source src="./mp3/red_envelope.mp3" type="audio/mp3" />
+		</audio>
+	</div>
+
+	<script src="https://sf3-ttcdn-tos.pstatp.com/obj/union-fe-nc/playable/sdk/playable-sdk.js"></script>
+
+	<script>
+
+
+	</script>
+
+	<script>
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				is_popup: false,
+				cWidth: '',
+				cHeight: '',
+				boxOffsetLeft: '',
+				boxOffsetTop: '',
+				countdown: '00:00:00',
+				endtime: '',
+				is_vectoring: true  // 手势引导
+			},
+
+			mounted() {
+				this.makeCanvas()
+
+				this.endtime = (new Date()).getTime() + 1 * 60 * 60 * 1000
+				// this.countdown = this.showtime
+				this.timer = setInterval(() => {
+					this.countdown = this.showtime(this.endtime)
+				}, 1000)
+
+				setTimeout(() => {
+					this.is_vectoring = false
+				}, 5000)
+			},
+
+			methods: {
+				showPopup: function () {
+					document.getElementById('red_envelope').play();
+					this.is_popup = true
+				},
+
+				hiddenPopup: function () {
+					this.is_popup = false
+				},
+
+				download: function () {
+					console.log(123)
+					window.playableSDK.openAppStore();
+				},
+
+				closeTooltip: function () {
+					this.is_reward = false;
+				},
+
+				makeCanvas() {
+					let canvas_box = document.querySelector('.canvas')
+					this.cWidth = canvas_box.clientWidth
+					this.cHeight = canvas_box.clientHeight
+					this.boxOffsetLeft = canvas_box.offsetLeft - this.cWidth / 2  // 这里我是使用transform左移了50%，将他减去
+					this.boxOffsetTop = canvas_box.offsetTop
+
+					let myCanvas = document.getElementById('myCanvas')
+					myCanvas.width = this.cWidth
+					myCanvas.height = this.cHeight
+
+					let ctx = myCanvas.getContext('2d')
+
+					// 绘制一张目标图覆盖在盒子上面
+					this.drawMask(ctx)
+
+					// 开始刮卡
+					let moveFlag = false
+					canvas_box.ontouchstart = () => {
+						this.is_vectoring = false
+						moveFlag = true
+					}
+
+					canvas_box.ontouchmove = (e) => {
+						if (moveFlag) {
+							var targetObj = e.touches[0]
+							var x = targetObj.clientX - this.boxOffsetLeft
+							var y = targetObj.clientY - this.boxOffsetTop
+
+							ctx.save()
+							ctx.beginPath()
+							ctx.globalCompositeOperation = "destination-out"
+							ctx.arc(x, y, 20, 0, Math.PI * 2)
+							ctx.fillStyle = '#fff'
+							ctx.fill()
+							ctx.closePath()
+							if (this.handleFilledPercentage(this.getFilledPercentage(ctx), ctx)) {
+								moveFlag = false
+								setTimeout(() => {
+									this.showPopup()
+									clearInterval(this.timer)
+								}, 1500)
+							}
+							if (targetObj.clientX > (this.boxOffsetLeft + this.cWidth - 20) || targetObj.clientX < (this.boxOffsetLeft + 20)) {
+								return
+							}
+							if (targetObj.clientY > (this.boxOffsetTop + this.cHeight - 20) || targetObj.clientY < (this.boxOffsetTop + 20)) {
+								return
+							}
+
+							ctx.restore()
+						}
+					}
+
+					canvas_box.ontouchend = () => {
+						moveFlag = false
+					}
+				},
+
+				drawMask(ctx) {
+					var img = new Image()
+					img.src = './img/img3.png'
+
+					img.onload = () => {
+						ctx.drawImage(img, 0, 0, this.cWidth, this.cHeight)
+					}
+				},
+
+				// 计算已经刮过的区域占整个区域的百分比
+				getFilledPercentage(ctx) {
+					let imgData = ctx.getImageData(0, 0, this.cWidth, this.cHeight);
+					// imgData.data是个数组，存储着指定区域每个像素点的信息，数组中4个元素表示一个像素点的rgba值
+					let pixels = imgData.data;
+					let transPixels = [];
+					for (let i = 0; i < pixels.length; i += 4) {
+						// 严格上来说，判断像素点是否透明需要判断该像素点的a值是否等于0，
+						// 为了提高计算效率，这儿设置当a值小于128，也就是半透明状态时就可以了
+						if (pixels[i + 3] < 128) {
+							transPixels.push(pixels[i + 3]);
+						}
+					}
+					return (transPixels.length / (pixels.length / 4) * 100).toFixed(2) + '%'
+				},
+
+				// 设置阈值，去除灰色涂层
+				handleFilledPercentage(percentage, ctx) {
+					percentage = percentage || 0;
+					if (parseInt(percentage) > 60) {
+						// 当像素点的个数超过  60% 时，清空画布，显示底图
+						ctx.clearRect(0, 0, this.cWidth, this.cHeight);
+						return true
+					} else {
+						return false
+					}
+				},
+
+				showtime(endtime) {
+					var nowtime = new Date()  //获取当前时间
+
+					var lefttime = endtime - nowtime.getTime()  //距离结束时间的毫秒数
+
+					// var leftd = Math.floor(lefttime / (1000 * 60 * 60 * 24))  //计算天数
+
+					var lefth = Math.floor(lefttime / (1000 * 60 * 60) % 24)  //计算小时数
+					lefth = lefth < 10 ? '0' + lefth : lefth
+
+					var leftm = Math.floor(lefttime / (1000 * 60) % 60)  //计算分钟数
+					leftm = leftm < 10 ? '0' + leftm : leftm
+
+					var lefts = Math.floor(lefttime / 1000 % 60);  //计算秒数
+					lefts = lefts < 10 ? '0' + lefts : lefts
+
+					// return leftd + "天" + lefth + ":" + leftm + ":" + lefts;  //返回倒计时的字符串
+					return lefth + ':' + leftm + ":" + lefts;  //返回倒计时的字符串
+				}
+
+			}
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			canvas {
+          width: 500px;
+          height: 500px;
+          border: 1px solid black;
+      }
+		</style>
+	</head>
+	<body>
+		<img id="img" src="icon.png" style="display: none"/>
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+		let oCanvas = document.getElementById('canvas');
+
+		console.dir(oCanvas)
+
+		let oPen = oCanvas.getContext("2d");
+
+		let oImage = document.getElementById('img');
+		console.dir(oImage);
+		//图片的对象，x坐标，y坐标,限制图片的长度，限制图片的宽度
+		oPen.drawImage(oImage,0,0,50,50);
+
+		let oImage2 = new Image();
+		oImage2.src = "img.png";
+		oImage2.onload = function(){
+			//从坐标（0,0）开始截图，截200×200大小的图，然后放在坐标（0,0），截图后的大小固定为200×200
+			//oPen.drawImage(oImage2,0,0,200,200,0,0,200,200);
+
+			//img,'repeat,repeat-x,repeat-y,no-repeat'
+			// let myPattern = oPen.createPattern(oImage,'repeat');
+			// oPen.fillStyle = myPattern;
+			// oPen.fillRect(0,0,500,500);
+
+			// let repeatCanvas = document.createElement('canvas');
+			// repeatCanvas.width = 30;
+			// repeatCanvas.height = 30;
+			// let repeatPen = repeatCanvas.getContext("2d");
+			// repeatPen.arc(15,15,15,0,Math.PI/180*360,true);
+			// repeatPen.fillStyle = "pink";
+			// repeatPen.fill();
+			// let myPattern = oPen.createPattern(repeatCanvas,'repeat');
+			// oPen.fillStyle = myPattern;
+			// oPen.fillRect(0,0,500,500);
+		}
+
+		}
+	</script>
+</html>

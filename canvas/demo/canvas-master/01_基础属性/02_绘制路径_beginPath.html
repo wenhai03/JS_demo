@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <canvas id="myCanvas" width="800" height="800" style="box-shadow: 0 0 10px #000;"></canvas>
+  </div>
+</body>
+
+</html>
+
+<script>
+  window.onload = function () {
+    const canvas = document.getElementById('myCanvas')
+    const c = canvas.getContext('2d')
+
+    c.strokeRect(20, 20, 200, 200)
+    c.strokeRect(40, 40, 160, 160)
+
+    // 黑三角
+    c.beginPath()  // 开始
+    c.moveTo(50, 50)  // 起始点
+    c.lineTo(120, 50)
+    c.lineTo(50, 120)
+    c.closePath()  // 闭合
+    c.stroke()
+    c.fill()
+
+    // 空心三角
+    c.beginPath()
+    c.moveTo(190, 190)
+    c.lineTo(190, 110)
+    c.lineTo(110, 190)
+    c.closePath()
+    c.stroke()
+
+
+  }
+</script>

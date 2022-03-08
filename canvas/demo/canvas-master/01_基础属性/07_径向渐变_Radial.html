@@ -1,0 +1,37 @@
+<!-- 径向渐变 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="myCanvas" width="400" height="400" style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+
+<script>
+  const canvas = document.getElementById('myCanvas')
+  const c = canvas.getContext('2d')
+
+  let radial = c.createRadialGradient(40, 40, 10, 50, 50, 30)
+  radial.addColorStop(0, '#A7D30C')
+  radial.addColorStop(0.5, '#019F62')
+  radial.addColorStop(1, 'rgba(1,159,98,0)')
+
+  let radial2 = c.createRadialGradient(125, 125, 20, 130, 130, 30)
+  radial2.addColorStop(0, '#FF5F98')
+  radial2.addColorStop(0.9, '#FF0188')
+  radial2.addColorStop(1, 'rgba(255,1,136,0)')
+
+  c.fillStyle = radial
+  c.fillRect(0, 0, 150, 150)
+
+  c.fillStyle = radial2
+  c.fillRect(0, 0, 150, 150)
+</script>

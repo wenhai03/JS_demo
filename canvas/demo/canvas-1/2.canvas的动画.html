@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- canvas动画思想  清屏-更新-渲染 -->
+    <canvas width="800" height="800" id="mycanvas"></canvas>
+
+    <script>
+        var ctx = document.getElementById('mycanvas').getContext('2d');
+        ctx.fillStyle = 'pink';
+        // ctx.fillRect(0,0,80,50)
+        //信号量；
+        var left = 100;
+        setInterval(e => {  
+            //清楚画布
+            ctx.clearRect(0, 0, 800, 800);
+            //更新信号量 重新绘制
+            left++;
+            ctx.fillRect(left, 100, 80, 50)
+        }, 10)
+    </script>
+</body>
+</html>

@@ -24,7 +24,9 @@ const r2 = Array.from(
     .values()
 )
 // 法3
-Array.from(new Set(arr2.map(v => JSON.stringify(v)))).map(v => JSON.parse(v)) === [...new Set(arr.map(e => JSON.stringify(e)))].map(e => JSON.parse(e))
+Array.from(
+  new Set(arr2.map(v => JSON.stringify(v)))).map(v => JSON.parse(v)) === [...new Set(arr.map(e => JSON.stringify(e)))].map(e => JSON.parse(e)
+)
 
 // 法4
 function unique (arr, key) {

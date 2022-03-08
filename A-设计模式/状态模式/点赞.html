@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>点赞.html</title>
+</head>
+<body>
+<script>
+  let likeState = {
+    render (element) {
+      element.innerHTML = '赞'
+    }
+  }
+  let likedState = {
+    render (element) {
+      element.innerHTML = '取消'
+    }
+  }
+
+  class Button {
+    constructor (container) {
+      this.liked = false
+      this.state = likeState
+      this.element = document.createElement('button')
+      container.appendChild(this.element)
+      this.render()
+    }
+
+    setState (state) {
+      this.state = state
+      this.render()
+    }
+
+    render () {
+      this.state.render(this.element)
+    }
+  }
+
+  let button = new Button(document.body)
+  button.element.addEventListener('click', () => {
+    button.setState(button.liked ? likeState : likedState)
+    button.liked = !button.liked
+  })
+</script>
+</body>
+</html>

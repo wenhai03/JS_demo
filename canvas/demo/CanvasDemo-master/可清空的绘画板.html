@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas涂鸦画板-保存图片</title>
+    <style>
+        body,div{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            padding: 50px;
+        }
+        canvas{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <canvas id="canvas">
+        <p>您的浏览器不支持canvas标签！</p>
+    </canvas>
+</div>
+<button onclick="clean();">清空画板</button>
+<button onclick="save();">保存为图片</button>
+<button onclick="cleanNow();">橡皮擦</button>
+<p>橡皮擦使用到属性：context.globalCompositeOperation = "destination-out"</p>
+<br/>
+<img alt="bacunweitupian" id="oImg"/>
+<script type="text/javascript">
+    var canvas=document.getElementById('canvas');
+    canvas.width=400;
+    canvas.height=300;
+    var rectPos=canvas.getBoundingClientRect();
+    var context=canvas.getContext('2d');
+    context.lineWidth=1;
+    context.strokeStyle='black';
+    var now={},mNow={};
+    var onPress=false,last=null;
+    function save(){
+        document.getElementById("oImg").src=canvas.toDataURL("image/png");
+    }
+    function clean(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+    }
+    function cleanNow(){
+        console.log("没有实现");
+        alert("没有实现")
+    }
+    function draw1(e){
+        var ev=e||window.event;
+        ev.preventDefault();
+        onPress=true;
+        now.x= ev.pageX-rectPos.left;
+        now.y= ev.pageY-rectPos.top;
+        canvas.addEventListener('mousemove',draw2,false);
+        canvas.addEventListener('mouseup',draw3,false);
+    }
+    function draw2(e){
+        var ev=e||window.event;
+        ev.preventDefault();
+        if(!onPress){return false;}
+        mNow=getPos(ev);
+//        mNow.x= ev.pageX-rectPos.left;
+//        mNow.y= ev.pageY-rectPos.top;
+        if(last!=null){  //先执行下面的赋值，在执行判断里面的句子
+            context.beginPath();
+            context.moveTo(last.x,last.y);
+            context.lineTo(mNow.x,mNow.y);
+            context.stroke();
+        }
+        last=mNow;
+
+    }
+    function draw3(e){
+        onPress=false;
+        last=null;
+        canvas.removeEventListener('mousemove',draw2);
+        canvas.removeEventListener('mouseup',draw3);
+    }
+    function getPos(ev){
+        var x,y;
+        if(0){
+            //触摸屏处理
+        }else{
+            //鼠标处理
+            x= ev.pageX-rectPos.left;
+            y= ev.pageY-rectPos.top;
+//            x = ev.offsetX+ev.target.offsetLeft;
+//            y = ev.offsetY+ev.target.offsetTop;
+        }
+        return {x:x,y:y};
+    }
+    window.onload=function(){
+        canvas.addEventListener('mousedown',draw1,false);
+    }
+</script>
+</body>
+</html>

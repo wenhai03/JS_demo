@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>刮刮乐</title>
+    <style>
+        #canvas{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url("star.jpg");
+            border: 2px solid;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas">您的浏览器不支持！</canvas>
+    <script>
+        var canvas=document.getElementById('canvas');
+        canvas.width=canvas.clientWidth;
+        canvas.height=canvas.clientHeight;
+        var ctx=canvas.getContext("2d");
+        var img=new Image();
+        img.src="lake/lake.png";
+        img.onload= function () {
+            ctx.beginPath();
+            ctx.drawImage(img,0,0,canvas.width,canvas.height);
+        };
+//        判断设备触发响应的事件   用正则表达式 regExp
+        var device=/android|iphone|ipad|webos|iemobile|opear mini|linux/i.test(navigator.userAgent.toLowerCase());
+        var startEvent=device ? "touchstart" : "mousedown";
+        var moveEvent=device ? "touchmove" : "mousemove";
+        var endEvent=device ? "touchend" : "mouseup";
+        var ox,oy;
+        canvas.addEventListener(startEvent,function(e){
+            var ev=e||window.event;
+            ox=device?ev.touches[0].clientX:ev.clientX;
+            oy=device?ev.touches[0].clientY:ev.clientY;
+            ctx.beginPath();
+            ctx.arc(ox,oy,50,0,Math.PI*2,false);
+            ctx.globalCompositeOperation="destination-out";
+            ctx.fill();
+            canvas.addEventListener(moveEvent,draw,false);
+        },false);
+        canvas.addEventListener(endEvent,function(){
+            canvas.removeEventListener(moveEvent,draw,false);
+        },false);
+        function draw(e){
+            var ev=e||window.event;
+            var x=device?ev.touches[0].clientX:ev.clientX;
+            var y=device?ev.touches[0].clientY:ev.clientY;
+//            console.log(x+"--"+y);
+            ctx.beginPath();
+            ctx.arc(x,y,50,0,Math.PI*2,false);
+            ctx.globalCompositeOperation="destination-out";
+            ctx.fill();
+
+        }
+
+
+    </script>
+</body>
+</html>

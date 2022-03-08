@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">* {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+canvas {
+	width: 500px;
+	height: 500px;
+	border: 1px solid #333333;
+}</style>
+	</head>
+
+	<body>
+		<div class="container ">
+			<canvas id="canvas" width="500" height="500"></canvas>
+			<input type="button" name="left-btn" id="left-btn" value="向左移动" />
+			<input type="button" name="right-btn" id="right-btn" value="向右移动" />
+			<input type="button" name="top-btn" id="top-btn" value="向上移动" />
+			<input type="button" name="down-btn" id="down-btn" value="向下移动" />
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			var oCanvas = document.getElementById("canvas");
+			var cxt =oCanvas.getContext("2d");
+			cxt.fillRect(0,0,100,100);
+			
+			let width =oCanvas.width-100;
+			let height=oCanvas.height-100;
+			
+			let step=100;
+			let option=[]
+			
+			//计算第一条边
+			let count=0
+			while(step*count<width){
+				option.push({
+					moveX:step*(count+1)<width?step:width-step*count,
+					moveY:0
+				})
+				count++;
+			}
+			
+			//计算第二条边
+			count=0
+			while(step*count<height){
+				option.push({
+					moveY:step*(count+1)<height?step:height-step*count,
+					moveX:0
+				})
+				count++;
+			}
+			
+			//计算第三条边
+			count=0
+			while(step*count<width){
+				option.push({
+					moveX:-(step*(count+1)<width?step:width-step*count),
+					moveY:0
+				})
+				count++;
+			}
+			
+			//计算第四条边
+			count=0
+			while(step*count<height){
+				option.push({
+					moveY:-(step*(count+1)<height?step:height-step*count),
+					moveX:0
+				})
+				count++;
+			}
+			
+			let counter=0
+			setInterval(()=>{
+				cxt.clearRect(0,0,width,height);
+				cxt.translate(option[counter%option.length].moveX,option[counter%option.length].moveY)
+				cxt.fillRect(0,0,100,100);
+				counter++;
+			},100)
+			}
+	</script>
+</html>

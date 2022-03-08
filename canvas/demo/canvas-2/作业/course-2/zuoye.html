@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">* {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+canvas {
+	width: 500px;
+	height: 500px;
+	border: 2px solid #333333;
+}</style>
+	</head>
+
+	<body>
+		<div class="container ">
+			<canvas id="canvas" width="500" height="500"></canvas>
+		</div>
+	</body>
+	<script>window.onload = function() {
+	let oCanvas = document.getElementById('canvas');
+	console.dir(oCanvas);
+	let oPen = oCanvas.getContext("2d");
+	oPen.lineWidth = 1;
+	oPen.beginPath();
+	oPen.arc(250, 250, 180, 0, Math.PI / 180 * 360, true);
+	oPen.fillStyle = "rgba(0,0,0,1.0)";
+	oPen.fill();
+	oPen.closePath();
+	oPen.stroke();
+	oPen.lineWidth = 10;
+	oPen.beginPath();
+	oPen.arc(180, 190, 25, 0, Math.PI / 180 * 360, true);
+	oPen.strokeStyle = "rgba(255,255,255,1.0)";
+	oPen.stroke();
+	oPen.lineWidth = 10;
+	oPen.beginPath();
+	oPen.arc(320, 190, 25, 0, Math.PI / 180 * 360, true);
+	oPen.strokeStyle = "rgba(255,255,255,1.0)";
+	oPen.stroke();
+	oPen.beginPath();
+	oPen.arc(250, 300, 60, 0, Math.PI / 180 * 180, false);
+	oPen.strokeStyle = "rgba(255,255,255,1.0)";
+	oPen.closePath();
+	oPen.stroke();
+	oPen.lineWidth = 20;
+	oPen.beginPath();
+	oPen.arc(85, 250, 60, 0, Math.PI / 180 * 360, false);
+	oPen.strokeStyle = "rgba(0,0,0,1.0)";
+	oPen.closePath();
+	oPen.stroke();
+	oPen.beginPath();
+	oPen.arc(415, 250, 60, 0, Math.PI / 180 * 360, false);
+	oPen.strokeStyle = "rgba(0,0,0,1.0)";
+	oPen.closePath();
+	oPen.stroke();
+}</script>
+
+</html>

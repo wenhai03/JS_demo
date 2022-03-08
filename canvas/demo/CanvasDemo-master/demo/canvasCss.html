@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas中绘制特种特殊的效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas">Your Browser don't support the canvas!</canvas>
+    <script type="text/javascript">
+        var canvas=document.getElementById('canvas');
+        var w=canvas.width=window.innerWidth;
+        var h=canvas.height=window.innerHeight;
+        var context=canvas.getContext('2d');
+        var mX,mY;
+        var c=canvas.getBoundingClientRect();
+        canvas.addEventListener('mousemove', function (e) {
+//            根据鼠标的位置返回的相关对象MouseEvent  得到x,y减去canvas的左，上的边距 getBoundingClientRect
+            var ev=e||window.event;
+            mX= e.clientX- c.left;
+            mY= e.clientY- c.top;
+            context.clearRect(200,10,400,30);
+            context.beginPath();
+            context.font="bold 18px Arial";
+            context.fillStyle='black';
+            context.fillText("坐标X"+mX+"Y"+mY,200,40,200);
+            context.fill();
+        },false);
+        window.onload=function(){
+            context.save();
+            var img1=new Image();
+//        var img1=document.createElement('img');
+            img1.src='../star.jpg';
+            img1.onload=function(){   //监控图片已经加载成功  否则会出现  图片不显示的情况
+//        document.body.appendChild(img1);
+                context.drawImage(img1,20,20,300,300,50,50,200,210);   //可以直接绘制图片，也可以截取部分图片（20,20）300宽300高，绘制到指定位置制定大小
+                //得到位图图像中像素点的个数   得到绘制位图ImageData对象，是图像的相关数据
+                setTimeout(function () {
+                    var imageDate=context.getImageData(100,100,30,30);
+                    var data=imageDate.data;
+                    console.log(data.length);
+
+                    for(var i=0;i<data.length;i++){
+                        var red=data[i];
+                        var green=data[i+1];
+                        var blue=data[i+2];
+                        //怎么让图像反相呢？代码如  data[i]=255-data[i];
+                        //在控制台输出图像的rgb值
+//                        console.log(red,green,blue);
+                    }
+                    var j=0;
+                    var timer=setInterval(function(){
+                        j++;
+                        context.putImageData(imageDate,10+j,10+j);
+//                        console.log(j)
+                        if(j==200){
+                            clearInterval(timer);
+                        }
+                    },50);
+                },1000)
+
+
+            };
+            context.restore();
+            context.save();
+//        创建文本
+            var txt="hello i'm camilla!";
+            context.font="25px Microsoft Yahei";
+//            context.fillStyle='tomato';
+//            context.fillText(txt,50,320);
+//            创建空心文字
+            context.baseline='hanging';  //文本基于基线的位置，hanging ideographic middle top bottom
+            context.strokeText(txt,50,320);
+            context.restore();
+        //创建模式 填充方式 包装好的样式
+            context.save();
+            var img2=new Image();
+            img2.src='../star.jpg';
+            img2.onload=function(){
+                var oPattern=context.createPattern(img2,'repeat');
+                context.beginPath();
+                context.moveTo(500,500);
+                context.arc(900,100,300,0,Math.PI*2,true);
+                context.fillStyle=oPattern;
+                console.log(context.fillStyle);
+                context.fill();
+            };
+            context.restore();
+            //实践经验   当canvas中使用 多个填充方式是颜色，模式，渐变等，hi之乐多个路径时，一定要使用beginPath()来区分重绘路径
+            setTimeout(getPat,100);
+            //        context.clearRect(0,0,w,h);
+
+//            绘制设置宽度、线帽、拐角、圆角的线段  阴影
+            context.beginPath();
+            context.moveTo(100,400);
+            context.lineTo(300,500);
+            context.lineTo(400,400);
+            context.lineWidth=20;
+            context.strokeStyle='darkgreen';
+            context.lineCap='round';//线头尾添加圆形线帽
+//            context.lineCap='square';//线头尾添加正方形线帽
+//            context.lineCap='butt';//默认不添加，垂直
+            context.lineJoin='round'; //创建圆角
+//            context.lineJoin='bevel'; //斜角
+//            context.lineJoin='miter'; //默认。尖角
+            context.save();
+            context.shadowColor='black';
+            context.shadowBlur=20;
+            context.shadowOffsetX=10;
+            context.shadowOffsetY=10;
+            context.stroke();
+            context.restore();
+
+//            还有几个对象的合成操作 globalCompositeOperation
+        };
+
+        function getPat(){
+            context.save();
+            context.beginPath();
+            context.rect(w/6,h/8,w/2,h/2);
+//        var rad1=context.createRadialGradient(0,0,50,w,h,500);//一般情况会设置x1,y1   == x0,y0  这样能很好的保证呈现圆型的扩散渐变
+            var rad1=context.createLinearGradient(w/2,0,w/2,h);
+//        console.log(rad1);
+            rad1.addColorStop(0,'white'); //设置的是两种颜色的渐变从百色到橘色   从0%  到100%   中间还可以添加其他颜色
+            rad1.addColorStop(1,'orange');
+            context.fillStyle=rad1;
+            context.globalAlpha=0.5;  //设置对象的透明度
+            context.fill();
+            context.restore();
+        }
+    </script>
+</body>
+</html>

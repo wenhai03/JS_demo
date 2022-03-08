@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				/*
+		     * 将边框设置在中间
+		     */
+				align-items: center;
+				justify-content: center;
+			}
+
+			canvas {
+				width: 500px;
+				height: 500px;
+				border: 1px solid #333333;
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="canvas" width="500px" height="500px"></canvas>
+			
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			let oCanvas = document.getElementById('canvas');
+			let oPen = oCanvas.getContext("2d");
+			
+			document.onmousedown = function(e){
+				x0 = (e.pageX - oCanvas.offsetLeft);
+				y0 = (e.pageY - oCanvas.offsetTop);
+				
+				document.onmousemove = function(e){
+					x1=(e.pageX - oCanvas.offsetLeft);
+					y1=(e.pageY - oCanvas.offsetTop);
+					
+					oPen.beginPath();
+					oPen.moveTo(x0, y0);
+            		oPen.lineTo(x1, y1);
+            		oPen.lineWidth = 5;
+            		oPen.strokeStyle = "aqua";
+            		oPen.stroke();
+            		oPen.closePath();
+            		
+            		x0 = x1;
+                	y0 = y1;
+				}
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			}	
+			
+		}
+	</script>
+</html>

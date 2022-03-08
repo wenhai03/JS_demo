@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="600" style="box-shadow: 0 0 10px #000;"></canvas>
+</body>
+
+</html>
+
+<script>
+  var canvas = document.getElementById('canvas')
+  var ctx = canvas.getContext('2d')
+
+  var moveFlag = false
+  canvas.onmousedown = function (e) {
+    moveFlag = true
+    var x = e.clientX - canvas.offsetLeft  // 鼠标在canvas中的坐标
+    var y = e.clientY - canvas.offsetTop
+
+    ctx.strokeStyle = 'green'
+    ctx.lineWidth = 10
+    ctx.moveTo(x, y)
+
+    canvas.onmousemove = function (e) {
+      var x = e.clientX - canvas.offsetLeft
+      var y = e.clientY - canvas.offsetTop
+
+      if (moveFlag) {
+        ctx.lineTo(x, y)
+        ctx.stroke()
+      }
+    }
+
+    canvas.onmouseup = function (e) {
+      // moveFlag = false
+      this.onmousemove = null
+    }
+  }
+</script>

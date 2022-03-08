@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MutationObserver示例: 子元素</title>
+</head>
+<body>
+<ul id="language">
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <li>TypeScript</li>
+</ul>
+
+<button id="btnStart">开始观察</button>
+<button id="btnStop">停止观察</button>
+<button id="btnAdd">添加元素</button>
+<button id="btnRemove">删除最后一个元素</button>
+
+<script>
+  (function () {
+    // 查找列表元素
+    let list = document.querySelector('#language');
+    // 查找按钮元素
+    let btnAdd = document.querySelector('#btnAdd');
+    let btnRemove = document.querySelector('#btnRemove');
+    let btnStart = document.querySelector('#btnStart');
+    let btnStop = document.querySelector('#btnStop');
+    btnStop.disabled = true;
+
+    function log(mutations) {
+      for (let mutation of mutations) {
+        if (mutation.type === 'childList') {
+          console.log(mutation);
+        }
+      }
+    }
+
+    let observer = new MutationObserver(log);
+
+    btnStart.addEventListener('click', function () {
+      observer.observe(list, {
+        childList: true
+      });
+
+      btnStart.disabled = true;
+      btnStop.disabled = false;
+    });
+
+    btnStop.addEventListener('click', function () {
+      observer.disconnect();
+      // 改变按钮状态
+      btnStart.disabled = false;
+      btnStop.disabled = true;
+    });
+
+    let counter = 1;
+    btnAdd.addEventListener('click', function () {
+      // 创建一个新的li元素
+      let item = document.createElement('li');
+      item.textContent = `子元素 ${counter++}`;
+
+      // 追加到列表的末尾
+      list.appendChild(item);
+    });
+
+    btnRemove.addEventListener('click', function () {
+      list.lastElementChild ?
+        list.removeChild(list.lastElementChild) :
+        console.log('没有子元素了');
+    });
+
+  })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="600" height="600" style="box-shadow: 0 0 10px #000;"></canvas>
+  <video id="video" src="../asset/video/video.mp4" controls width="300" height="600"></video>
+</body>
+
+</html>
+
+<script>
+  var video = document.getElementById('video')
+  var canvas = document.getElementById('canvas')
+  var ctx = canvas.getContext('2d')
+
+  var interId;
+  video.onplay = function () {
+    interId = setInterval(() => {
+      ctx.clearRect(0, 0, 600, 600)
+      ctx.fillRect(0, 0, 600, 600)
+      ctx.drawImage(video, 150, 10, 300, 580)
+
+      ctx.strokeStyle = '#999'
+      ctx.font = '16px 微软雅黑'
+      ctx.strokeText('mal', 50, 50)
+    }, 16)
+  }
+
+  video.onpause = function () {
+    clearInterval(interId)
+  }
+</script>
