@@ -7,9 +7,10 @@
 <body>
 <textarea name="" id="textarea" cols="30" rows="10"></textarea>
 <button id="btn">发送</button>
+<a href="http://localhost:63342/JS_demo/iframe/index.html"></a>
 <script>
   var textarea = document.querySelector('#textarea')
-
+  var msgPage = null
   btn.onclick = function () {
     msgPage && msgPage.postMessage(textarea.value, "*")
   }

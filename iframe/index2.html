@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index2</title>
+</head>
+<body>
+<iframe src="http://localhost:63342/JS_demo/iframe/index.html" id="myframe"></iframe>
+<script>
+  let iframeWindow = document.getElementById('myframe').contentWindow;
+  // console.log('iframeWindow contextWindow: ', iframeWindow);
+  // iframeWindow.postMessage('A secret0000', 'http://localhost:63342/JS_demo/iframe/index.html');
+  setTimeout(() => {
+    console.log('1000ms')
+    iframeWindow.postMessage('A secret', 'http://localhost:63342/JS_demo/iframe/index.html');
+  }, 1000)
+
+</script>
+</body>
+</html>

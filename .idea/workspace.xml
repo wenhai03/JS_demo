@@ -1,217 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a81e121f-e539-44fc-8e7e-7521518730a6" name="Default Changelist" comment="feat: js_demo">
-      <change afterPath="$PROJECT_DIR$/A-设计模式/design-pattern.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/发布订阅/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/发布订阅/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/外观模式-facade/img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/外观模式-facade/启动电脑-computed.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/外观模式-facade/计算器类图.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/状态模式/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/状态模式/promise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/状态模式/react导航.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/状态模式/点赞.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/状态模式/电池-Battery-优化后.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/状态模式/电池-Battery-未优化.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/callbacks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/events.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/img/img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/img/img1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/img/类图.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/img/观察者和发布订阅模式.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/promise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/redux.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/事件绑定.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/明星和粉丝-Star-Fan.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A-设计模式/观察者模式/观察者模式和发布订阅模式.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AA手写题/深拷贝.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Map和WeakMap/WeakMap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Map和WeakMap/WeakMap对象存放.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Map和WeakMap/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Map和WeakMap/set对象存放.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/1运动和三角函数/atan.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/1运动和三角函数/getBoundingClientRect-api.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/1运动和三角函数/箭头旋转运动.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/1运动和三角函数/角速度.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/补充/Math.atan2/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/补充/Math.atan2/Math.atan2().md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/补充/Math.atan2/demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/补充/Math.atan2/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/补充/Math.atan2/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/补充/getBoundingClientRect.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/补充/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canvas/补充/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/debugger/条件断点.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/MutationObserver.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/MutationObserver/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/MutationObserver/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/MutationObserver/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/MutationObserver/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/btn-click.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/img/eventloop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/img/img1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/img/img2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/img/img3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eventLoop/浏览器渲染原理-JS异步编程.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iframe/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/a.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/c.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/导入立刻导出.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket.io/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket.io/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/polling/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/polling/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/事件/mouseover和mouseenter的区别.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/事件/事件传播.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/写法小技巧/1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/写法小技巧/2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/写法小技巧/3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/减少DOM回流/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/原型、原型链、继承/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/原型、原型链、继承/1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/原型、原型链、继承/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/原型、原型链、继承/2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/原型、原型链、继承/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/原型、原型链、继承/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/客户端和服务器交互/如何构建一个网站.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/客户端和服务器交互/客户端和服务器端的交互模型.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/拖拽/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/拖拽/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/数组/创建任意长度数组.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/栈(stack) 堆(heap)/note.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/栈(stack) 堆(heap)/queue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/栈(stack) 堆(heap)/stack.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/栈(stack) 堆(heap)/堆栈内存释放问题.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/栈(stack) 堆(heap)/执行题.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/渲染/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/渲染/浏览器渲染原理-JS异步编程.png" afterDir="false" />
+    <list default="true" id="a81e121f-e539-44fc-8e7e-7521518730a6" name="Default Changelist" comment="Default Changelist">
+      <change afterPath="$PROJECT_DIR$/A-算法/数组旋转k步.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/async2/for-await-of/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iframe/index2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iframe/postMessage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-worker/worker.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-worker/worker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.js" beforeDir="false" afterPath="$PROJECT_DIR$/1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A-设计模式/外观模式/calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/A-设计模式/外观模式-facade/计算器-calc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A-设计模式/外观模式/computer.js" beforeDir="false" afterPath="$PROJECT_DIR$/A-设计模式/外观模式-facade/computer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A-设计模式/外观模式/facade.js" beforeDir="false" afterPath="$PROJECT_DIR$/A-设计模式/外观模式-facade/facade.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/canvas/assets/components/Arrow.js" beforeDir="false" afterPath="$PROJECT_DIR$/canvas/assets/components/Arrow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/canvas/assets/script/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/canvas/assets/script/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/big_img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/note.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/乘法列表.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/图片生成.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/奇偶横竖排判断.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/自动生成100个li.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/自动生成10个li.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/自动生成V字型（升级版）.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/自动生成V字形.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/for应用/设置颜色.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/big_img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/事件代理/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/事件/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/jm9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/img/pen.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/修改文本框的值.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/选项卡套餐.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/函数传参/选项卡套餐2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/原型与继承/demo.md" beforeDir="false" afterPath="$PROJECT_DIR$/原型、原型链、继承/demo.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/发布订阅/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/A-设计模式/发布订阅/发布订阅/demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/发布订阅/sub2.js" beforeDir="false" afterPath="$PROJECT_DIR$/A-设计模式/发布订阅/发布订阅/sub2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/发布订阅/subscribe.html" beforeDir="false" afterPath="$PROJECT_DIR$/A-设计模式/发布订阅/发布订阅/subscribe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/发布订阅/subscribe.js" beforeDir="false" afterPath="$PROJECT_DIR$/A-设计模式/发布订阅/发布订阅/subscribe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/图片切换案列.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/字符串方法/数组去重.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/字符串方法/文字搬运工.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/字符串方法/查找替换.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/字符串方法和替换文本.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/img/jm9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/修复抖函数的问题.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/定时器基础.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/延时消失的菜单.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/按钮控制商品图片上下滚动.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理/淘宝商品广告效果.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理与函数封装/move.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/定时器管理与函数封装/定时器管理与函数封装.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/拖拽/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/拖拽/demo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/搜狐列表展示（函数传参）.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据类型/NaN.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据类型/QQ号判断.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据类型/isNaN.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据类型/数据类型.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据结构与算法/json.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据结构与算法/深度遍历/1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/0.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/1.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/2.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/3.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/4.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/5.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/6.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/7.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/8.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/9.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/colon.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/colon2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/goods1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/goods2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/goods3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/goods4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/img/goodsMoved.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/move.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/moveHowMuch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/倒计时抢购商品.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/动态图片时钟.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/日期时钟/数码时钟.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/流程控制/img/click.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/流程控制/img/hover1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/流程控制/img/hover2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/流程控制/img/initial.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/流程控制/img/tip_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/流程控制/商品评分.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/流程控制/音乐全选操作.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/渲染案例/十万条数据after.html" beforeDir="false" afterPath="$PROJECT_DIR$/渲染/十万条数据after.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/渲染案例/十万条数据before.html" beforeDir="false" afterPath="$PROJECT_DIR$/渲染/十万条数据before.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/自定义属性、索引值.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/计算商品总价.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/评分效果.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/鼠标移过显示（this应用）.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iframe/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/iframe/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,18 +38,8 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="GitToolBoxStore">
-    <option name="projectConfigVersion" value="4" />
-  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Map和WeakMap/WeakMap.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/websocket/polling/index.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/A-设计模式/状态模式/电池-Battery-未优化.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/A-设计模式/状态模式/电池-Battery-优化后.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/call/index.js" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1snFVcB5ln3aEOmM2NavxKfTno7" />
   <component name="ProjectViewState">
@@ -261,50 +52,46 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/canvas/补充/Math.atan2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ZF/before" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/canvas/补充/Math.atan2" />
-      <recent name="$PROJECT_DIR$/canvas/1运动和三角函数" />
-      <recent name="$PROJECT_DIR$/eventLoop/MutationObserver" />
-      <recent name="$PROJECT_DIR$/A-设计模式/观察者模式" />
-      <recent name="$PROJECT_DIR$/eventLoop" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/A-设计模式/发布订阅" />
-      <recent name="$PROJECT_DIR$/canvas/补充/Math.atan2" />
-      <recent name="$PROJECT_DIR$/A-设计模式/观察者模式/img" />
-      <recent name="$PROJECT_DIR$/A-设计模式/组合模式" />
+      <recent name="$PROJECT_DIR$/ZF/before" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.执行题.js">
-    <configuration name="1.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/原型、原型链、继承/1.js" working-dir="$PROJECT_DIR$/原型、原型链、继承">
+  <component name="RunManager" selected="Node.js.index.js (1)">
+    <configuration name="3.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/arrayToTree/3.js" working-dir="$PROJECT_DIR$/arrayToTree">
       <method v="2" />
     </configuration>
-    <configuration name="2.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/原型、原型链、继承/2.js" working-dir="$PROJECT_DIR$/原型、原型链、继承">
+    <configuration name="4.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/arrayToTree/4.js" working-dir="$PROJECT_DIR$/arrayToTree">
       <method v="2" />
     </configuration>
-    <configuration name="深拷贝.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/AA手写题/深拷贝.js" working-dir="$PROJECT_DIR$/AA手写题">
+    <configuration name="基础异步并发.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/ZF/回调函数/基础异步并发.js" working-dir="$PROJECT_DIR$/ZF/回调函数">
       <method v="2" />
     </configuration>
-    <configuration name="创建任意长度数组.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/数组/创建任意长度数组.js" working-dir="$PROJECT_DIR$/数组">
+    <configuration name="发布订阅.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/ZF/回调函数/发布订阅.js" working-dir="$PROJECT_DIR$/ZF/回调函数">
       <method v="2" />
     </configuration>
-    <configuration name="执行题.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/栈(stack) 堆(heap)/执行题.js" working-dir="$PROJECT_DIR$/栈(stack) 堆(heap)">
+    <configuration name="index.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/async2/for-await-of/index.js" working-dir="$PROJECT_DIR$/async2/for-await-of">
+      <method v="2" />
+    </configuration>
+    <configuration name="数组旋转k步.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/A-算法/数组旋转k步.js" working-dir="$PROJECT_DIR$/A-算法">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.执行题.js" />
-        <item itemvalue="Node.js.创建任意长度数组.js" />
-        <item itemvalue="Node.js.2.js (1)" />
-        <item itemvalue="Node.js.1.js" />
-        <item itemvalue="Node.js.深拷贝.js" />
+        <item itemvalue="Node.js.index.js (1)" />
+        <item itemvalue="Node.js.数组旋转k步.js" />
+        <item itemvalue="Node.js.基础异步并发.js" />
+        <item itemvalue="Node.js.4.js" />
+        <item itemvalue="Node.js.3.js" />
       </list>
     </recent_temporary>
   </component>
@@ -355,163 +142,24 @@
       <workItem from="1626144334928" duration="7950000" />
       <workItem from="1626311527572" duration="4052000" />
       <workItem from="1626341712439" duration="600000" />
-      <workItem from="1626657672643" duration="1858000" />
-      <workItem from="1626687223937" duration="1736000" />
-      <workItem from="1626743391498" duration="6444000" />
-      <workItem from="1626935525551" duration="599000" />
-      <workItem from="1626937478496" duration="599000" />
-      <workItem from="1627265417930" duration="599000" />
-      <workItem from="1627279545841" duration="6674000" />
-      <workItem from="1627438411801" duration="1196000" />
-      <workItem from="1627455379569" duration="599000" />
-      <workItem from="1627530239241" duration="1462000" />
-      <workItem from="1627865683568" duration="599000" />
-      <workItem from="1627866528478" duration="2309000" />
-      <workItem from="1628143607256" duration="598000" />
-      <workItem from="1628244686052" duration="107000" />
-      <workItem from="1630891764069" duration="5821000" />
-      <workItem from="1631005685380" duration="1403000" />
-      <workItem from="1631152354475" duration="1197000" />
-      <workItem from="1631174301380" duration="53000" />
-      <workItem from="1631582152606" duration="3498000" />
-      <workItem from="1631764860457" duration="596000" />
-      <workItem from="1631766412925" duration="597000" />
-      <workItem from="1631846074917" duration="599000" />
-      <workItem from="1631881896402" duration="204000" />
-      <workItem from="1631968125837" duration="597000" />
-      <workItem from="1632049870171" duration="225000" />
-      <workItem from="1632069443551" duration="598000" />
-      <workItem from="1632279398549" duration="2113000" />
-      <workItem from="1632319988242" duration="587000" />
-      <workItem from="1632322051601" duration="508000" />
-      <workItem from="1632323861384" duration="598000" />
-      <workItem from="1632624237854" duration="495000" />
-      <workItem from="1632633349006" duration="599000" />
-      <workItem from="1632635943210" duration="343000" />
-      <workItem from="1632718176607" duration="598000" />
-      <workItem from="1634087835210" duration="2509000" />
-      <workItem from="1634106841044" duration="1253000" />
-      <workItem from="1634111616739" duration="265000" />
-      <workItem from="1634112171985" duration="16075000" />
-      <workItem from="1634350656057" duration="512000" />
-      <workItem from="1634369912577" duration="2238000" />
-      <workItem from="1634470076977" duration="5992000" />
-      <workItem from="1634605379945" duration="6548000" />
-      <workItem from="1634778503005" duration="5082000" />
-      <workItem from="1634787122671" duration="8258000" />
-      <workItem from="1634890057816" duration="597000" />
-      <workItem from="1634892852654" duration="1199000" />
-      <workItem from="1635123920601" duration="18403000" />
-      <workItem from="1635238049731" duration="2004000" />
-      <workItem from="1635298579268" duration="605000" />
-      <workItem from="1635383114672" duration="3988000" />
-      <workItem from="1635474291332" duration="599000" />
-      <workItem from="1635499733783" duration="598000" />
-      <workItem from="1635679805591" duration="598000" />
-      <workItem from="1635729012427" duration="1109000" />
-      <workItem from="1635775921736" duration="599000" />
-      <workItem from="1635776639130" duration="1423000" />
-      <workItem from="1635841388226" duration="598000" />
-      <workItem from="1635911517008" duration="598000" />
-      <workItem from="1635919628170" duration="553000" />
-      <workItem from="1635930477663" duration="3581000" />
-      <workItem from="1636099244260" duration="598000" />
-      <workItem from="1636202271329" duration="2710000" />
-      <workItem from="1636333156847" duration="1825000" />
-      <workItem from="1636354709603" duration="3116000" />
-      <workItem from="1636506252347" duration="1198000" />
-      <workItem from="1636516029186" duration="3949000" />
-      <workItem from="1636706647260" duration="394000" />
-      <workItem from="1636707086774" duration="437000" />
-      <workItem from="1636707558219" duration="599000" />
-      <workItem from="1636938612540" duration="598000" />
-      <workItem from="1637024749854" duration="598000" />
-      <workItem from="1637054692223" duration="599000" />
-      <workItem from="1637112144466" duration="2543000" />
-      <workItem from="1637204479050" duration="598000" />
-      <workItem from="1637286721520" duration="599000" />
-      <workItem from="1637288832618" duration="599000" />
-      <workItem from="1637333586300" duration="323000" />
-      <workItem from="1637543469881" duration="2775000" />
-      <workItem from="1637739228747" duration="597000" />
-      <workItem from="1637750001682" duration="246000" />
-      <workItem from="1637888859122" duration="4153000" />
-      <workItem from="1638234618195" duration="312000" />
-      <workItem from="1638234965046" duration="7221000" />
-      <workItem from="1638413396830" duration="612000" />
-      <workItem from="1577869002696" duration="599000" />
-      <workItem from="1638613995211" duration="599000" />
-      <workItem from="1638632160181" duration="4044000" />
-      <workItem from="1639012299290" duration="599000" />
-      <workItem from="1639016852559" duration="9270000" />
-      <workItem from="1639449610563" duration="599000" />
-      <workItem from="1639559596739" duration="599000" />
-      <workItem from="1639563377310" duration="3194000" />
-      <workItem from="1639962498660" duration="805000" />
-      <workItem from="1640063255617" duration="309000" />
-      <workItem from="1640070101687" duration="608000" />
-      <workItem from="1640135339257" duration="599000" />
-      <workItem from="1640136213194" duration="599000" />
-      <workItem from="1640234839156" duration="600000" />
-      <workItem from="1640317760853" duration="12000" />
-      <workItem from="1641348883205" duration="858000" />
-      <workItem from="1641363047201" duration="599000" />
-      <workItem from="1641431476591" duration="599000" />
-      <workItem from="1641863104835" duration="912000" />
-      <workItem from="1641963191796" duration="2696000" />
-      <workItem from="1642036250573" duration="17561000" />
-      <workItem from="1642122454395" duration="7192000" />
-      <workItem from="1642382868546" duration="5505000" />
-      <workItem from="1645067309834" duration="32188000" />
+      <workItem from="1626657672643" duration="1227000" />
+      <workItem from="1631935728442" duration="3889000" />
+      <workItem from="1633957773410" duration="650000" />
+      <workItem from="1634132200093" duration="29000" />
+      <workItem from="1634132266523" duration="274000" />
+      <workItem from="1634560103900" duration="556000" />
+      <workItem from="1635944353744" duration="7000" />
+      <workItem from="1642690241950" duration="713000" />
+      <workItem from="1644838865914" duration="362000" />
+      <workItem from="1644839259556" duration="471000" />
+      <workItem from="1645841274811" duration="123000" />
+      <workItem from="1646918077163" duration="124000" />
+      <workItem from="1647139685174" duration="2480000" />
+      <workItem from="1647446324014" duration="3573000" />
     </task>
-    <task id="LOCAL-00001" summary="feat">
-      <created>1626658909909</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1626658909910</updated>
-    </task>
-    <task id="LOCAL-00002" summary="feat">
-      <created>1634637787258</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1634637787258</updated>
-    </task>
-    <task id="LOCAL-00003" summary="feat">
-      <created>1635241599852</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1635241599852</updated>
-    </task>
-    <task id="LOCAL-00004" summary="feat">
-      <created>1636506833974</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1636506833975</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feat: js_demo">
-      <created>1641348905220</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1641348905220</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat" />
-    <MESSAGE value="feat: js_demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: js_demo" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
