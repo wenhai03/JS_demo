@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>语音播报</title>
+</head>
+<body>
+<h3>点击下方按钮可以进行语音播报</h3>
+<hr/>
+<button onclick="areSpeak('电子围栏报警，滴滴~')">播放声音</button>&nbsp;&nbsp;<button onclick="beQuiet()">停止播放</button>
+</body>
+<script>
+  //#region 语音播报封装
+
+  function areSpeak (newMsg) {
+    // 初次播报使用模拟按钮触发
+    virtualClick(SpeakVoice)
+    speakWithDelay(newMsg)
+  }
+
+  setTimeout(() => {
+    areSpeak('电子围栏报警，滴滴~')
+
+   /* const newMsg = '电子围栏报警，滴滴~'
+    virtualClick(SpeakVoice)
+    speakWithDelay(newMsg)*/
+    // const newMsg = '电子围栏报警，滴滴~'
+    // speakWithDelay(newMsg)
+  }, 1000)
+
+  virtualClick(SpeakVoice)
+
+  function SpeakVoice (msg = '') {
+    const speech = new SpeechSynthesisUtterance(msg)
+    // 设置兼容中文
+    const voices = window.speechSynthesis.getVoices()
+    speech.voice = voices.filter(function (voice) {
+      return voice.localService && voice.lang === 'zh-CN'
+    })[0]
+    window.speechSynthesis.speak(speech)
+  }
+
+  function speakWithDelay (utterance, delay = 1000) {
+    return new Promise(resolve => {
+      const speech = new SpeechSynthesisUtterance(utterance)
+      console.log('speech --->', speech)
+      // 设置兼容中文
+      let voices = window.speechSynthesis.getVoices()
+      speech.voice = voices.filter(function (voice) {
+        return voice.localService && voice.lang === 'zh-CN'
+      })[0]
+      console.log('speech.voice --->', speech.voice)
+      speech.onend = () => {
+        setTimeout(resolve, delay)
+      }
+      window.speechSynthesis.speak(speech)
+    })
+
+  }
+
+  function virtualClick (callback) {
+    let button = document.createElement('button')
+    button.textContent = '点击我'
+
+    // 添加点击事件处理程序
+    button.addEventListener('click', function () {
+      console.log('按钮被点击了')
+      callback && callback()
+    })
+
+    // 模拟用户点击事件
+    let event = new MouseEvent('click', {
+      view: window,
+      bubbles: true,
+      cancelable: true
+    })
+    button.dispatchEvent(event)
+  }
+
+  const beQuiet = () => {
+    console.log('停止')
+    window.speechSynthesis.cancel()
+    SpeakVoice('')
+  }
+  //#endregion
+</script>
+</html>
+

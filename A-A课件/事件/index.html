@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #outer {
+      /*width: 100px;*/
+      height: 300px;
+      background: red;
+    }
+    #inner {
+      width: 200px;
+      height: 200px;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+<div id="outer">
+  <div id="inner"></div>
+</div>
+<script>
+  function handler () {
+    console.log('click') // 直接输出
+    for (let i = 0; i < 100000000; i++) {}
+    Promise.resolve().then(() => console.log('promise')) // 注册微任务
+    setTimeout(() => console.log('timeout'+Math.random())) // 注册宏任务
+
+    requestAnimationFrame(() => console.log('requestAnimationFrame')) // 注册宏任务
+    outer.style.backgroundColor = 'green' // DOM属性修改，触发微任务
+  }
+
+  new MutationObserver(()=> console.log('MutationObserver')).observe(outer,{attributes: true})
+
+  inner.addEventListener('click', handler)
+  outer.addEventListener('click', handler)
+</script>
+</body>
+</html>

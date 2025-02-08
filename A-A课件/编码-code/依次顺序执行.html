@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<button id="begin">开始</button>
+<button id="pause">暂停</button>
+<script>
+  const tasksArr = []
+  for (let i = 0; i < 5; i++) {
+    tasksArr.push(
+      () => new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(i)
+        }, 2000)
+      })
+    )
+  }
+
+  begin.onclick = async () => {
+    console.log('点击')
+    const res = await processor.start()
+    console.log('任务完成', res)
+  }
+
+
+  pause.onclick = async () => {
+    console.log('点击暂停')
+    processor.pause()
+  }
+
+
+  const processor = processTasks(...tasksArr)
+
+  function processTasks (...tasks) {
+    let isRunning = false
+    let i = 0 // 当前任务执行的下标
+    let prom = null
+    const result = []
+    return {
+      start () {
+        return new Promise(async (resolve, reject) => {
+          if (prom) {
+            prom.then(resolve, reject)
+          }
+          if (isRunning) return
+
+          isRunning = true
+          while (i < tasks.length) {
+            try {
+              console.log('执行中', i)
+              const r = await tasks[i]
+              result.push(r)
+              console.log('执行完成', i)
+            } catch (err) {
+              isRunning = false
+              reject(err)
+              prom = Promise.reject(err)
+
+            }
+            i++
+            if (!isRunning && i > tasksArr.length - 1) {
+              console.log('执行被中断')
+              return
+            }
+          }
+          isRunning = false
+          resolve(result)
+
+          prom = Promise.resolve(result)
+        })
+      },
+      pause () {
+        isRunning = false
+      },
+    }
+
+  }
+</script>
+</body>
+</html>

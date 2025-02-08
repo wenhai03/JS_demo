@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>并发请求</title>
+</head>
+<body>
+<!--<script>
+  const urls = []
+
+  for (let i = 1; i <= 20; i++) {
+    urls.push(`https://jsonplaceholder.typicode.com/todos/${ i }`)
+  }
+
+  concurRequest(urls, 5).then(res => {
+    console.log('res -&ndash;&gt;', res)
+  })
+
+  async function concurRequest (urls, num) {
+    const results = []
+
+    const chunkedUrls = chunkArray(urls, num)
+
+    for (const chunk of chunkedUrls) {
+      const promises = chunk.map(url => {
+        return fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(response.statusText)
+            }
+            return response.json()
+          })
+      })
+
+      const chunkResults = await Promise.allSettled(promises)
+
+      for (const result of chunkResults) {
+        if (result.status === 'fulfilled') {
+          results.push(result.value)
+        } else {
+          results.push(result.reason)
+        }
+      }
+    }
+
+    return results
+  }
+
+  function chunkArray (arr, size) {
+    const chunkedArr = []
+    let i = 0
+
+    while (i < arr.length) {
+      chunkedArr.push(arr.slice(i, i + size))
+      i += size
+    }
+
+    return chunkedArr
+  }
+
+</script>-->
+
+<script>
+  const urls = []
+  for (let i = 1; i <= 10; i++) {
+    urls.push(`https://jsonplaceholder.typicode.com/todos/${ i }`)
+  }
+  concurRequest(urls, 3).then(res => {
+    console.log('res --->', res)
+  })
+  function concurRequest (urls, num) {
+    return new Promise((resolve, reject) => {
+      if (!urls.length) {
+        return resolve([])
+      }
+      const results = []
+      let index = 0, count = 0
+
+      async function request () {
+        if (index === urls.length) return
+        const i = index
+        const url = urls[index]
+        index++
+
+        try {
+          results[i] = await fetch(url)
+        } catch (err) {
+          console.log('err', err)
+          results[i] = err
+        } finally {
+          if (count === urls.length) {
+            resolve(results)
+          }
+          request()
+        }
+      }
+      const times = Math.min(num, urls.length)
+      for (let i = 0; i < times; i++) {
+        request()
+      }
+    })
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+<div id="btn">click</div>
+<script>
+  /*const btn = document.getElementById('btn')
+
+  btn.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('a1'))
+    console.log('a')
+  })
+
+  btn.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('b1'))
+    console.log('b')
+  })*/
+
+/*  const btn = document.getElementById('btn');
+  let count = 0;
+
+  btn.addEventListener('click', () => {
+    count++;
+    Promise.resolve().then(() => console.log(`a${count}`));
+    console.log('a');
+  });
+
+  btn.addEventListener('click', () => {
+    count++;
+    Promise.resolve().then(() => console.log(`b${count}`));
+    console.log('b');
+  });*/
+
+
+  const btn = document.getElementById('btn');
+  let count = 0;
+
+  btn.addEventListener('click', async () => {
+    count++;
+    await Promise.resolve().then(() => console.log(`a${count}`));
+    console.log('a');
+  });
+
+  btn.addEventListener('click', async () => {
+    count++;
+    await Promise.resolve().then(() => console.log(`b${count}`));
+    console.log('b');
+  });
+
+
+</script>
+</body>
+</html>

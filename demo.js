@@ -25,3 +25,16 @@ new promise(function (resolve) {
 console.log('script end')
 
 // script start   async1 start   async2   promise1   script end   async1 end    promise2   setTimeout
+
+const obj = {
+  "pageNum": "1",
+  "pageSize": "10",
+  "keyword": "数据表",
+  "owners": "2304000029"
+}
+// 创建 URLSearchParams 对象
+const params = new URLSearchParams();
+for (const key in obj) {
+  params.append(key, obj[key]);
+}
+
